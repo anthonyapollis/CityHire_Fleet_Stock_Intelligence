@@ -1,0 +1,42 @@
+[
+  {
+    "project_cluster": "Access & Height",
+    "categories": "Powered Access, Access, Lifting Equipment",
+    "seasonal_peak": "Jul",
+    "months_to_peak": 0,
+    "depots_currently_short": 5,
+    "shortage_combos": 7,
+    "avg_category_roi_pct": 304.1,
+    "recommendation": "Access & Height categories are already short of minimum stock at 5 depot(s) and enter their seasonal peak in Jul (0 month(s) away) \u2014 purchase ahead of the peak, not during it."
+  },
+  {
+    "project_cluster": "Finishing",
+    "categories": "Painting & Decorating, Sanding & Woodworking, Cleaning",
+    "seasonal_peak": "Oct",
+    "months_to_peak": 3,
+    "depots_currently_short": 6,
+    "shortage_combos": 14,
+    "avg_category_roi_pct": 304.8,
+    "recommendation": "Finishing categories are already short of minimum stock at 6 depot(s) and enter their seasonal peak in Oct (3 month(s) away) \u2014 purchase ahead of the peak, not during it."
+  },
+  {
+    "project_cluster": "Fixing",
+    "categories": "Fixing & Fastening, Mechanical & Electrical, Breakers & Drills",
+    "seasonal_peak": "Oct",
+    "months_to_peak": 3,
+    "depots_currently_short": 6,
+    "shortage_combos": 10,
+    "avg_category_roi_pct": 304.6,
+    "recommendation": "Fixing categories are already short of minimum stock at 6 depot(s) and enter their seasonal peak in Oct (3 month(s) away) \u2014 purchase ahead of the peak, not during it."
+  },
+  {
+    "project_cluster": "Demolition",
+    "categories": "Breakers & Drills, Cutting & Grinding, Safety, Ventilation & Extraction, Propping & Support",
+    "seasonal_peak": "Nov",
+    "months_to_peak": 4,
+    "depots_currently_short": 5,
+    "shortage_combos": 8,
+    "avg_category_roi_pct": 291.0,
+    "recommendation": "Demolition categories are already short of minimum stock at 5 depot(s) and enter their seasonal peak in Nov (4 month(s) away) \u2014 purchase ahead of the peak, not during it."
+  }
+]

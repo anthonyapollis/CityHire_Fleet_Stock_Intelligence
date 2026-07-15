@@ -1,0 +1,9 @@
+category,peak_month,peak_index,trough_month,trough_index,swing,recommendation
+Landscaping,Apr,1.26,Dec,0.76,0.5,Increase available stock ahead of Apr; safe to reallocate/service more units in Dec.
+Access & Height,Jul,1.23,Mar,0.82,0.41,Increase available stock ahead of Jul; safe to reallocate/service more units in Mar.
+Site Setup,Dec,1.23,May,0.84,0.39,Increase available stock ahead of Dec; safe to reallocate/service more units in May.
+Groundworks,Jun,1.18,Nov,0.83,0.35,Increase available stock ahead of Jun; safe to reallocate/service more units in Nov.
+Logistics,Jan,1.18,May,0.84,0.34,Increase available stock ahead of Jan; safe to reallocate/service more units in May.
+Finishing,Oct,1.14,Jun,0.85,0.28,Increase available stock ahead of Oct; safe to reallocate/service more units in Jun.
+Demolition,Nov,1.12,Mar,0.84,0.28,Increase available stock ahead of Nov; safe to reallocate/service more units in Mar.
+Fixing,Oct,1.1,May,0.9,0.19,Increase available stock ahead of Oct; safe to reallocate/service more units in May.

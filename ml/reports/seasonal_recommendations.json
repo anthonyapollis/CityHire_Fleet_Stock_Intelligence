@@ -1,0 +1,74 @@
+[
+  {
+    "category": "Landscaping",
+    "peak_month": "Apr",
+    "peak_index": 1.26,
+    "trough_month": "Dec",
+    "trough_index": 0.76,
+    "swing": 0.5,
+    "recommendation": "Increase available stock ahead of Apr; safe to reallocate/service more units in Dec."
+  },
+  {
+    "category": "Access & Height",
+    "peak_month": "Jul",
+    "peak_index": 1.23,
+    "trough_month": "Mar",
+    "trough_index": 0.82,
+    "swing": 0.41,
+    "recommendation": "Increase available stock ahead of Jul; safe to reallocate/service more units in Mar."
+  },
+  {
+    "category": "Site Setup",
+    "peak_month": "Dec",
+    "peak_index": 1.23,
+    "trough_month": "May",
+    "trough_index": 0.84,
+    "swing": 0.39,
+    "recommendation": "Increase available stock ahead of Dec; safe to reallocate/service more units in May."
+  },
+  {
+    "category": "Groundworks",
+    "peak_month": "Jun",
+    "peak_index": 1.18,
+    "trough_month": "Nov",
+    "trough_index": 0.83,
+    "swing": 0.35,
+    "recommendation": "Increase available stock ahead of Jun; safe to reallocate/service more units in Nov."
+  },
+  {
+    "category": "Logistics",
+    "peak_month": "Jan",
+    "peak_index": 1.18,
+    "trough_month": "May",
+    "trough_index": 0.84,
+    "swing": 0.34,
+    "recommendation": "Increase available stock ahead of Jan; safe to reallocate/service more units in May."
+  },
+  {
+    "category": "Finishing",
+    "peak_month": "Oct",
+    "peak_index": 1.14,
+    "trough_month": "Jun",
+    "trough_index": 0.85,
+    "swing": 0.28,
+    "recommendation": "Increase available stock ahead of Oct; safe to reallocate/service more units in Jun."
+  },
+  {
+    "category": "Demolition",
+    "peak_month": "Nov",
+    "peak_index": 1.12,
+    "trough_month": "Mar",
+    "trough_index": 0.84,
+    "swing": 0.28,
+    "recommendation": "Increase available stock ahead of Nov; safe to reallocate/service more units in Mar."
+  },
+  {
+    "category": "Fixing",
+    "peak_month": "Oct",
+    "peak_index": 1.1,
+    "trough_month": "May",
+    "trough_index": 0.9,
+    "swing": 0.19,
+    "recommendation": "Increase available stock ahead of Oct; safe to reallocate/service more units in May."
+  }
+]

@@ -1,0 +1,25 @@
+category,order_appearances,degree_centrality,betweenness_centrality,community
+Site Equipment & Groundworks,461,0.9565,0.0735,1
+"Accommodation, Storage & Welfare",414,1.0,0.0695,3
+Propping & Support,377,0.913,0.0527,0
+Lighting,387,0.8696,0.0379,3
+Survey & Location,479,1.0,0.0296,1
+Fixing & Fastening,493,0.913,0.0287,0
+Concreting & Compaction,460,0.913,0.027,1
+Fencing & Barriers,406,1.0,0.0237,3
+Cutting & Grinding,383,0.8696,0.0198,0
+Landscaping & Gardening,611,0.9565,0.0158,4
+Material Handling & Logistics,570,1.0,0.0132,2
+Cleaning,490,0.913,0.0119,5
+Plant,448,1.0,0.0099,1
+Access,518,0.9565,0.0053,2
+"Safety, Ventilation & Extraction",394,0.9565,0.0053,0
+Sanding & Woodworking,518,1.0,0.004,5
+Climate Control,594,0.9565,0.0033,4
+Mechanical & Electrical,508,1.0,0.0023,0
+Fuel & Gas,584,0.9565,0.0013,4
+Lifting Equipment,1026,1.0,0.0,2
+Powered Access,542,0.9565,0.0,2
+Painting & Decorating,510,0.9565,0.0,5
+Breakers & Drills,859,1.0,0.0,0
+Power & Electrics,411,1.0,0.0,3

@@ -1,0 +1,7 @@
+depot,inbound_transfers,outbound_transfers,net_flow,betweenness_centrality,pagerank
+Birmingham,28,29,-1,0.0,0.2008
+Bristol,31,23,8,0.175,0.1833
+Leeds,26,28,-2,0.05,0.1697
+London South,24,33,-9,0.15,0.1564
+Manchester,27,10,17,0.1,0.156
+London North,14,27,-13,0.1,0.1338

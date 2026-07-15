@@ -1,0 +1,85 @@
+antecedent,consequent,support,confidence,lift,co_occurrences,antecedent_orders
+Propping & Support,Cutting & Grinding,0.0432,0.5729,7.48,216,377
+Cutting & Grinding,Propping & Support,0.0432,0.564,7.48,216,383
+Fixing & Fastening,Mechanical & Electrical,0.0738,0.7485,7.367,369,493
+Mechanical & Electrical,Fixing & Fastening,0.0738,0.7264,7.367,369,508
+"Safety, Ventilation & Extraction",Cutting & Grinding,0.0438,0.5558,7.256,219,394
+Cutting & Grinding,"Safety, Ventilation & Extraction",0.0438,0.5718,7.256,219,383
+"Safety, Ventilation & Extraction",Propping & Support,0.0428,0.5431,7.204,214,394
+Propping & Support,"Safety, Ventilation & Extraction",0.0428,0.5676,7.204,214,377
+Lighting,"Accommodation, Storage & Welfare",0.0458,0.5917,7.147,229,387
+"Accommodation, Storage & Welfare",Lighting,0.0458,0.5531,7.147,229,414
+Fencing & Barriers,"Accommodation, Storage & Welfare",0.048,0.5911,7.139,240,406
+"Accommodation, Storage & Welfare",Fencing & Barriers,0.048,0.5797,7.139,240,414
+Cleaning,Sanding & Woodworking,0.0724,0.7388,7.131,362,490
+Sanding & Woodworking,Cleaning,0.0724,0.6988,7.131,362,518
+Lighting,Fencing & Barriers,0.0446,0.5762,7.096,223,387
+Fencing & Barriers,Lighting,0.0446,0.5493,7.096,223,406
+Cleaning,Painting & Decorating,0.07,0.7143,7.003,350,490
+Painting & Decorating,Cleaning,0.07,0.6863,7.003,350,510
+Sanding & Woodworking,Painting & Decorating,0.0734,0.7085,6.946,367,518
+Painting & Decorating,Sanding & Woodworking,0.0734,0.7196,6.946,367,510
+Power & Electrics,Fencing & Barriers,0.0458,0.5572,6.862,229,411
+Fencing & Barriers,Power & Electrics,0.0458,0.564,6.862,229,406
+Lighting,Power & Electrics,0.0434,0.5607,6.821,217,387
+Power & Electrics,Lighting,0.0434,0.528,6.821,217,411
+Access,Powered Access,0.0766,0.7394,6.821,383,518
+Powered Access,Access,0.0766,0.7066,6.821,383,542
+Power & Electrics,"Accommodation, Storage & Welfare",0.046,0.5596,6.759,230,411
+"Accommodation, Storage & Welfare",Power & Electrics,0.046,0.5556,6.759,230,414
+Survey & Location,Site Equipment & Groundworks,0.0578,0.6033,6.544,289,479
+Site Equipment & Groundworks,Survey & Location,0.0578,0.6269,6.544,289,461
+Plant,Concreting & Compaction,0.0528,0.5893,6.405,264,448
+Concreting & Compaction,Plant,0.0528,0.5739,6.405,264,460
+Survey & Location,Plant,0.0542,0.5658,6.314,271,479
+Plant,Survey & Location,0.0542,0.6049,6.314,271,448
+Concreting & Compaction,Site Equipment & Groundworks,0.0532,0.5783,6.272,266,460
+Site Equipment & Groundworks,Concreting & Compaction,0.0532,0.577,6.272,266,461
+Survey & Location,Concreting & Compaction,0.055,0.5741,6.24,275,479
+Concreting & Compaction,Survey & Location,0.055,0.5978,6.24,275,460
+Site Equipment & Groundworks,Plant,0.0512,0.5553,6.198,256,461
+Plant,Site Equipment & Groundworks,0.0512,0.5714,6.198,256,448
+Climate Control,Fuel & Gas,0.0852,0.7172,6.14,426,594
+Fuel & Gas,Climate Control,0.0852,0.7295,6.14,426,584
+Landscaping & Gardening,Climate Control,0.0882,0.7218,6.075,441,611
+Climate Control,Landscaping & Gardening,0.0882,0.7424,6.075,441,594
+Fuel & Gas,Landscaping & Gardening,0.0854,0.7312,5.983,427,584
+Landscaping & Gardening,Fuel & Gas,0.0854,0.6989,5.983,427,611
+Breakers & Drills,Fixing & Fastening,0.073,0.4249,4.309,365,859
+Fixing & Fastening,Breakers & Drills,0.073,0.7404,4.309,365,493
+Lifting Equipment,Material Handling & Logistics,0.1006,0.4903,4.3,503,1026
+Material Handling & Logistics,Lifting Equipment,0.1006,0.8825,4.3,503,570
+Mechanical & Electrical,Breakers & Drills,0.0724,0.7126,4.148,362,508
+Breakers & Drills,Mechanical & Electrical,0.0724,0.4214,4.148,362,859
+"Safety, Ventilation & Extraction",Breakers & Drills,0.0454,0.5761,3.354,227,394
+Breakers & Drills,"Safety, Ventilation & Extraction",0.0454,0.2643,3.354,227,859
+Lifting Equipment,Access,0.0712,0.347,3.349,356,1026
+Access,Lifting Equipment,0.0712,0.6873,3.349,356,518
+Lifting Equipment,Powered Access,0.074,0.3606,3.327,370,1026
+Powered Access,Lifting Equipment,0.074,0.6827,3.327,370,542
+Cutting & Grinding,Breakers & Drills,0.0432,0.564,3.283,216,383
+Breakers & Drills,Cutting & Grinding,0.0432,0.2515,3.283,216,859
+Propping & Support,Breakers & Drills,0.041,0.5438,3.165,205,377
+Breakers & Drills,Propping & Support,0.041,0.2386,3.165,205,859
+Breakers & Drills,Plant,0.0048,0.0279,0.312,24,859
+Plant,Breakers & Drills,0.0048,0.0536,0.312,24,448
+Breakers & Drills,Site Equipment & Groundworks,0.0034,0.0198,0.215,17,859
+Site Equipment & Groundworks,Breakers & Drills,0.0034,0.0369,0.215,17,461
+Breakers & Drills,Cleaning,0.0036,0.021,0.214,18,859
+Cleaning,Breakers & Drills,0.0036,0.0367,0.214,18,490
+Powered Access,Breakers & Drills,0.0036,0.0332,0.193,18,542
+Breakers & Drills,Powered Access,0.0036,0.021,0.193,18,859
+Breakers & Drills,Painting & Decorating,0.003,0.0175,0.171,15,859
+Painting & Decorating,Breakers & Drills,0.003,0.0294,0.171,15,510
+Breakers & Drills,Access,0.003,0.0175,0.169,15,859
+Access,Breakers & Drills,0.003,0.029,0.169,15,518
+Lifting Equipment,Painting & Decorating,0.0032,0.0156,0.153,16,1026
+Painting & Decorating,Lifting Equipment,0.0032,0.0314,0.153,16,510
+Lifting Equipment,Sanding & Woodworking,0.0032,0.0156,0.151,16,1026
+Sanding & Woodworking,Lifting Equipment,0.0032,0.0309,0.151,16,518
+Lifting Equipment,Landscaping & Gardening,0.0036,0.0175,0.144,18,1026
+Landscaping & Gardening,Lifting Equipment,0.0036,0.0295,0.144,18,611
+Climate Control,Lifting Equipment,0.003,0.0253,0.123,15,594
+Lifting Equipment,Climate Control,0.003,0.0146,0.123,15,1026
+Lifting Equipment,Breakers & Drills,0.0038,0.0185,0.108,19,1026
+Breakers & Drills,Lifting Equipment,0.0038,0.0221,0.108,19,859

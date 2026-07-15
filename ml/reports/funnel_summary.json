@@ -1,0 +1,23 @@
+{
+  "order_funnel": {
+    "Quote Requested": 5000,
+    "Quote Approved": 4293,
+    "Dispatched": 4043,
+    "On Hire": 3915,
+    "Returned / Completed": 3826
+  },
+  "order_funnel_overall_conversion_pct": 76.5,
+  "approvals_funnel": {
+    "Requested (>\u00a3500)": 144,
+    "Reviewed": 137,
+    "Approved": 105
+  },
+  "approvals_approval_rate_pct": 72.9,
+  "digital_funnel_estimated": {
+    "Website Visitors": 150378,
+    "Product Page Views": 67835,
+    "Quote Requests": 6190,
+    "Confirmed Hires": 2598
+  },
+  "digital_funnel_overall_conversion_pct_estimated": 1.73
+}

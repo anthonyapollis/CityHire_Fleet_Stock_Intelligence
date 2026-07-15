@@ -1,0 +1,35 @@
+{
+  "category_graph": {
+    "nodes": 24,
+    "edges": 265,
+    "communities_detected": 6,
+    "top_hub_categories": [
+      {
+        "category": "Site Equipment & Groundworks",
+        "betweenness_centrality": 0.0735
+      },
+      {
+        "category": "Accommodation, Storage & Welfare",
+        "betweenness_centrality": 0.0695
+      },
+      {
+        "category": "Propping & Support",
+        "betweenness_centrality": 0.0527
+      },
+      {
+        "category": "Lighting",
+        "betweenness_centrality": 0.0379
+      },
+      {
+        "category": "Survey & Location",
+        "betweenness_centrality": 0.0296
+      }
+    ]
+  },
+  "depot_graph": {
+    "top_hub_depot": "Birmingham",
+    "top_hub_pagerank": 0.2008,
+    "biggest_net_importer": "Manchester",
+    "biggest_net_exporter": "London North"
+  }
+}

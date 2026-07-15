@@ -1,0 +1,61 @@
+antecedent,consequent,support,confidence,lift,co_occurrences,antecedent_orders
+Access,Powered Access,0.0766,0.7394,6.821,383,518
+Access,Lifting Equipment,0.0712,0.6873,3.349,356,518
+"Accommodation, Storage & Welfare",Lighting,0.0458,0.5531,7.147,229,414
+"Accommodation, Storage & Welfare",Fencing & Barriers,0.048,0.5797,7.139,240,414
+"Accommodation, Storage & Welfare",Power & Electrics,0.046,0.5556,6.759,230,414
+Breakers & Drills,Fixing & Fastening,0.073,0.4249,4.309,365,859
+Breakers & Drills,Mechanical & Electrical,0.0724,0.4214,4.148,362,859
+Breakers & Drills,"Safety, Ventilation & Extraction",0.0454,0.2643,3.354,227,859
+Cleaning,Sanding & Woodworking,0.0724,0.7388,7.131,362,490
+Cleaning,Painting & Decorating,0.07,0.7143,7.003,350,490
+Climate Control,Fuel & Gas,0.0852,0.7172,6.14,426,594
+Climate Control,Landscaping & Gardening,0.0882,0.7424,6.075,441,594
+Concreting & Compaction,Plant,0.0528,0.5739,6.405,264,460
+Concreting & Compaction,Site Equipment & Groundworks,0.0532,0.5783,6.272,266,460
+Concreting & Compaction,Survey & Location,0.055,0.5978,6.24,275,460
+Cutting & Grinding,Propping & Support,0.0432,0.564,7.48,216,383
+Cutting & Grinding,"Safety, Ventilation & Extraction",0.0438,0.5718,7.256,219,383
+Cutting & Grinding,Breakers & Drills,0.0432,0.564,3.283,216,383
+Fencing & Barriers,"Accommodation, Storage & Welfare",0.048,0.5911,7.139,240,406
+Fencing & Barriers,Lighting,0.0446,0.5493,7.096,223,406
+Fencing & Barriers,Power & Electrics,0.0458,0.564,6.862,229,406
+Fixing & Fastening,Mechanical & Electrical,0.0738,0.7485,7.367,369,493
+Fixing & Fastening,Breakers & Drills,0.073,0.7404,4.309,365,493
+Fuel & Gas,Climate Control,0.0852,0.7295,6.14,426,584
+Fuel & Gas,Landscaping & Gardening,0.0854,0.7312,5.983,427,584
+Landscaping & Gardening,Climate Control,0.0882,0.7218,6.075,441,611
+Landscaping & Gardening,Fuel & Gas,0.0854,0.6989,5.983,427,611
+Lifting Equipment,Material Handling & Logistics,0.1006,0.4903,4.3,503,1026
+Lifting Equipment,Access,0.0712,0.347,3.349,356,1026
+Lifting Equipment,Powered Access,0.074,0.3606,3.327,370,1026
+Lighting,"Accommodation, Storage & Welfare",0.0458,0.5917,7.147,229,387
+Lighting,Fencing & Barriers,0.0446,0.5762,7.096,223,387
+Lighting,Power & Electrics,0.0434,0.5607,6.821,217,387
+Material Handling & Logistics,Lifting Equipment,0.1006,0.8825,4.3,503,570
+Mechanical & Electrical,Fixing & Fastening,0.0738,0.7264,7.367,369,508
+Mechanical & Electrical,Breakers & Drills,0.0724,0.7126,4.148,362,508
+Painting & Decorating,Cleaning,0.07,0.6863,7.003,350,510
+Painting & Decorating,Sanding & Woodworking,0.0734,0.7196,6.946,367,510
+Plant,Concreting & Compaction,0.0528,0.5893,6.405,264,448
+Plant,Survey & Location,0.0542,0.6049,6.314,271,448
+Plant,Site Equipment & Groundworks,0.0512,0.5714,6.198,256,448
+Power & Electrics,Fencing & Barriers,0.0458,0.5572,6.862,229,411
+Power & Electrics,Lighting,0.0434,0.528,6.821,217,411
+Power & Electrics,"Accommodation, Storage & Welfare",0.046,0.5596,6.759,230,411
+Powered Access,Access,0.0766,0.7066,6.821,383,542
+Powered Access,Lifting Equipment,0.074,0.6827,3.327,370,542
+Propping & Support,Cutting & Grinding,0.0432,0.5729,7.48,216,377
+Propping & Support,"Safety, Ventilation & Extraction",0.0428,0.5676,7.204,214,377
+Propping & Support,Breakers & Drills,0.041,0.5438,3.165,205,377
+"Safety, Ventilation & Extraction",Cutting & Grinding,0.0438,0.5558,7.256,219,394
+"Safety, Ventilation & Extraction",Propping & Support,0.0428,0.5431,7.204,214,394
+"Safety, Ventilation & Extraction",Breakers & Drills,0.0454,0.5761,3.354,227,394
+Sanding & Woodworking,Cleaning,0.0724,0.6988,7.131,362,518
+Sanding & Woodworking,Painting & Decorating,0.0734,0.7085,6.946,367,518
+Site Equipment & Groundworks,Survey & Location,0.0578,0.6269,6.544,289,461
+Site Equipment & Groundworks,Concreting & Compaction,0.0532,0.577,6.272,266,461
+Site Equipment & Groundworks,Plant,0.0512,0.5553,6.198,256,461
+Survey & Location,Site Equipment & Groundworks,0.0578,0.6033,6.544,289,479
+Survey & Location,Plant,0.0542,0.5658,6.314,271,479
+Survey & Location,Concreting & Compaction,0.055,0.5741,6.24,275,479
