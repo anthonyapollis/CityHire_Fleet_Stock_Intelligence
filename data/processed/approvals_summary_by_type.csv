@@ -1,0 +1,4 @@
+request_type,requests,total_value_gbp,avg_value_gbp,approved,rejected
+Auction Disposal,125,1412708.59,11301.67,91,7
+Capital Replacement,10,106353.16,10635.32,7,0
+Parts Purchase,9,95663.34,10629.26,7,0

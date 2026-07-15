@@ -1,0 +1,151 @@
+transfer_id,date,category,from_depot,to_depot,units_transferred,reason,fulfilled
+XFER-5000,2026-05-27,Fixing & Fastening,Birmingham,Bristol,2,Planned redistribution,True
+XFER-5001,2025-09-25,Landscaping & Gardening,Bristol,Manchester,3,Planned redistribution,False
+XFER-5002,2026-06-18,Landscaping & Gardening,London South,Manchester,4,Emergency same-day request,False
+XFER-5003,2026-05-17,Landscaping & Gardening,Bristol,London North,3,Rebalance to demand,True
+XFER-5004,2025-12-08,Access,London North,Leeds,1,Shortage cover,True
+XFER-5005,2026-02-03,Painting & Decorating,London South,Bristol,1,Shortage cover,True
+XFER-5006,2025-12-07,Plant,Manchester,Birmingham,3,Emergency same-day request,True
+XFER-5007,2025-11-04,Propping & Support,London South,Leeds,3,Shortage cover,True
+XFER-5008,2025-11-12,Fixing & Fastening,Manchester,Birmingham,3,Shortage cover,True
+XFER-5009,2025-10-20,Fencing & Barriers,London North,Manchester,3,Planned redistribution,True
+XFER-5010,2025-11-25,Cleaning,London South,Manchester,3,Planned redistribution,True
+XFER-5011,2025-12-24,Landscaping & Gardening,Leeds,London North,1,Shortage cover,True
+XFER-5012,2026-03-25,Site Equipment & Groundworks,London North,Manchester,4,Rebalance to demand,True
+XFER-5013,2026-06-10,Climate Control,London South,Birmingham,1,Rebalance to demand,True
+XFER-5014,2025-10-11,Powered Access,Bristol,London South,4,Planned redistribution,True
+XFER-5015,2025-12-15,Lifting Equipment,Bristol,Birmingham,4,Shortage cover,True
+XFER-5016,2025-09-23,Concreting & Compaction,London North,London South,4,Planned redistribution,True
+XFER-5017,2026-04-18,Lifting Equipment,London South,Manchester,3,Planned redistribution,True
+XFER-5018,2026-01-08,Site Equipment & Groundworks,London South,Manchester,1,Shortage cover,True
+XFER-5019,2025-11-22,Consumables,Birmingham,Bristol,3,Shortage cover,False
+XFER-5020,2025-10-07,Sanding & Woodworking,Birmingham,Leeds,1,Shortage cover,True
+XFER-5021,2025-11-22,Access,London North,Bristol,3,Planned redistribution,False
+XFER-5022,2026-02-09,Fencing & Barriers,Birmingham,Bristol,4,Emergency same-day request,True
+XFER-5023,2026-03-23,Painting & Decorating,London North,London South,2,Emergency same-day request,False
+XFER-5024,2025-12-18,Landscaping & Gardening,Birmingham,Manchester,1,Emergency same-day request,False
+XFER-5025,2026-01-28,Consumables,London South,Birmingham,4,Emergency same-day request,True
+XFER-5026,2026-06-30,"Accommodation, Storage & Welfare",Bristol,Leeds,1,Emergency same-day request,True
+XFER-5027,2025-09-18,Lighting,Bristol,London South,1,Planned redistribution,True
+XFER-5028,2026-07-10,Consumables,London South,Birmingham,1,Emergency same-day request,True
+XFER-5029,2026-02-27,Plant,Leeds,London South,3,Shortage cover,True
+XFER-5030,2025-09-20,"Safety, Ventilation & Extraction",Leeds,London South,4,Planned redistribution,True
+XFER-5031,2026-03-05,Site Equipment & Groundworks,London South,Manchester,1,Shortage cover,True
+XFER-5032,2026-07-10,Climate Control,Manchester,Bristol,3,Planned redistribution,False
+XFER-5033,2026-03-07,Fixing & Fastening,London South,Birmingham,4,Planned redistribution,True
+XFER-5034,2026-05-17,Breakers & Drills,London South,Bristol,1,Emergency same-day request,True
+XFER-5035,2026-01-28,Access,London North,Bristol,1,Shortage cover,True
+XFER-5036,2025-11-25,Painting & Decorating,Bristol,London North,1,Rebalance to demand,False
+XFER-5037,2025-10-21,Concreting & Compaction,London North,Manchester,3,Planned redistribution,True
+XFER-5038,2026-03-17,"Safety, Ventilation & Extraction",Leeds,Bristol,2,Shortage cover,True
+XFER-5039,2026-05-21,"Safety, Ventilation & Extraction",Manchester,Birmingham,3,Planned redistribution,False
+XFER-5040,2025-12-13,Fixing & Fastening,London South,London North,4,Planned redistribution,True
+XFER-5041,2025-11-03,Landscaping & Gardening,Leeds,Manchester,1,Rebalance to demand,True
+XFER-5042,2026-02-01,Consumables,London South,Bristol,4,Rebalance to demand,True
+XFER-5043,2026-03-04,Climate Control,London South,Birmingham,4,Rebalance to demand,True
+XFER-5044,2025-12-06,Cutting & Grinding,London South,Manchester,1,Emergency same-day request,True
+XFER-5045,2026-04-08,Mechanical & Electrical,Leeds,Birmingham,2,Shortage cover,True
+XFER-5046,2025-11-10,Landscaping & Gardening,Birmingham,Manchester,1,Rebalance to demand,True
+XFER-5047,2025-10-11,Climate Control,London North,Manchester,2,Emergency same-day request,True
+XFER-5048,2026-07-02,Painting & Decorating,Birmingham,Leeds,2,Shortage cover,True
+XFER-5049,2025-12-25,Consumables,London South,Bristol,4,Shortage cover,True
+XFER-5050,2026-04-01,Cutting & Grinding,Leeds,Manchester,1,Planned redistribution,True
+XFER-5051,2026-01-30,Concreting & Compaction,Birmingham,London South,1,Planned redistribution,True
+XFER-5052,2026-03-31,Material Handling & Logistics,London South,Bristol,4,Planned redistribution,True
+XFER-5053,2026-05-31,Cutting & Grinding,London South,Manchester,3,Emergency same-day request,True
+XFER-5054,2026-02-26,Powered Access,London North,Leeds,2,Emergency same-day request,True
+XFER-5055,2026-07-07,Consumables,Bristol,London South,4,Shortage cover,False
+XFER-5056,2026-04-14,Access,Leeds,Bristol,4,Rebalance to demand,True
+XFER-5057,2026-07-07,Climate Control,Leeds,London North,4,Emergency same-day request,False
+XFER-5058,2026-02-26,"Accommodation, Storage & Welfare",Manchester,London North,1,Planned redistribution,True
+XFER-5059,2026-05-03,Fencing & Barriers,London North,Birmingham,3,Planned redistribution,True
+XFER-5060,2026-03-21,Landscaping & Gardening,Leeds,Birmingham,4,Emergency same-day request,True
+XFER-5061,2025-12-10,Climate Control,Leeds,Bristol,2,Shortage cover,True
+XFER-5062,2025-10-16,Plant,Leeds,Birmingham,4,Planned redistribution,True
+XFER-5063,2025-11-20,"Safety, Ventilation & Extraction",Birmingham,Leeds,2,Rebalance to demand,True
+XFER-5064,2025-11-23,Survey & Location,London North,London South,3,Emergency same-day request,True
+XFER-5065,2026-05-19,Material Handling & Logistics,Manchester,London North,2,Shortage cover,True
+XFER-5066,2026-05-31,Landscaping & Gardening,London North,London South,3,Rebalance to demand,True
+XFER-5067,2026-07-06,Cleaning,Bristol,Manchester,2,Emergency same-day request,True
+XFER-5068,2026-03-26,Painting & Decorating,London North,Leeds,3,Rebalance to demand,True
+XFER-5069,2026-02-27,Mechanical & Electrical,Leeds,London South,4,Emergency same-day request,True
+XFER-5070,2025-12-22,Powered Access,London North,London South,2,Shortage cover,True
+XFER-5071,2025-11-08,Lifting Equipment,Leeds,Manchester,4,Shortage cover,False
+XFER-5072,2026-02-25,Lifting Equipment,Manchester,London North,4,Planned redistribution,True
+XFER-5073,2026-01-01,Power & Electrics,Birmingham,Leeds,3,Planned redistribution,True
+XFER-5074,2026-05-23,Landscaping & Gardening,London South,Manchester,1,Planned redistribution,True
+XFER-5075,2026-02-09,Fuel & Gas,Leeds,London South,3,Rebalance to demand,True
+XFER-5076,2026-01-07,Survey & Location,Birmingham,Bristol,4,Shortage cover,True
+XFER-5077,2025-10-28,Cleaning,Birmingham,London South,2,Shortage cover,False
+XFER-5078,2026-03-10,Landscaping & Gardening,London South,Bristol,1,Planned redistribution,True
+XFER-5079,2026-05-20,Material Handling & Logistics,London North,Leeds,1,Rebalance to demand,True
+XFER-5080,2025-10-31,Lifting Equipment,London South,Birmingham,4,Emergency same-day request,True
+XFER-5081,2026-06-07,Painting & Decorating,Bristol,London North,2,Shortage cover,True
+XFER-5082,2026-05-14,Survey & Location,London North,Leeds,1,Shortage cover,True
+XFER-5083,2026-03-08,Climate Control,Birmingham,Bristol,4,Rebalance to demand,True
+XFER-5084,2026-04-13,Fencing & Barriers,Manchester,London North,3,Emergency same-day request,True
+XFER-5085,2025-10-27,Climate Control,Birmingham,Bristol,3,Planned redistribution,True
+XFER-5086,2026-04-28,Concreting & Compaction,Leeds,Bristol,4,Shortage cover,True
+XFER-5087,2026-06-15,Landscaping & Gardening,Birmingham,Leeds,1,Shortage cover,True
+XFER-5088,2025-12-15,Climate Control,London North,Leeds,3,Emergency same-day request,True
+XFER-5089,2025-11-10,Cleaning,London North,Manchester,1,Planned redistribution,True
+XFER-5090,2026-04-15,Mechanical & Electrical,London South,Bristol,4,Shortage cover,True
+XFER-5091,2025-09-19,Consumables,London North,Leeds,4,Emergency same-day request,True
+XFER-5092,2026-05-20,Fuel & Gas,London South,Bristol,2,Rebalance to demand,True
+XFER-5093,2026-07-14,Power & Electrics,Birmingham,Leeds,4,Shortage cover,True
+XFER-5094,2026-05-27,Concreting & Compaction,Bristol,Leeds,1,Planned redistribution,True
+XFER-5095,2026-05-30,Fuel & Gas,Bristol,Leeds,4,Shortage cover,False
+XFER-5096,2026-05-15,"Accommodation, Storage & Welfare",Bristol,London South,4,Planned redistribution,True
+XFER-5097,2026-02-01,Power & Electrics,Bristol,Birmingham,1,Rebalance to demand,True
+XFER-5098,2025-10-24,Fencing & Barriers,Bristol,Leeds,2,Emergency same-day request,True
+XFER-5099,2025-11-01,"Accommodation, Storage & Welfare",Bristol,London South,2,Shortage cover,True
+XFER-5100,2025-10-11,Power & Electrics,London South,Birmingham,4,Rebalance to demand,True
+XFER-5101,2026-01-17,Sanding & Woodworking,London South,Bristol,1,Shortage cover,True
+XFER-5102,2025-11-18,Material Handling & Logistics,Birmingham,Manchester,4,Rebalance to demand,True
+XFER-5103,2026-03-26,Site Equipment & Groundworks,Bristol,Leeds,1,Emergency same-day request,True
+XFER-5104,2025-10-29,Propping & Support,London South,Leeds,4,Emergency same-day request,True
+XFER-5105,2026-04-06,Cleaning,Leeds,Bristol,4,Rebalance to demand,True
+XFER-5106,2025-12-29,Material Handling & Logistics,Manchester,Birmingham,2,Shortage cover,True
+XFER-5107,2026-03-04,Lifting Equipment,Birmingham,London South,4,Shortage cover,True
+XFER-5108,2025-12-06,"Safety, Ventilation & Extraction",London South,Bristol,2,Emergency same-day request,True
+XFER-5109,2026-06-01,Breakers & Drills,Leeds,Birmingham,1,Rebalance to demand,True
+XFER-5110,2025-10-03,Propping & Support,Bristol,Leeds,1,Shortage cover,True
+XFER-5111,2025-12-24,Powered Access,London North,Manchester,3,Shortage cover,True
+XFER-5112,2026-02-16,Consumables,Bristol,Birmingham,3,Shortage cover,True
+XFER-5113,2025-12-05,Breakers & Drills,Birmingham,Leeds,1,Shortage cover,True
+XFER-5114,2026-06-01,Fuel & Gas,Birmingham,Leeds,3,Planned redistribution,True
+XFER-5115,2026-07-12,Lighting,London South,Bristol,1,Planned redistribution,True
+XFER-5116,2026-03-22,Lighting,Birmingham,Leeds,3,Shortage cover,True
+XFER-5117,2025-11-18,Cutting & Grinding,Birmingham,Bristol,4,Emergency same-day request,False
+XFER-5118,2026-01-08,Climate Control,Bristol,London South,4,Emergency same-day request,True
+XFER-5119,2026-01-20,Access,Leeds,Birmingham,4,Rebalance to demand,True
+XFER-5120,2026-03-09,Landscaping & Gardening,Leeds,London South,3,Rebalance to demand,True
+XFER-5121,2026-02-07,"Accommodation, Storage & Welfare",Leeds,Birmingham,3,Rebalance to demand,True
+XFER-5122,2026-04-09,Landscaping & Gardening,London North,Bristol,1,Rebalance to demand,True
+XFER-5123,2025-11-28,"Accommodation, Storage & Welfare",London South,London North,4,Shortage cover,True
+XFER-5124,2025-11-29,Lifting Equipment,Birmingham,London South,1,Rebalance to demand,True
+XFER-5125,2026-01-23,Landscaping & Gardening,London North,Birmingham,2,Shortage cover,True
+XFER-5126,2026-05-08,Mechanical & Electrical,Birmingham,Manchester,1,Planned redistribution,True
+XFER-5127,2025-11-13,Lighting,Leeds,London North,2,Planned redistribution,True
+XFER-5128,2025-11-02,Landscaping & Gardening,London South,Birmingham,2,Emergency same-day request,False
+XFER-5129,2026-03-01,Lifting Equipment,Bristol,Leeds,1,Shortage cover,True
+XFER-5130,2025-11-29,Fuel & Gas,Birmingham,Manchester,1,Emergency same-day request,True
+XFER-5131,2026-02-28,Sanding & Woodworking,Leeds,London South,2,Emergency same-day request,True
+XFER-5132,2026-05-11,Powered Access,London North,Birmingham,4,Planned redistribution,True
+XFER-5133,2026-03-13,Fencing & Barriers,Leeds,London South,2,Planned redistribution,True
+XFER-5134,2026-07-01,Breakers & Drills,Leeds,London North,1,Planned redistribution,True
+XFER-5135,2026-03-03,Powered Access,London North,Bristol,4,Rebalance to demand,True
+XFER-5136,2025-10-24,Access,Manchester,Birmingham,4,Planned redistribution,True
+XFER-5137,2026-05-05,"Accommodation, Storage & Welfare",London North,Birmingham,4,Emergency same-day request,True
+XFER-5138,2025-11-17,Site Equipment & Groundworks,London South,Manchester,1,Rebalance to demand,False
+XFER-5139,2026-01-09,Power & Electrics,Bristol,Leeds,4,Emergency same-day request,True
+XFER-5140,2025-11-30,"Safety, Ventilation & Extraction",Birmingham,Manchester,1,Shortage cover,True
+XFER-5141,2025-10-13,Material Handling & Logistics,Birmingham,London South,2,Rebalance to demand,False
+XFER-5142,2026-05-29,Breakers & Drills,Birmingham,Bristol,4,Emergency same-day request,True
+XFER-5143,2025-10-16,Powered Access,Bristol,London North,3,Planned redistribution,True
+XFER-5144,2025-10-01,Access,London North,London South,3,Shortage cover,True
+XFER-5145,2026-04-01,Site Equipment & Groundworks,London South,Birmingham,2,Rebalance to demand,True
+XFER-5146,2026-04-13,Painting & Decorating,Leeds,Bristol,3,Rebalance to demand,True
+XFER-5147,2025-12-17,Concreting & Compaction,Leeds,Manchester,3,Emergency same-day request,True
+XFER-5148,2026-02-27,Powered Access,Birmingham,Bristol,3,Emergency same-day request,True
+XFER-5149,2026-03-25,Cutting & Grinding,Leeds,Birmingham,3,Emergency same-day request,True

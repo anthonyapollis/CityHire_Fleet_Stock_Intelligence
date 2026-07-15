@@ -1,0 +1,31 @@
+stock_code,category,product_name,depot,capex_gbp,book_value_gbp,utilisation_pct_ytd,condition,status,est_annual_revenue_gbp,est_roi_pct
+MH&-01561,Material Handling & Logistics,2.5T Pallet Truck,London South,3444.09,3245.94,13.8,Good,On Hire,1775.04,51.5
+PA-01117,Powered Access,Nifty Lift HR17 17m Hybrid Boom Lift,London South,78420.69,15082.55,32.3,Good,Available,77386.28,98.7
+C&G-02126,Cutting & Grinding,Metal Cutting Chop Saw,London South,3728.26,2257.38,31.0,Needs Assessment,Available,3782.6,101.5
+L&G-02300,Landscaping & Gardening,Turf Cutter,Birmingham,2609.07,687.65,28.7,Good,On Hire,2718.39,104.2
+MH&-01517,Material Handling & Logistics,Sack Truck,London South,3052.71,998.61,31.5,Good,On Hire,3258.39,106.7
+B&D-01437,Breakers & Drills,Hilti TE 700-AVR Medium Breaker,Birmingham,2398.72,1848.0,32.9,Excellent,On Hire,2580.63,107.6
+LE-01842,Lifting Equipment,Forklift Hook Attachment,Birmingham,17298.71,11421.89,32.0,Excellent,On Hire,19152.86,110.7
+C&G-02019,Cutting & Grinding,Armorgard SS7 Cutting Station,London South,2020.72,544.76,32.9,Excellent,On Hire,2249.19,111.3
+B&D-01433,Breakers & Drills,Petrol Heavy Breaker,London South,782.5,440.34,35.3,Excellent,Available,881.3,112.6
+P-01033,Plant,20 Ton Excavator,London North,41298.12,38311.08,35.6,Fair,On Hire,46606.88,112.9
+AS&-01890,"Accommodation, Storage & Welfare",6-8 man Welfare Unit (12ft),Leeds,2230.9,223.09,38.2,Good,Workshop,2527.87,113.3
+MH&-01607,Material Handling & Logistics,Electric Rough Terrain Pallet Truck,Manchester,5251.98,1781.36,22.7,Excellent,Workshop,5990.42,114.1
+C&G-02132,Cutting & Grinding,Mitre Saw Stand,Leeds,1870.83,378.27,32.4,Excellent,Workshop,2158.25,115.4
+P&S-02421,Propping & Support,Acrow Prop Size 3,Leeds,503.34,379.5,29.1,Fair,On Hire,588.43,116.9
+B&D-01416,Breakers & Drills,Hilti TE 2000 AVR Medium Breaker,Manchester,2056.18,904.72,39.4,Excellent,On Hire,2443.33,118.8
+B&D-01219,Breakers & Drills,Heavy Duty Rotary Hammer Drill SDS Max,Birmingham,1226.75,194.26,32.2,Good,On Hire,1463.25,119.3
+AS&-01912,"Accommodation, Storage & Welfare",10-12 Man Welfare Unit (16ft),Leeds,9948.33,5298.51,36.9,Fair,Available,11988.31,120.5
+B&D-01332,Breakers & Drills,Light Air Breaker,Manchester,1520.61,979.02,37.8,Fair,Available,1833.62,120.6
+P&S-02434,Propping & Support,Trench Strut,Leeds,620.36,188.66,36.4,Good,On Hire,766.6,123.6
+C&G-02099,Cutting & Grinding,Hilti Reciprocating Saw,Manchester,2240.08,1676.68,38.5,Excellent,Available,2788.02,124.5
+MH&-01475,Material Handling & Logistics,Pipe Rack Trolley,London North,5151.92,2388.23,35.4,Good,On Hire,6620.72,128.5
+LE-01879,Lifting Equipment,Tirfor Rope Winch,Manchester,17682.64,14814.66,41.8,Fair,On Hire,22729.88,128.5
+B&D-01273,Breakers & Drills,36V Cordless Rotary Hammer Drill,Bristol,2760.45,2302.14,22.7,Fair,On Hire,3561.94,129.0
+P&E-02612,Power & Electrics,Cable Reel 25m,Leeds,1151.34,651.06,39.4,Fair,On Hire,1491.31,129.5
+B&D-01388,Breakers & Drills,110V Makita Heavy Breaker,Manchester,4300.01,3661.49,41.1,Excellent,On Hire,5573.06,129.6
+L&G-02301,Landscaping & Gardening,Rotavator,London South,743.51,644.51,41.4,Good,On Hire,971.64,130.7
+MH&-01567,Material Handling & Logistics,Long Reach Pallet Truck,Bristol,4311.3,3741.97,36.9,Good,Workshop,5655.42,131.2
+C-02369,Consumables,Diamond Blade 350mm,Bristol,22.29,11.4,44.8,Excellent,On Hire,29.43,132.0
+B&D-01452,Breakers & Drills,Magnetic Drill,Leeds,1695.92,1340.94,43.4,Good,On Hire,2254.17,132.9
+LE-01792,Lifting Equipment,Portable Gantry,Birmingham,6788.6,3719.78,42.1,Excellent,On Hire,9069.31,133.6

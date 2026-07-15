@@ -1,0 +1,19 @@
+repair_id,stock_code,category,supplier,fault_reported,cost_gbp,date_logged
+REP-3019,MH&-01493,Material Handling & Logistics,National Plant Repair Co,Safety recall check,4123.36,2026-02-07
+REP-3032,AS&-01984,"Accommodation, Storage & Welfare",Speedy Fleet Services,Safety recall check,4021.44,2026-02-19
+REP-3011,SV&-02417,"Safety, Ventilation & Extraction",National Plant Repair Co,Structural damage,3782.83,2025-12-01
+REP-3073,MH&-01569,Material Handling & Logistics,Vp Plant Repairs,Safety recall check,3771.93,2026-05-20
+REP-3042,C&G-02013,Cutting & Grinding,Vp Plant Repairs,Safety recall check,3623.52,2025-11-10
+REP-3077,B&D-01226,Breakers & Drills,Speedy Fleet Services,Battery/charging fault,3454.91,2026-01-08
+REP-3066,B&D-01290,Breakers & Drills,AFI Technical,Electrical fault,3019.1,2026-06-08
+REP-3002,C&G-02176,Cutting & Grinding,National Plant Repair Co,Wear & tear service,2927.46,2025-11-18
+REP-3004,C&C-02516,Concreting & Compaction,Speedy Fleet Services,Structural damage,2842.01,2026-04-11
+REP-3003,MH&-01606,Material Handling & Logistics,Vp Plant Repairs,Safety recall check,2610.42,2026-01-11
+REP-3047,MH&-01473,Material Handling & Logistics,Vp Plant Repairs,Safety recall check,2129.98,2026-04-04
+REP-3070,C-02222,Cleaning,Independent Hydraulics Ltd,Safety recall check,2030.03,2026-03-01
+REP-3026,AS&-01910,"Accommodation, Storage & Welfare",Independent Hydraulics Ltd,Tyre/track replacement,1744.38,2026-04-30
+REP-3038,C&G-02097,Cutting & Grinding,Independent Hydraulics Ltd,Safety recall check,1734.89,2025-09-22
+REP-3016,MH&-01594,Material Handling & Logistics,Speedy Fleet Services,Safety recall check,1682.68,2025-11-03
+REP-3039,B&D-01367,Breakers & Drills,Speedy Fleet Services,Safety recall check,1480.34,2026-06-25
+REP-3069,F&F-02465,Fixing & Fastening,Speedy Fleet Services,Safety recall check,1208.15,2026-01-08
+REP-3059,AS&-01919,"Accommodation, Storage & Welfare",Speedy Fleet Services,Battery/charging fault,690.93,2026-02-22

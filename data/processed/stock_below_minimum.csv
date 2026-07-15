@@ -1,0 +1,96 @@
+category,depot,assets_of_type,units_available,min_stock_level,stock_level_flag
+Access,Birmingham,5,1,2,BELOW MINIMUM
+Access,Bristol,5,1,2,BELOW MINIMUM
+Access,London North,3,0,2,BELOW MINIMUM
+Access,London South,5,0,2,BELOW MINIMUM
+Access,Manchester,1,0,1,BELOW MINIMUM
+"Accommodation, Storage & Welfare",Birmingham,23,2,3,BELOW MINIMUM
+"Accommodation, Storage & Welfare",Bristol,13,1,2,BELOW MINIMUM
+Cleaning,Birmingham,8,2,3,BELOW MINIMUM
+Cleaning,Bristol,3,1,3,BELOW MINIMUM
+Cleaning,Leeds,9,1,3,BELOW MINIMUM
+Cleaning,London North,7,1,3,BELOW MINIMUM
+Cleaning,London South,12,2,3,BELOW MINIMUM
+Cleaning,Manchester,7,1,3,BELOW MINIMUM
+Climate Control,Birmingham,3,1,2,BELOW MINIMUM
+Climate Control,Leeds,3,1,2,BELOW MINIMUM
+Climate Control,London South,4,0,2,BELOW MINIMUM
+Climate Control,Manchester,3,1,2,BELOW MINIMUM
+Concreting & Compaction,Birmingham,3,1,3,BELOW MINIMUM
+Concreting & Compaction,Bristol,5,2,3,BELOW MINIMUM
+Concreting & Compaction,Leeds,4,2,3,BELOW MINIMUM
+Concreting & Compaction,London North,3,0,3,BELOW MINIMUM
+Consumables,Birmingham,2,0,3,BELOW MINIMUM
+Consumables,Bristol,2,0,3,BELOW MINIMUM
+Consumables,Leeds,3,1,3,BELOW MINIMUM
+Consumables,London North,4,0,3,BELOW MINIMUM
+Consumables,London South,5,0,3,BELOW MINIMUM
+Consumables,Manchester,6,1,3,BELOW MINIMUM
+Fencing & Barriers,Birmingham,2,0,2,BELOW MINIMUM
+Fencing & Barriers,Bristol,3,0,2,BELOW MINIMUM
+Fencing & Barriers,Leeds,2,0,2,BELOW MINIMUM
+Fencing & Barriers,London North,2,0,2,BELOW MINIMUM
+Fencing & Barriers,London South,3,0,2,BELOW MINIMUM
+Fencing & Barriers,Manchester,2,0,2,BELOW MINIMUM
+Fixing & Fastening,Birmingham,5,1,2,BELOW MINIMUM
+Fixing & Fastening,Leeds,1,1,2,BELOW MINIMUM
+Fixing & Fastening,London North,7,1,2,BELOW MINIMUM
+Fixing & Fastening,London South,3,1,2,BELOW MINIMUM
+Fuel & Gas,London North,1,0,1,BELOW MINIMUM
+Fuel & Gas,London South,2,0,1,BELOW MINIMUM
+Fuel & Gas,Manchester,2,0,1,BELOW MINIMUM
+Landscaping & Gardening,Birmingham,5,0,3,BELOW MINIMUM
+Landscaping & Gardening,Leeds,2,0,3,BELOW MINIMUM
+Landscaping & Gardening,London North,2,0,3,BELOW MINIMUM
+Landscaping & Gardening,London South,3,0,3,BELOW MINIMUM
+Landscaping & Gardening,Manchester,3,0,3,BELOW MINIMUM
+Lifting Equipment,Manchester,30,2,3,BELOW MINIMUM
+Lighting,Birmingham,1,0,1,BELOW MINIMUM
+Lighting,Bristol,3,0,1,BELOW MINIMUM
+Lighting,Leeds,1,0,1,BELOW MINIMUM
+Lighting,London North,5,0,1,BELOW MINIMUM
+Lighting,London South,1,0,1,BELOW MINIMUM
+Lighting,Manchester,2,0,1,BELOW MINIMUM
+Material Handling & Logistics,Manchester,35,2,3,BELOW MINIMUM
+Mechanical & Electrical,Birmingham,3,0,2,BELOW MINIMUM
+Mechanical & Electrical,Bristol,6,2,3,BELOW MINIMUM
+Mechanical & Electrical,Leeds,4,1,3,BELOW MINIMUM
+Mechanical & Electrical,London North,6,1,3,BELOW MINIMUM
+Mechanical & Electrical,London South,8,0,3,BELOW MINIMUM
+Mechanical & Electrical,Manchester,3,1,3,BELOW MINIMUM
+Painting & Decorating,Bristol,1,0,1,BELOW MINIMUM
+Painting & Decorating,Leeds,2,0,1,BELOW MINIMUM
+Painting & Decorating,London North,1,0,1,BELOW MINIMUM
+Painting & Decorating,London South,3,0,1,BELOW MINIMUM
+Plant,Birmingham,7,0,1,BELOW MINIMUM
+Power & Electrics,Birmingham,4,1,3,BELOW MINIMUM
+Power & Electrics,Bristol,5,1,3,BELOW MINIMUM
+Power & Electrics,Leeds,4,1,3,BELOW MINIMUM
+Power & Electrics,London North,4,1,3,BELOW MINIMUM
+Power & Electrics,London South,5,0,3,BELOW MINIMUM
+Power & Electrics,Manchester,9,2,3,BELOW MINIMUM
+Powered Access,Birmingham,14,0,1,BELOW MINIMUM
+Propping & Support,Birmingham,1,0,1,BELOW MINIMUM
+Propping & Support,Leeds,3,0,2,BELOW MINIMUM
+Propping & Support,London North,1,0,2,BELOW MINIMUM
+Propping & Support,London South,1,0,1,BELOW MINIMUM
+Propping & Support,Manchester,7,1,2,BELOW MINIMUM
+"Safety, Ventilation & Extraction",Leeds,1,0,1,BELOW MINIMUM
+"Safety, Ventilation & Extraction",London North,1,0,1,BELOW MINIMUM
+"Safety, Ventilation & Extraction",London South,2,0,2,BELOW MINIMUM
+Sanding & Woodworking,Bristol,6,1,3,BELOW MINIMUM
+Sanding & Woodworking,Leeds,5,1,3,BELOW MINIMUM
+Sanding & Woodworking,London North,10,1,3,BELOW MINIMUM
+Sanding & Woodworking,Manchester,4,0,3,BELOW MINIMUM
+Site Equipment & Groundworks,Birmingham,5,1,3,BELOW MINIMUM
+Site Equipment & Groundworks,Bristol,6,1,3,BELOW MINIMUM
+Site Equipment & Groundworks,Leeds,1,0,1,BELOW MINIMUM
+Site Equipment & Groundworks,London North,4,1,3,BELOW MINIMUM
+Site Equipment & Groundworks,London South,5,1,3,BELOW MINIMUM
+Site Equipment & Groundworks,Manchester,3,1,3,BELOW MINIMUM
+Survey & Location,Birmingham,4,1,3,BELOW MINIMUM
+Survey & Location,Bristol,8,0,3,BELOW MINIMUM
+Survey & Location,Leeds,3,0,3,BELOW MINIMUM
+Survey & Location,London North,5,0,3,BELOW MINIMUM
+Survey & Location,London South,4,0,3,BELOW MINIMUM
+Survey & Location,Manchester,2,1,3,BELOW MINIMUM

@@ -1,0 +1,91 @@
+repair_id,stock_code,category,supplier,fault_reported,date_logged,cost_gbp,requires_approval,approval_status,approved_by,days_out_of_service
+REP-3000,AS&-01951,"Accommodation, Storage & Welfare",Vp Plant Repairs,Wear & tear service,2025-09-18,3240.05,True,Rejected,National Ops & Systems Manager,5
+REP-3001,S&W-02282,Sanding & Woodworking,Southern Access Engineering,Structural damage,2026-05-06,120.07,False,Not Required,,21
+REP-3002,C&G-02176,Cutting & Grinding,National Plant Repair Co,Wear & tear service,2025-11-18,2927.46,True,Pending,National Ops & Systems Manager,17
+REP-3003,MH&-01606,Material Handling & Logistics,Vp Plant Repairs,Safety recall check,2026-01-11,2610.42,True,Pending,National Ops & Systems Manager,6
+REP-3004,C&C-02516,Concreting & Compaction,Speedy Fleet Services,Structural damage,2026-04-11,2842.01,True,Pending,National Ops & Systems Manager,1
+REP-3005,C&C-02493,Concreting & Compaction,Speedy Fleet Services,Battery/charging fault,2026-07-06,3479.13,True,Approved,National Ops & Systems Manager,6
+REP-3006,LE-01796,Lifting Equipment,Speedy Fleet Services,Tyre/track replacement,2025-11-26,838.38,True,Approved,National Ops & Systems Manager,5
+REP-3007,LE-01881,Lifting Equipment,Vp Plant Repairs,Wear & tear service,2026-05-30,207.28,False,Not Required,,20
+REP-3008,B&D-01354,Breakers & Drills,AFI Technical,Engine fault,2026-01-01,3352.89,True,Approved,National Ops & Systems Manager,6
+REP-3009,C&G-02139,Cutting & Grinding,Southern Access Engineering,Tyre/track replacement,2026-03-09,3098.95,True,Approved,National Ops & Systems Manager,15
+REP-3010,M&E-02323,Mechanical & Electrical,National Plant Repair Co,Tyre/track replacement,2026-03-27,3575.47,True,Rejected,National Ops & Systems Manager,4
+REP-3011,SV&-02417,"Safety, Ventilation & Extraction",National Plant Repair Co,Structural damage,2025-12-01,3782.83,True,Pending,National Ops & Systems Manager,18
+REP-3012,MH&-01654,Material Handling & Logistics,Vp Plant Repairs,Battery/charging fault,2026-04-30,197.31,False,Not Required,,14
+REP-3013,C&G-02154,Cutting & Grinding,National Plant Repair Co,Wear & tear service,2026-05-14,1822.16,True,Approved,National Ops & Systems Manager,13
+REP-3014,C&G-02117,Cutting & Grinding,AFI Technical,Structural damage,2026-04-24,374.48,False,Not Required,,4
+REP-3015,B&D-01456,Breakers & Drills,Independent Hydraulics Ltd,Hydraulic leak,2026-03-15,2257.82,True,Approved,National Ops & Systems Manager,21
+REP-3016,MH&-01594,Material Handling & Logistics,Speedy Fleet Services,Safety recall check,2025-11-03,1682.68,True,Pending,National Ops & Systems Manager,4
+REP-3017,PA-01093,Powered Access,Southern Access Engineering,Electrical fault,2026-03-29,2954.45,True,Rejected,National Ops & Systems Manager,6
+REP-3018,B&D-01265,Breakers & Drills,Speedy Fleet Services,Hydraulic leak,2026-03-07,2730.02,True,Approved,National Ops & Systems Manager,18
+REP-3019,MH&-01493,Material Handling & Logistics,National Plant Repair Co,Safety recall check,2026-02-07,4123.36,True,Pending,National Ops & Systems Manager,3
+REP-3020,B&D-01426,Breakers & Drills,Vp Plant Repairs,Tyre/track replacement,2025-11-15,1484.91,True,Rejected,National Ops & Systems Manager,14
+REP-3021,P&E-02597,Power & Electrics,National Plant Repair Co,Electrical fault,2026-04-12,1828.31,True,Approved,National Ops & Systems Manager,16
+REP-3022,LE-01877,Lifting Equipment,AFI Technical,Electrical fault,2026-07-12,554.94,True,Approved,National Ops & Systems Manager,13
+REP-3023,F&B-02458,Fencing & Barriers,Speedy Fleet Services,Battery/charging fault,2026-06-11,4022.14,True,Approved,National Ops & Systems Manager,5
+REP-3024,PA-01074,Powered Access,Vp Plant Repairs,Battery/charging fault,2026-01-26,1803.09,True,Approved,National Ops & Systems Manager,7
+REP-3025,AS&-01963,"Accommodation, Storage & Welfare",Speedy Fleet Services,Wear & tear service,2025-11-14,723.72,True,Rejected,National Ops & Systems Manager,21
+REP-3026,AS&-01910,"Accommodation, Storage & Welfare",Independent Hydraulics Ltd,Tyre/track replacement,2026-04-30,1744.38,True,Pending,National Ops & Systems Manager,4
+REP-3027,S&L-02548,Survey & Location,Southern Access Engineering,Wear & tear service,2025-11-11,1162.51,True,Approved,National Ops & Systems Manager,7
+REP-3028,B&D-01297,Breakers & Drills,National Plant Repair Co,Engine fault,2025-09-23,2808.39,True,Approved,National Ops & Systems Manager,13
+REP-3029,LE-01785,Lifting Equipment,Southern Access Engineering,Structural damage,2026-03-17,1771.26,True,Approved,National Ops & Systems Manager,14
+REP-3030,MH&-01511,Material Handling & Logistics,National Plant Repair Co,Wear & tear service,2026-06-21,4084.45,True,Rejected,National Ops & Systems Manager,2
+REP-3031,C-02232,Cleaning,National Plant Repair Co,Structural damage,2025-12-07,1936.41,True,Approved,National Ops & Systems Manager,4
+REP-3032,AS&-01984,"Accommodation, Storage & Welfare",Speedy Fleet Services,Safety recall check,2026-02-19,4021.44,True,Pending,National Ops & Systems Manager,9
+REP-3033,MH&-01488,Material Handling & Logistics,Southern Access Engineering,Wear & tear service,2025-10-21,2573.67,True,Rejected,National Ops & Systems Manager,17
+REP-3034,LE-01807,Lifting Equipment,National Plant Repair Co,Battery/charging fault,2025-12-24,2378.77,True,Approved,National Ops & Systems Manager,2
+REP-3035,S&L-02538,Survey & Location,Speedy Fleet Services,Battery/charging fault,2025-12-21,4152.36,True,Approved,National Ops & Systems Manager,21
+REP-3036,LE-01710,Lifting Equipment,Speedy Fleet Services,Wear & tear service,2026-04-04,2339.95,True,Approved,National Ops & Systems Manager,8
+REP-3037,P&S-02423,Propping & Support,National Plant Repair Co,Structural damage,2025-11-24,286.14,False,Not Required,,16
+REP-3038,C&G-02097,Cutting & Grinding,Independent Hydraulics Ltd,Safety recall check,2025-09-22,1734.89,True,Pending,National Ops & Systems Manager,12
+REP-3039,B&D-01367,Breakers & Drills,Speedy Fleet Services,Safety recall check,2026-06-25,1480.34,True,Pending,National Ops & Systems Manager,20
+REP-3040,SV&-02400,"Safety, Ventilation & Extraction",National Plant Repair Co,Tyre/track replacement,2025-12-27,1721.89,True,Approved,National Ops & Systems Manager,6
+REP-3041,B&D-01397,Breakers & Drills,Independent Hydraulics Ltd,Structural damage,2026-07-09,2513.25,True,Approved,National Ops & Systems Manager,10
+REP-3042,C&G-02013,Cutting & Grinding,Vp Plant Repairs,Safety recall check,2025-11-10,3623.52,True,Pending,National Ops & Systems Manager,1
+REP-3043,S&W-02298,Sanding & Woodworking,National Plant Repair Co,Hydraulic leak,2026-01-06,1111.09,True,Approved,National Ops & Systems Manager,8
+REP-3044,CC-02391,Climate Control,Southern Access Engineering,Hydraulic leak,2025-10-26,3398.48,True,Approved,National Ops & Systems Manager,2
+REP-3045,MH&-01644,Material Handling & Logistics,Vp Plant Repairs,Tyre/track replacement,2026-04-17,1048.19,True,Approved,National Ops & Systems Manager,8
+REP-3046,C&G-02004,Cutting & Grinding,Southern Access Engineering,Hydraulic leak,2025-11-25,998.22,True,Approved,National Ops & Systems Manager,21
+REP-3047,MH&-01473,Material Handling & Logistics,Vp Plant Repairs,Safety recall check,2026-04-04,2129.98,True,Pending,National Ops & Systems Manager,5
+REP-3048,PA-01102,Powered Access,Southern Access Engineering,Hydraulic leak,2026-02-06,1643.09,True,Approved,National Ops & Systems Manager,21
+REP-3049,AS&-01944,"Accommodation, Storage & Welfare",Southern Access Engineering,Battery/charging fault,2026-02-10,725.52,True,Approved,National Ops & Systems Manager,3
+REP-3050,MH&-01522,Material Handling & Logistics,AFI Technical,Hydraulic leak,2026-03-03,1735.07,True,Approved,National Ops & Systems Manager,19
+REP-3051,B&D-01316,Breakers & Drills,Southern Access Engineering,Hydraulic leak,2025-11-05,727.8,True,Approved,National Ops & Systems Manager,9
+REP-3052,F&G-02526,Fuel & Gas,Southern Access Engineering,Tyre/track replacement,2025-11-09,3180.62,True,Approved,National Ops & Systems Manager,1
+REP-3053,C&C-02489,Concreting & Compaction,AFI Technical,Structural damage,2025-11-18,2657.05,True,Approved,National Ops & Systems Manager,16
+REP-3054,MH&-01597,Material Handling & Logistics,Southern Access Engineering,Electrical fault,2025-12-11,2849.05,True,Approved,National Ops & Systems Manager,19
+REP-3055,B&D-01348,Breakers & Drills,Southern Access Engineering,Engine fault,2025-11-08,3426.43,True,Approved,National Ops & Systems Manager,6
+REP-3056,B&D-01346,Breakers & Drills,Vp Plant Repairs,Safety recall check,2026-01-24,2598.13,True,Approved,National Ops & Systems Manager,1
+REP-3057,C&G-02156,Cutting & Grinding,Speedy Fleet Services,Hydraulic leak,2026-03-29,3254.6,True,Approved,National Ops & Systems Manager,17
+REP-3058,MH&-01658,Material Handling & Logistics,AFI Technical,Wear & tear service,2026-02-26,4031.56,True,Approved,National Ops & Systems Manager,5
+REP-3059,AS&-01919,"Accommodation, Storage & Welfare",Speedy Fleet Services,Battery/charging fault,2026-02-22,690.93,True,Pending,National Ops & Systems Manager,8
+REP-3060,AS&-01952,"Accommodation, Storage & Welfare",Southern Access Engineering,Hydraulic leak,2026-03-03,2512.46,True,Approved,National Ops & Systems Manager,14
+REP-3061,C&G-02096,Cutting & Grinding,National Plant Repair Co,Battery/charging fault,2025-10-28,363.21,False,Not Required,,12
+REP-3062,MH&-01692,Material Handling & Logistics,Southern Access Engineering,Electrical fault,2026-05-25,2584.63,True,Approved,National Ops & Systems Manager,21
+REP-3063,C-02250,Cleaning,AFI Technical,Engine fault,2025-09-25,1105.89,True,Approved,National Ops & Systems Manager,17
+REP-3064,B&D-01211,Breakers & Drills,Vp Plant Repairs,Engine fault,2026-02-22,1342.52,True,Approved,National Ops & Systems Manager,4
+REP-3065,B&D-01277,Breakers & Drills,Independent Hydraulics Ltd,Structural damage,2025-09-26,3194.26,True,Approved,National Ops & Systems Manager,21
+REP-3066,B&D-01290,Breakers & Drills,AFI Technical,Electrical fault,2026-06-08,3019.1,True,Pending,National Ops & Systems Manager,16
+REP-3067,MH&-01531,Material Handling & Logistics,Vp Plant Repairs,Electrical fault,2026-04-04,2932.2,True,Approved,National Ops & Systems Manager,2
+REP-3068,PA-01132,Powered Access,Vp Plant Repairs,Battery/charging fault,2025-11-02,2333.58,True,Approved,National Ops & Systems Manager,4
+REP-3069,F&F-02465,Fixing & Fastening,Speedy Fleet Services,Safety recall check,2026-01-08,1208.15,True,Pending,National Ops & Systems Manager,4
+REP-3070,C-02222,Cleaning,Independent Hydraulics Ltd,Safety recall check,2026-03-01,2030.03,True,Pending,National Ops & Systems Manager,7
+REP-3071,C&G-02171,Cutting & Grinding,National Plant Repair Co,Hydraulic leak,2025-10-06,3866.19,True,Approved,National Ops & Systems Manager,21
+REP-3072,SV&-02414,"Safety, Ventilation & Extraction",Vp Plant Repairs,Engine fault,2025-10-26,2948.41,True,Approved,National Ops & Systems Manager,14
+REP-3073,MH&-01569,Material Handling & Logistics,Vp Plant Repairs,Safety recall check,2026-05-20,3771.93,True,Pending,National Ops & Systems Manager,18
+REP-3074,SE&-02575,Site Equipment & Groundworks,Independent Hydraulics Ltd,Structural damage,2025-10-23,3199.11,True,Approved,National Ops & Systems Manager,19
+REP-3075,B&D-01279,Breakers & Drills,Southern Access Engineering,Tyre/track replacement,2026-04-05,1595.23,True,Approved,National Ops & Systems Manager,2
+REP-3076,LE-01762,Lifting Equipment,National Plant Repair Co,Structural damage,2026-05-22,2582.65,True,Approved,National Ops & Systems Manager,6
+REP-3077,B&D-01226,Breakers & Drills,Speedy Fleet Services,Battery/charging fault,2026-01-08,3454.91,True,Pending,National Ops & Systems Manager,14
+REP-3078,LE-01698,Lifting Equipment,Independent Hydraulics Ltd,Electrical fault,2025-11-19,311.17,False,Not Required,,15
+REP-3079,B&D-01184,Breakers & Drills,AFI Technical,Tyre/track replacement,2025-12-31,3204.39,True,Approved,National Ops & Systems Manager,6
+REP-3080,PA-01172,Powered Access,Speedy Fleet Services,Electrical fault,2026-07-07,1236.64,True,Approved,National Ops & Systems Manager,5
+REP-3081,MH&-01518,Material Handling & Logistics,AFI Technical,Wear & tear service,2026-05-20,855.66,True,Approved,National Ops & Systems Manager,17
+REP-3082,P-01050,Plant,Speedy Fleet Services,Battery/charging fault,2026-01-13,3124.07,True,Approved,National Ops & Systems Manager,8
+REP-3083,MH&-01584,Material Handling & Logistics,Southern Access Engineering,Tyre/track replacement,2026-05-11,1415.96,True,Approved,National Ops & Systems Manager,7
+REP-3084,MH&-01479,Material Handling & Logistics,Speedy Fleet Services,Safety recall check,2025-11-12,1120.41,True,Rejected,National Ops & Systems Manager,14
+REP-3085,PA-01084,Powered Access,Southern Access Engineering,Structural damage,2026-06-25,3062.85,True,Approved,National Ops & Systems Manager,6
+REP-3086,P-01005,Plant,Independent Hydraulics Ltd,Structural damage,2026-07-12,1832.19,True,Approved,National Ops & Systems Manager,8
+REP-3087,PA-01091,Powered Access,Speedy Fleet Services,Safety recall check,2026-03-08,2336.53,True,Approved,National Ops & Systems Manager,21
+REP-3088,LE-01717,Lifting Equipment,AFI Technical,Electrical fault,2026-01-21,3482.17,True,Approved,National Ops & Systems Manager,2
+REP-3089,B&D-01219,Breakers & Drills,Independent Hydraulics Ltd,Battery/charging fault,2026-04-20,3758.67,True,Rejected,National Ops & Systems Manager,8

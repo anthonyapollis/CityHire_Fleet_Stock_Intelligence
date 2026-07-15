@@ -1,0 +1,121 @@
+code_id,linked_stock_code,code_type,created_date,created_by,status
+SC-2000,C&G-02050,Parts Code,2026-06-29,A. Apollis,Active
+SC-2001,F&F-02486,Hire Stock Code,2026-01-15,System Auto,Active
+SC-2002,PA-01162,Sale Code,2026-07-03,Ops Team,Active
+SC-2003,MH&-01692,Hire Stock Code,2026-03-16,Ops Team,Archived
+SC-2004,L&G-02305,Hire Stock Code,2025-09-07,A. Apollis,Active
+SC-2005,S&L-02535,Hire Stock Code,2026-05-19,System Auto,Active
+SC-2006,MH&-01619,Sale Code,2025-06-17,System Auto,Archived
+SC-2007,LE-01866,Parts Code,2026-01-15,A. Apollis,Active
+SC-2008,LE-01821,Parts Code,2026-02-01,Ops Team,Active
+SC-2009,P-01046,Parts Code,2025-07-28,System Auto,Active
+SC-2010,B&D-01377,Hire Stock Code,2025-10-13,System Auto,Active
+SC-2011,F&G-02530,Sale Code,2025-11-03,Ops Team,Active
+SC-2012,MH&-01527,Sale Code,2026-04-25,A. Apollis,Active
+SC-2013,F&F-02478,Hire Stock Code,2026-01-24,Ops Team,Active
+SC-2014,M&E-02338,Parts Code,2026-05-25,Ops Team,Active
+SC-2015,F&G-02522,Hire Stock Code,2025-12-12,Ops Team,Active
+SC-2016,PA-01163,Hire Stock Code,2026-03-22,A. Apollis,Active
+SC-2017,AS&-01888,Hire Stock Code,2026-06-03,System Auto,Active
+SC-2018,B&D-01239,Hire Stock Code,2026-07-03,Ops Team,Active
+SC-2019,B&D-01393,Hire Stock Code,2025-08-28,Ops Team,Active
+SC-2020,C&G-02170,Sale Code,2026-07-03,System Auto,Active
+SC-2021,MH&-01535,Parts Code,2025-12-27,System Auto,Active
+SC-2022,MH&-01621,Hire Stock Code,2026-04-23,Ops Team,Active
+SC-2023,S&W-02261,Sale Code,2026-04-16,Ops Team,Archived
+SC-2024,C&G-02053,Sale Code,2026-01-30,A. Apollis,Active
+SC-2025,C&G-02105,Sale Code,2026-03-31,System Auto,Active
+SC-2026,MH&-01500,Hire Stock Code,2025-09-09,Ops Team,Archived
+SC-2027,P&S-02422,Parts Code,2025-11-20,System Auto,Active
+SC-2028,PA-01101,Parts Code,2026-01-26,A. Apollis,Active
+SC-2029,LE-01767,Parts Code,2026-06-09,A. Apollis,Active
+SC-2030,C&G-02175,Parts Code,2025-12-18,System Auto,Archived
+SC-2031,AS&-01969,Sale Code,2026-06-08,Ops Team,Archived
+SC-2032,B&D-01441,Sale Code,2025-10-12,A. Apollis,Active
+SC-2033,SE&-02558,Parts Code,2025-10-14,System Auto,Active
+SC-2034,AS&-01895,Hire Stock Code,2025-07-08,A. Apollis,Active
+SC-2035,MH&-01563,Hire Stock Code,2025-07-08,A. Apollis,Active
+SC-2036,SV&-02411,Parts Code,2025-10-26,System Auto,Active
+SC-2037,P&E-02594,Hire Stock Code,2026-05-12,A. Apollis,Active
+SC-2038,B&D-01381,Hire Stock Code,2025-09-21,A. Apollis,Active
+SC-2039,MH&-01567,Hire Stock Code,2025-08-12,Ops Team,Active
+SC-2040,C&G-02028,Hire Stock Code,2025-11-09,A. Apollis,Active
+SC-2041,C-02376,Hire Stock Code,2025-07-24,A. Apollis,Active
+SC-2042,PA-01094,Parts Code,2025-06-24,A. Apollis,Active
+SC-2043,C-02239,Hire Stock Code,2025-07-27,Ops Team,Active
+SC-2044,LE-01817,Hire Stock Code,2026-03-04,System Auto,Active
+SC-2045,B&D-01372,Hire Stock Code,2026-05-04,A. Apollis,Active
+SC-2046,CC-02389,Hire Stock Code,2026-01-06,System Auto,Active
+SC-2047,MH&-01584,Hire Stock Code,2025-07-13,A. Apollis,Active
+SC-2048,MH&-01559,Hire Stock Code,2025-07-14,Ops Team,Active
+SC-2049,P-01011,Hire Stock Code,2025-07-24,A. Apollis,Active
+SC-2050,LE-01834,Hire Stock Code,2025-12-30,Ops Team,Active
+SC-2051,B&D-01425,Hire Stock Code,2026-03-28,System Auto,Active
+SC-2052,P-01039,Parts Code,2026-03-04,Ops Team,Active
+SC-2053,P&E-02602,Parts Code,2025-10-23,Ops Team,Active
+SC-2054,LE-01849,Sale Code,2026-01-19,System Auto,Active
+SC-2055,M&E-02346,Sale Code,2026-02-04,System Auto,Active
+SC-2056,B&D-01266,Sale Code,2025-11-08,System Auto,Active
+SC-2057,MH&-01547,Hire Stock Code,2026-04-16,Ops Team,Pending Review
+SC-2058,AS&-01948,Hire Stock Code,2026-06-11,Ops Team,Active
+SC-2059,C-02227,Hire Stock Code,2026-04-29,Ops Team,Active
+SC-2060,L&G-02301,Parts Code,2026-05-14,System Auto,Active
+SC-2061,MH&-01652,Hire Stock Code,2025-09-26,System Auto,Pending Review
+SC-2062,B&D-01199,Parts Code,2025-10-19,A. Apollis,Active
+SC-2063,B&D-01454,Hire Stock Code,2026-06-28,Ops Team,Active
+SC-2064,MH&-01461,Sale Code,2025-10-28,A. Apollis,Active
+SC-2065,P-01038,Sale Code,2025-06-30,System Auto,Pending Review
+SC-2066,F&B-02453,Sale Code,2026-06-16,Ops Team,Active
+SC-2067,MH&-01665,Hire Stock Code,2026-03-05,System Auto,Active
+SC-2068,B&D-01453,Sale Code,2026-03-11,A. Apollis,Active
+SC-2069,PA-01131,Hire Stock Code,2026-06-24,System Auto,Active
+SC-2070,S&W-02253,Hire Stock Code,2025-06-29,A. Apollis,Active
+SC-2071,MH&-01590,Sale Code,2026-05-08,System Auto,Active
+SC-2072,C&C-02492,Hire Stock Code,2026-03-12,System Auto,Active
+SC-2073,F&B-02459,Hire Stock Code,2026-05-25,System Auto,Pending Review
+SC-2074,C-02248,Hire Stock Code,2025-08-24,A. Apollis,Active
+SC-2075,AS&-01944,Hire Stock Code,2026-06-02,Ops Team,Active
+SC-2076,A-02205,Hire Stock Code,2026-03-26,System Auto,Active
+SC-2077,LE-01862,Parts Code,2025-09-20,Ops Team,Pending Review
+SC-2078,C-02220,Hire Stock Code,2025-11-30,System Auto,Active
+SC-2079,MH&-01674,Parts Code,2025-09-03,Ops Team,Archived
+SC-2080,C&G-02109,Hire Stock Code,2025-12-18,System Auto,Active
+SC-2081,LE-01797,Parts Code,2026-01-27,System Auto,Active
+SC-2082,AS&-01975,Hire Stock Code,2025-08-18,Ops Team,Active
+SC-2083,C&G-02143,Hire Stock Code,2026-01-21,Ops Team,Active
+SC-2084,P-01026,Hire Stock Code,2025-08-28,Ops Team,Active
+SC-2085,LE-01703,Parts Code,2026-04-12,Ops Team,Active
+SC-2086,LE-01698,Sale Code,2025-10-27,Ops Team,Active
+SC-2087,MH&-01655,Hire Stock Code,2025-06-20,Ops Team,Active
+SC-2088,LE-01710,Hire Stock Code,2025-11-30,Ops Team,Active
+SC-2089,AS&-01911,Hire Stock Code,2026-04-12,A. Apollis,Active
+SC-2090,B&D-01311,Parts Code,2026-03-27,Ops Team,Active
+SC-2091,AS&-01947,Hire Stock Code,2025-10-16,Ops Team,Active
+SC-2092,F&G-02521,Hire Stock Code,2025-09-05,A. Apollis,Active
+SC-2093,C&G-02022,Hire Stock Code,2026-04-25,A. Apollis,Active
+SC-2094,B&D-01432,Parts Code,2026-04-25,System Auto,Active
+SC-2095,C&G-02091,Hire Stock Code,2025-10-23,Ops Team,Active
+SC-2096,P&S-02429,Parts Code,2025-06-10,System Auto,Active
+SC-2097,B&D-01349,Sale Code,2025-11-15,Ops Team,Active
+SC-2098,C-02379,Hire Stock Code,2025-07-07,Ops Team,Pending Review
+SC-2099,LE-01799,Hire Stock Code,2026-02-07,Ops Team,Active
+SC-2100,MH&-01524,Parts Code,2026-07-12,Ops Team,Active
+SC-2101,LE-01826,Hire Stock Code,2025-08-18,A. Apollis,Archived
+SC-2102,P-01067,Parts Code,2026-07-05,System Auto,Active
+SC-2103,P&D-02354,Parts Code,2026-03-05,Ops Team,Pending Review
+SC-2104,C&G-02171,Hire Stock Code,2025-12-08,Ops Team,Active
+SC-2105,PA-01161,Parts Code,2026-04-03,A. Apollis,Active
+SC-2106,S&W-02294,Hire Stock Code,2026-02-24,A. Apollis,Active
+SC-2107,C&G-01997,Hire Stock Code,2025-07-09,Ops Team,Archived
+SC-2108,C&G-02150,Parts Code,2026-06-21,System Auto,Active
+SC-2109,LE-01708,Sale Code,2025-07-18,Ops Team,Active
+SC-2110,PA-01171,Sale Code,2025-09-17,Ops Team,Active
+SC-2111,B&D-01426,Hire Stock Code,2026-01-20,Ops Team,Active
+SC-2112,S&L-02532,Hire Stock Code,2026-02-19,A. Apollis,Active
+SC-2113,C&G-02085,Sale Code,2026-06-07,Ops Team,Archived
+SC-2114,LE-01757,Parts Code,2026-04-28,A. Apollis,Active
+SC-2115,MH&-01623,Parts Code,2025-09-30,A. Apollis,Active
+SC-2116,MH&-01598,Hire Stock Code,2025-10-08,System Auto,Active
+SC-2117,S&L-02538,Hire Stock Code,2026-02-15,System Auto,Active
+SC-2118,MH&-01646,Parts Code,2026-06-10,System Auto,Active
+SC-2119,AS&-01925,Hire Stock Code,2026-01-11,Ops Team,Active

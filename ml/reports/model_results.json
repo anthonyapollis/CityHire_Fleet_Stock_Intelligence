@@ -1,0 +1,67 @@
+{
+  "utilisation_forecast": {
+    "target": "utilisation_pct",
+    "r2": 0.1768,
+    "mae": 10.676,
+    "train_rows": 45864,
+    "test_rows": 7938,
+    "split_date": "2026-05-22"
+  },
+  "workshop_forecast": {
+    "target": "workshop_pct",
+    "r2": 0.3221,
+    "mae": 4.845,
+    "train_rows": 45864,
+    "test_rows": 7938,
+    "split_date": "2026-05-22",
+    "predicted_15pct_crossing_date": "2026-03-09"
+  },
+  "capex_overspend_classifier": {
+    "auc": 0.556,
+    "accuracy": 0.6585,
+    "f1": 0.44,
+    "train_rows": 243,
+    "test_rows": 82,
+    "positive_rate_test": 0.3171,
+    "top_risk_categories": [
+      {
+        "feature": "category_Plant",
+        "log_odds_coef": 1.3372
+      },
+      {
+        "feature": "category_Powered Access",
+        "log_odds_coef": 0.7698
+      },
+      {
+        "feature": "category_Fuel & Gas",
+        "log_odds_coef": 0.624
+      },
+      {
+        "feature": "category_Survey & Location",
+        "log_odds_coef": 0.624
+      },
+      {
+        "feature": "category_Cutting & Grinding",
+        "log_odds_coef": 0.4511
+      },
+      {
+        "feature": "category_Lifting Equipment",
+        "log_odds_coef": 0.4003
+      },
+      {
+        "feature": "category_Lighting",
+        "log_odds_coef": 0.3321
+      },
+      {
+        "feature": "category_Propping & Support",
+        "log_odds_coef": 0.2254
+      }
+    ]
+  },
+  "day_rate_pricing_model": {
+    "r2": 0.93,
+    "mae_gbp": 21.04,
+    "train_rows": 1289,
+    "test_rows": 323
+  }
+}

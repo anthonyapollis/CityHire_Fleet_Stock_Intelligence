@@ -1,0 +1,7 @@
+depot,fleet_units,on_hire,workshop,util_pct,workshop_pct,total_assets,capex_gbp,available_now,on_hire_now,workshop_now,below_min_count,unfulfilled_out,unfulfilled_in
+Birmingham,248,172,22,69.4,8.9,248,1719861.53,45,158,29,17,5,2
+Bristol,275,179,32,65.1,11.6,275,2246193.01,52,170,34,13,4,4
+Leeds,289,198,29,68.5,10.0,289,2649055.83,57,181,32,16,2,1
+London North,261,167,28,64.0,10.7,261,1962865.71,47,156,40,17,2,2
+London South,266,186,27,69.9,10.2,266,1843709.48,48,174,27,16,3,4
+Manchester,273,176,31,64.5,11.4,273,2241522.77,42,183,33,16,2,5

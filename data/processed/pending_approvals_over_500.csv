@@ -1,0 +1,33 @@
+approval_id,stock_code,category,request_type,value_gbp,requested_date,status,requested_by
+APR-4087,S&W-02279,Sanding & Woodworking,Auction Disposal,21552.6,2026-01-18,Pending,Depot Manager - London North
+APR-4099,S&L-02555,Survey & Location,Auction Disposal,21495.42,2026-04-27,Pending,Depot Manager - Birmingham
+APR-4105,P&E-02595,Power & Electrics,Auction Disposal,20787.52,2026-07-11,Pending,Depot Manager - London North
+APR-4037,MH&-01563,Material Handling & Logistics,Auction Disposal,20352.31,2026-01-14,Pending,Depot Manager - Birmingham
+APR-4033,MH&-01480,Material Handling & Logistics,Auction Disposal,19891.1,2025-11-22,Pending,Depot Manager - Birmingham
+APR-4137,MH&-01531,Material Handling & Logistics,Parts Purchase,18882.09,2026-05-13,Pending,Depot Manager - Birmingham
+APR-4024,B&D-01360,Breakers & Drills,Auction Disposal,18774.89,2026-01-25,Pending,Depot Manager - Manchester
+APR-4069,C&G-02056,Cutting & Grinding,Auction Disposal,18320.11,2026-01-19,Pending,Depot Manager - Manchester
+APR-4138,P&E-02586,Power & Electrics,Capital Replacement,16941.79,2026-01-12,Pending,Depot Manager - Birmingham
+APR-4003,P-01044,Plant,Auction Disposal,16575.16,2026-01-31,Pending,Depot Manager - London North
+APR-4044,MH&-01674,Material Handling & Logistics,Auction Disposal,16423.75,2026-06-20,Pending,Workshop Controller
+APR-4141,B&D-01205,Breakers & Drills,Auction Disposal,16121.07,2026-01-07,Pending,Depot Manager - Birmingham
+APR-4017,B&D-01290,Breakers & Drills,Auction Disposal,15082.72,2026-04-18,Pending,Depot Manager - Manchester
+APR-4041,MH&-01638,Material Handling & Logistics,Auction Disposal,14808.67,2025-12-22,Pending,Depot Manager - Birmingham
+APR-4093,C-02379,Consumables,Auction Disposal,13939.5,2026-05-19,Pending,Workshop Controller
+APR-4001,P-01029,Plant,Auction Disposal,13457.42,2026-03-16,Pending,Workshop Controller
+APR-4000,P-01022,Plant,Auction Disposal,13174.43,2026-05-22,Pending,Workshop Controller
+APR-4071,C&G-02097,Cutting & Grinding,Auction Disposal,12013.67,2026-04-10,Pending,Depot Manager - Birmingham
+APR-4029,B&D-01429,Breakers & Drills,Auction Disposal,11419.91,2026-06-07,Pending,Depot Manager - Manchester
+APR-4114,B&D-01202,Breakers & Drills,Parts Purchase,11411.38,2025-12-22,Pending,Workshop Controller
+APR-4023,B&D-01354,Breakers & Drills,Auction Disposal,10018.57,2026-04-17,Pending,Workshop Controller
+APR-4132,S&W-02296,Sanding & Woodworking,Capital Replacement,9884.59,2026-01-03,Pending,Depot Manager - Birmingham
+APR-4054,LE-01808,Lifting Equipment,Auction Disposal,9716.89,2026-01-27,Pending,Workshop Controller
+APR-4045,MH&-01688,Material Handling & Logistics,Auction Disposal,9449.19,2025-12-15,Pending,Depot Manager - Birmingham
+APR-4131,B&D-01396,Breakers & Drills,Auction Disposal,9440.04,2026-05-23,Pending,Depot Manager - Manchester
+APR-4005,PA-01134,Powered Access,Auction Disposal,4138.23,2025-12-21,Pending,Depot Manager - Manchester
+APR-4142,C&G-02091,Cutting & Grinding,Capital Replacement,4058.23,2025-12-25,Pending,Depot Manager - Birmingham
+APR-4136,LE-01730,Lifting Equipment,Auction Disposal,3295.33,2026-07-07,Pending,Depot Manager - Manchester
+APR-4034,MH&-01519,Material Handling & Logistics,Auction Disposal,2140.19,2026-04-15,Pending,Workshop Controller
+APR-4089,M&E-02332,Mechanical & Electrical,Auction Disposal,1608.88,2025-12-11,Pending,Depot Manager - Manchester
+APR-4040,MH&-01622,Material Handling & Logistics,Auction Disposal,666.28,2026-04-01,Pending,Workshop Controller
+APR-4077,C&G-02166,Cutting & Grinding,Auction Disposal,523.97,2026-06-09,Pending,Workshop Controller

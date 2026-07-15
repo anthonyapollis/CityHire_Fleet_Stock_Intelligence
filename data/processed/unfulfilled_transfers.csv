@@ -1,0 +1,19 @@
+transfer_id,date,category,from_depot,to_depot,units_transferred,reason
+XFER-5032,2026-07-10,Climate Control,Manchester,Bristol,3,Planned redistribution
+XFER-5055,2026-07-07,Consumables,Bristol,London South,4,Shortage cover
+XFER-5057,2026-07-07,Climate Control,Leeds,London North,4,Emergency same-day request
+XFER-5002,2026-06-18,Landscaping & Gardening,London South,Manchester,4,Emergency same-day request
+XFER-5095,2026-05-30,Fuel & Gas,Bristol,Leeds,4,Shortage cover
+XFER-5039,2026-05-21,"Safety, Ventilation & Extraction",Manchester,Birmingham,3,Planned redistribution
+XFER-5023,2026-03-23,Painting & Decorating,London North,London South,2,Emergency same-day request
+XFER-5024,2025-12-18,Landscaping & Gardening,Birmingham,Manchester,1,Emergency same-day request
+XFER-5036,2025-11-25,Painting & Decorating,Bristol,London North,1,Rebalance to demand
+XFER-5019,2025-11-22,Consumables,Birmingham,Bristol,3,Shortage cover
+XFER-5021,2025-11-22,Access,London North,Bristol,3,Planned redistribution
+XFER-5117,2025-11-18,Cutting & Grinding,Birmingham,Bristol,4,Emergency same-day request
+XFER-5138,2025-11-17,Site Equipment & Groundworks,London South,Manchester,1,Rebalance to demand
+XFER-5071,2025-11-08,Lifting Equipment,Leeds,Manchester,4,Shortage cover
+XFER-5128,2025-11-02,Landscaping & Gardening,London South,Birmingham,2,Emergency same-day request
+XFER-5077,2025-10-28,Cleaning,Birmingham,London South,2,Shortage cover
+XFER-5141,2025-10-13,Material Handling & Logistics,Birmingham,London South,2,Rebalance to demand
+XFER-5001,2025-09-25,Landscaping & Gardening,Bristol,Manchester,3,Planned redistribution

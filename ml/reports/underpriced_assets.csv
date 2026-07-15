@@ -1,0 +1,21 @@
+stock_code,category,product_name,depot,day_rate_gbp,predicted_day_rate,price_gap_pct
+C-02381,Consumables,Fixing Screws Box,Manchester,0.16,0.8984589140986848,82.1917288048159
+C-02369,Consumables,Diamond Blade 350mm,Bristol,0.18,0.8984589140986848,79.96569490541788
+PA-01125,Powered Access,Nifty Lift HR15 15.5m Hybrid Boom Lift,Manchester,220.99,370.9459419125314,40.42528168373677
+P-01057,Plant,Pedestrian Roller,Leeds,293.78,489.21986401542915,39.949290368402814
+C-02374,Consumables,Diamond Blade 350mm,London North,1.32,2.1786620985616856,39.41235766338246
+AS&-01983,"Accommodation, Storage & Welfare",Chemical Toilet (Serviced),Manchester,85.05,140.07477048922547,39.282427732735755
+B&D-01286,Breakers & Drills,18V Cordless Rotary Hammer Drill,London North,3.6,5.899770076896254,38.98067292320847
+C&G-02037,Cutting & Grinding,Plunge Rail Saw,Manchester,19.64,32.184504904779764,38.97684597570666
+C-02207,Cleaning,Hilti VC Wet & Dry Vacuum,London North,30.89,50.58732763091447,38.9372764946714
+B&D-01279,Breakers & Drills,18V Cordless Rotary Hammer Drill,London North,12.11,19.81568571648149,38.88679819983402
+AS&-01979,"Accommodation, Storage & Welfare",Single Mains Toilet,London North,43.03,69.98323472598156,38.51384525381914
+P&S-02420,Propping & Support,Acrow Prop Size 3,Bristol,1.11,1.80344142478155,38.45100901270171
+AS&-01900,"Accommodation, Storage & Welfare",6-8 man Welfare Unit (12ft),Manchester,46.04,74.35599938948843,38.081660689092175
+B&D-01422,Breakers & Drills,Hilti TE 2000 AVR Medium Breaker,London North,5.8,9.358445649672474,38.02389609215727
+MH&-01532,Material Handling & Logistics,Loadall Plasterboard Trolley,Bristol,15.23,24.55019329679228,37.963828569977295
+C&G-02135,Cutting & Grinding,Mitre Saw Stand,London South,24.51,39.40393343443033,37.7980879985355
+B&D-01416,Breakers & Drills,Hilti TE 2000 AVR Medium Breaker,Manchester,16.99,27.23194283698593,37.61003354882014
+L&G-02306,Landscaping & Gardening,Stump Grinder,Bristol,3.64,5.773809878202079,36.956704900483
+B&D-01213,Breakers & Drills,Heavy Duty Rotary Hammer Drill SDS Max,Manchester,31.33,49.692044460952296,36.95167840272919
+S&W-02259,Sanding & Woodworking,Floor Sander - Belt,London South,8.88,14.054069561529245,36.815454334255094

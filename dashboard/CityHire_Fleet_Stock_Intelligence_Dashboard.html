@@ -1,0 +1,459 @@
+<title>CityHire Fleet &amp; Stock Intelligence</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page:           #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --series-1:       #2a78d6; /* blue - utilisation */
+    --series-2:       #1baf7a; /* aqua - in-service */
+    --series-3:       #eda100; /* yellow */
+    --series-5:       #4a3aa7; /* violet */
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --serious:        #ec835a;
+    --critical:        #d03b3b;
+    --card-shadow: 0 1px 2px rgba(11,11,11,0.06), 0 1px 1px rgba(11,11,11,0.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page:           #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --series-1:       #3987e5;
+      --series-2:       #199e70;
+      --series-3:       #c98500;
+      --series-5:       #9085e9;
+      --good:           #0ca30c;
+      --warning:        #fab219;
+      --serious:        #ec835a;
+      --critical:        #e66767;
+      --card-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 1px 1px rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --page:           #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --series-1:       #3987e5;
+    --series-2:       #199e70;
+    --series-3:       #c98500;
+    --series-5:       #9085e9;
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --serious:        #ec835a;
+    --critical:        #e66767;
+    --card-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 1px 1px rgba(0,0,0,0.3);
+  }
+
+  .viz-root {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page);
+    color: var(--text-primary);
+    padding: 28px 32px 60px;
+    box-sizing: border-box;
+  }
+  .viz-root * { box-sizing: border-box; }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+
+  .hero { margin-bottom: 22px; }
+  .hero .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--series-1);
+  }
+  .hero h1 { font-size: 26px; font-weight: 800; margin: 4px 0 6px; letter-spacing: -0.01em; }
+  .hero p { font-size: 13.5px; color: var(--text-secondary); margin: 0; max-width: 900px; line-height: 1.5; }
+  .hero .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; color: var(--critical);
+    border: 1px solid var(--critical); border-radius: 4px; padding: 1px 6px; margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .kpi-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin: 22px 0 26px;
+  }
+  @media (max-width: 980px) { .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 620px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  .kpi {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
+    box-shadow: var(--card-shadow); padding: 14px 14px 12px;
+  }
+  .kpi .label { font-size: 10.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; min-height: 26px; }
+  .kpi .value { font-size: 26px; font-weight: 800; margin-top: 4px; letter-spacing: -0.01em; }
+  .kpi .sub { font-size: 11px; color: var(--text-secondary); margin-top: 3px; }
+  .kpi .status-row { display:flex; align-items:center; gap:5px; margin-top:6px; }
+  .status-dot { width:8px; height:8px; border-radius:50%; flex: none; }
+  .status-good { background: var(--good); }
+  .status-warn { background: var(--warning); }
+  .status-bad { background: var(--critical); }
+  .status-text { font-size: 10.5px; font-weight: 700; }
+
+  .panel {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    box-shadow: var(--card-shadow); padding: 18px 20px 14px; margin-bottom: 18px;
+  }
+  .panel h2 { font-size: 14.5px; font-weight: 800; margin: 0 0 2px; }
+  .panel .panel-sub { font-size: 11.5px; color: var(--text-secondary); margin: 0 0 12px; }
+  .row2 { display: grid; grid-template-columns: 1.35fr 1fr; gap: 18px; align-items: start; }
+  @media (max-width: 980px) { .row2 { grid-template-columns: 1fr; } }
+
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-secondary); }
+  .legend-swatch { width: 12px; height: 3px; border-radius: 2px; }
+  .legend-swatch.dashed { background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px); height: 2px; }
+
+  svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .axis-label { font-size: 10px; fill: var(--text-muted); }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+  .baseline { stroke: var(--baseline); stroke-width: 1; }
+
+  .tooltip {
+    position: absolute; pointer-events: none; background: var(--text-primary); color: var(--surface-1);
+    font-size: 11.5px; padding: 7px 10px; border-radius: 6px; line-height: 1.5; opacity: 0;
+    transition: opacity .1s ease; white-space: nowrap; z-index: 20; box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  }
+  .tooltip .t-title { font-weight: 700; margin-bottom: 2px; }
+
+  .bar-row { cursor: pointer; }
+  .bar-row rect { transition: opacity .1s; }
+  .bar-row:hover rect { opacity: .82; }
+
+  .tabs { display: flex; gap: 4px; margin-bottom: 12px; flex-wrap: wrap; }
+  .tab-btn {
+    font-family: inherit; font-size: 12px; font-weight: 700; color: var(--text-secondary);
+    background: transparent; border: 1px solid var(--border); border-radius: 999px;
+    padding: 6px 13px; cursor: pointer;
+  }
+  .tab-btn.active { background: var(--series-1); color: #fff; border-color: var(--series-1); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  thead th {
+    text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .03em;
+    color: var(--text-muted); font-weight: 700; padding: 6px 8px; border-bottom: 1px solid var(--grid);
+    position: sticky; top: 0; background: var(--surface-1);
+  }
+  tbody td { padding: 6px 8px; border-bottom: 1px solid var(--grid); color: var(--text-primary); }
+  tbody tr:hover td { background: color-mix(in srgb, var(--series-1) 6%, transparent); }
+  .scroll-table { max-height: 360px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .pill { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; display: inline-block; }
+  .pill-critical { background: color-mix(in srgb, var(--critical) 16%, var(--surface-1)); color: var(--critical); }
+  .pill-warn { background: color-mix(in srgb, var(--warning) 22%, var(--surface-1)); color: color-mix(in srgb, var(--warning) 70%, black); }
+  .pill-good { background: color-mix(in srgb, var(--good) 16%, var(--surface-1)); color: var(--good); }
+
+  .footer-note {
+    font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--grid); margin-top: 22px; padding-top: 14px; line-height: 1.6;
+  }
+  .footer-note b { color: var(--text-secondary); }
+</style>
+
+<div class="viz-root">
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Data &amp; Automation Analyst — Portfolio Build</div>
+    <h1>CityHire Fleet &amp; Stock Intelligence<span class="tag">SYNTHETIC DATA</span></h1>
+    <p>Live view of the 6&ndash;12 month success points and daily operational tasks from the job spec: workshop in-service %, fleet utilisation, capex vs budget, approvals, repairs and stock shortage balancing across a 1,612-asset fleet modelled on City Hire's real product catalogue (24 categories, 220+ real model names extracted from cityhire.co.uk).</p>
+  </div>
+
+  <div class="kpi-grid" id="kpiGrid"></div>
+
+  <div class="panel">
+    <div class="row2">
+      <div>
+        <h2>12-Month Trend — Utilisation vs Workshop In-Service</h2>
+        <p class="panel-sub">Workshop % improved from 22.6% to 10.7% over the year, crossing below the 15% target around March 2026, while utilisation held a seasonal band (52&ndash;66%) comfortably above the 60% floor.</p>
+        <div class="legend" id="trendLegend"></div>
+        <div style="position:relative">
+          <svg id="trendChart" width="100%" viewBox="0 0 640 300" preserveAspectRatio="xMidYMid meet"></svg>
+          <div class="tooltip" id="trendTooltip"></div>
+        </div>
+      </div>
+      <div>
+        <h2>Category ROI Leaderboard</h2>
+        <p class="panel-sub">Estimated annual hire revenue vs capex outlay, by category (top 10).</p>
+        <div style="position:relative">
+          <svg id="roiChart" width="100%" viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet"></svg>
+          <div class="tooltip" id="roiTooltip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>YTD Capex Variance by Category</h2>
+    <p class="panel-sub">Actual spend minus budget. 3 categories are running over budget YTD — Powered Access (+£120k / 106.7%), Plant (+£112k / 114.5%) and Survey &amp; Location (+£9k / 104.2%) — candidates for a capex review.</p>
+    <div class="legend">
+      <div class="legend-item"><span class="legend-swatch" style="background:var(--critical)"></span>Over budget</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:var(--series-1)"></span>Within budget</div>
+    </div>
+    <div style="position:relative">
+      <svg id="capexChart" width="100%" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="tooltip" id="capexTooltip"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Daily Operational Action Queues</h2>
+    <p class="panel-sub">The daily-task side of the job spec — auction &amp; parts approvals, external repairs, minimum stock levels, and depot-to-depot fleeting — as live worklists.</p>
+    <div class="tabs" id="tabBar"></div>
+    <div id="tabPanels"></div>
+  </div>
+
+  <div class="footer-note">
+    <b>Data grounding:</b> category structure and 220+ product/model names (e.g. "Nifty Lift HR21 20.8m Hybrid Boom Lift", "Hilti TE 3000-AVR Heavy Breaker") were extracted from the public product catalogue at cityhire.co.uk on 2026-07-15 across 7 categories scraped in depth, extrapolated in the same style for the remaining 17 listed categories.<br>
+    <b>Important:</b> all fleet quantities, stock codes, costs, dates, utilisation, repairs, approvals and transfers are SYNTHETIC — generated for this demonstration, not City Hire's real operational or financial data.<br>
+    Companion deliverables: SQL analysis layer (17 queries), a formula-driven Excel workbook (Stock Master, Capex vs Budget, ROI Report, Approvals, Repairs, Stock Shortage, Min Stock Alerts), and this dashboard. Built by Anthony Apollis.
+  </div>
+
+</div>
+</div>
+
+<script>
+const DATA = {"monthly_trend": [{"month": "2025-07", "fleet_units": "27404", "units_on_hire": "18103", "units_in_workshop": "6186", "utilisation_pct": "66.1", "workshop_pct": "22.6"}, {"month": "2025-08", "fleet_units": "49972", "units_on_hire": "32932", "units_in_workshop": "10888", "utilisation_pct": "65.9", "workshop_pct": "21.8"}, {"month": "2025-09", "fleet_units": "48360", "units_on_hire": "31820", "units_in_workshop": "10117", "utilisation_pct": "65.8", "workshop_pct": "20.9"}, {"month": "2025-10", "fleet_units": "49972", "units_on_hire": "26446", "units_in_workshop": "9992", "utilisation_pct": "52.9", "workshop_pct": "20.0"}, {"month": "2025-11", "fleet_units": "48360", "units_on_hire": "25456", "units_in_workshop": "9241", "utilisation_pct": "52.6", "workshop_pct": "19.1"}, {"month": "2025-12", "fleet_units": "49972", "units_on_hire": "26517", "units_in_workshop": "8907", "utilisation_pct": "53.1", "workshop_pct": "17.8"}, {"month": "2026-01", "fleet_units": "49972", "units_on_hire": "26333", "units_in_workshop": "8352", "utilisation_pct": "52.7", "workshop_pct": "16.7"}, {"month": "2026-02", "fleet_units": "45136", "units_on_hire": "23813", "units_in_workshop": "7122", "utilisation_pct": "52.8", "workshop_pct": "15.8"}, {"month": "2026-03", "fleet_units": "49972", "units_on_hire": "26408", "units_in_workshop": "7393", "utilisation_pct": "52.8", "workshop_pct": "14.8"}, {"month": "2026-04", "fleet_units": "48360", "units_on_hire": "32069", "units_in_workshop": "6561", "utilisation_pct": "66.3", "workshop_pct": "13.6"}, {"month": "2026-05", "fleet_units": "49972", "units_on_hire": "32942", "units_in_workshop": "6203", "utilisation_pct": "65.9", "workshop_pct": "12.4"}, {"month": "2026-06", "fleet_units": "48360", "units_on_hire": "31863", "units_in_workshop": "5535", "utilisation_pct": "65.9", "workshop_pct": "11.4"}, {"month": "2026-07", "fleet_units": "24180", "units_on_hire": "15930", "units_in_workshop": "2599", "utilisation_pct": "65.9", "workshop_pct": "10.7"}], "capex_by_category": [{"category": "Powered Access", "ytd_budget_gbp": "1797683.16", "ytd_actual_gbp": "1917926.24", "ytd_variance_gbp": "120243.08", "pct_of_budget_used": "106.7"}, {"category": "Plant", "ytd_budget_gbp": "775958.69", "ytd_actual_gbp": "888301.15", "ytd_variance_gbp": "112342.46", "pct_of_budget_used": "114.5"}, {"category": "Survey & Location", "ytd_budget_gbp": "223579.2", "ytd_actual_gbp": "232946.48", "ytd_variance_gbp": "9367.28", "pct_of_budget_used": "104.2"}, {"category": "Consumables", "ytd_budget_gbp": "2975.7", "ytd_actual_gbp": "2593.55", "ytd_variance_gbp": "-382.15", "pct_of_budget_used": "87.2"}, {"category": "Fencing & Barriers", "ytd_budget_gbp": "6315.92", "ytd_actual_gbp": "5464.67", "ytd_variance_gbp": "-851.25", "pct_of_budget_used": "86.5"}, {"category": "Lighting", "ytd_budget_gbp": "24916.58", "ytd_actual_gbp": "22621.4", "ytd_variance_gbp": "-2295.18", "pct_of_budget_used": "90.8"}, {"category": "Propping & Support", "ytd_budget_gbp": "17480.58", "ytd_actual_gbp": "15082.81", "ytd_variance_gbp": "-2397.77", "pct_of_budget_used": "86.3"}, {"category": "Breakers & Drills", "ytd_budget_gbp": "56214.86", "ytd_actual_gbp": "50620.12", "ytd_variance_gbp": "-5594.74", "pct_of_budget_used": "90.0"}, {"category": "Site Equipment & Groundworks", "ytd_budget_gbp": "57249.92", "ytd_actual_gbp": "50996.05", "ytd_variance_gbp": "-6253.87", "pct_of_budget_used": "89.1"}, {"category": "Fixing & Fastening", "ytd_budget_gbp": "34546.2", "ytd_actual_gbp": "28095.64", "ytd_variance_gbp": "-6450.56", "pct_of_budget_used": "81.3"}, {"category": "Cutting & Grinding", "ytd_budget_gbp": "71847.75", "ytd_actual_gbp": "64638.46", "ytd_variance_gbp": "-7209.29", "pct_of_budget_used": "90.0"}, {"category": "Access", "ytd_budget_gbp": "67925.0", "ytd_actual_gbp": "60652.22", "ytd_variance_gbp": "-7272.78", "pct_of_budget_used": "89.3"}, {"category": "Sanding & Woodworking", "ytd_budget_gbp": "57989.88", "ytd_actual_gbp": "50130.46", "ytd_variance_gbp": "-7859.42", "pct_of_budget_used": "86.4"}, {"category": "Painting & Decorating", "ytd_budget_gbp": "64596.48", "ytd_actual_gbp": "56589.59", "ytd_variance_gbp": "-8006.89", "pct_of_budget_used": "87.6"}, {"category": "Landscaping & Gardening", "ytd_budget_gbp": "78965.77", "ytd_actual_gbp": "67084.98", "ytd_variance_gbp": "-11880.79", "pct_of_budget_used": "85.0"}, {"category": "Cleaning", "ytd_budget_gbp": "72625.93", "ytd_actual_gbp": "60414.75", "ytd_variance_gbp": "-12211.18", "pct_of_budget_used": "83.2"}, {"category": "Mechanical & Electrical", "ytd_budget_gbp": "131238.38", "ytd_actual_gbp": "112762.59", "ytd_variance_gbp": "-18475.79", "pct_of_budget_used": "85.9"}, {"category": "Safety, Ventilation & Extraction", "ytd_budget_gbp": "111695.61", "ytd_actual_gbp": "92769.71", "ytd_variance_gbp": "-18925.9", "pct_of_budget_used": "83.1"}, {"category": "Fuel & Gas", "ytd_budget_gbp": "251906.2", "ytd_actual_gbp": "227212.23", "ytd_variance_gbp": "-24693.97", "pct_of_budget_used": "90.2"}, {"category": "Concreting & Compaction", "ytd_budget_gbp": "190725.47", "ytd_actual_gbp": "165900.0", "ytd_variance_gbp": "-24825.47", "pct_of_budget_used": "87.0"}, {"category": "Climate Control", "ytd_budget_gbp": "177241.74", "ytd_actual_gbp": "151685.71", "ytd_variance_gbp": "-25556.03", "pct_of_budget_used": "85.6"}, {"category": "Material Handling & Logistics", "ytd_budget_gbp": "163221.5", "ytd_actual_gbp": "133185.61", "ytd_variance_gbp": "-30035.89", "pct_of_budget_used": "81.6"}, {"category": "Accommodation, Storage & Welfare", "ytd_budget_gbp": "257678.46", "ytd_actual_gbp": "215030.02", "ytd_variance_gbp": "-42648.44", "pct_of_budget_used": "83.4"}, {"category": "Power & Electrics", "ytd_budget_gbp": "217817.47", "ytd_actual_gbp": "174528.31", "ytd_variance_gbp": "-43289.16", "pct_of_budget_used": "80.1"}, {"category": "Lifting Equipment", "ytd_budget_gbp": "317251.35", "ytd_actual_gbp": "272360.7", "ytd_variance_gbp": "-44890.65", "pct_of_budget_used": "85.9"}], "roi_by_category": [{"category": "Fencing & Barriers", "units": "14", "total_capex_gbp": "2701.39", "avg_utilisation_pct": "67.5", "est_annual_revenue_gbp": "8790.12", "est_roi_pct": "325.4"}, {"category": "Fuel & Gas", "units": "11", "total_capex_gbp": "76083.56", "avg_utilisation_pct": "69.3", "est_annual_revenue_gbp": "242601.62", "est_roi_pct": "318.9"}, {"category": "Accommodation, Storage & Welfare", "units": "104", "total_capex_gbp": "750343.87", "avg_utilisation_pct": "64.7", "est_annual_revenue_gbp": "2385719.31", "est_roi_pct": "318.0"}, {"category": "Cleaning", "units": "46", "total_capex_gbp": "96353.13", "avg_utilisation_pct": "64.3", "est_annual_revenue_gbp": "305855.3", "est_roi_pct": "317.4"}, {"category": "Site Equipment & Groundworks", "units": "24", "total_capex_gbp": "45419.3", "avg_utilisation_pct": "64.8", "est_annual_revenue_gbp": "141248.3", "est_roi_pct": "311.0"}, {"category": "Plant", "units": "70", "total_capex_gbp": "2529211.9", "avg_utilisation_pct": "63.2", "est_annual_revenue_gbp": "7858228.51", "est_roi_pct": "310.7"}, {"category": "Fixing & Fastening", "units": "25", "total_capex_gbp": "27301.83", "avg_utilisation_pct": "65.5", "est_annual_revenue_gbp": "84715.97", "est_roi_pct": "310.3"}, {"category": "Mechanical & Electrical", "units": "30", "total_capex_gbp": "73517.37", "avg_utilisation_pct": "66.3", "est_annual_revenue_gbp": "226999.0", "est_roi_pct": "308.8"}, {"category": "Powered Access", "units": "103", "total_capex_gbp": "4482752.24", "avg_utilisation_pct": "64.3", "est_annual_revenue_gbp": "13838153.2", "est_roi_pct": "308.7"}, {"category": "Concreting & Compaction", "units": "33", "total_capex_gbp": "122282.54", "avg_utilisation_pct": "65.9", "est_annual_revenue_gbp": "375485.63", "est_roi_pct": "307.1"}, {"category": "Access", "units": "24", "total_capex_gbp": "57234.2", "avg_utilisation_pct": "63.5", "est_annual_revenue_gbp": "174624.5", "est_roi_pct": "305.1"}, {"category": "Lighting", "units": "13", "total_capex_gbp": "15218.22", "avg_utilisation_pct": "58.8", "est_annual_revenue_gbp": "46398.45", "est_roi_pct": "304.9"}, {"category": "Painting & Decorating", "units": "11", "total_capex_gbp": "16495.58", "avg_utilisation_pct": "62.9", "est_annual_revenue_gbp": "50208.22", "est_roi_pct": "304.4"}, {"category": "Consumables", "units": "22", "total_capex_gbp": "1981.35", "avg_utilisation_pct": "61.0", "est_annual_revenue_gbp": "6019.25", "est_roi_pct": "303.8"}, {"category": "Safety, Ventilation & Extraction", "units": "19", "total_capex_gbp": "45365.36", "avg_utilisation_pct": "62.7", "est_annual_revenue_gbp": "137217.74", "est_roi_pct": "302.5"}, {"category": "Cutting & Grinding", "units": "191", "total_capex_gbp": "465464.27", "avg_utilisation_pct": "63.8", "est_annual_revenue_gbp": "1407366.79", "est_roi_pct": "302.4"}, {"category": "Survey & Location", "units": "26", "total_capex_gbp": "113743.8", "avg_utilisation_pct": "66.7", "est_annual_revenue_gbp": "343700.78", "est_roi_pct": "302.2"}, {"category": "Landscaping & Gardening", "units": "24", "total_capex_gbp": "69862.18", "avg_utilisation_pct": "62.8", "est_annual_revenue_gbp": "210467.83", "est_roi_pct": "301.3"}, {"category": "Material Handling & Logistics", "units": "236", "total_capex_gbp": "754545.25", "avg_utilisation_pct": "62.5", "est_annual_revenue_gbp": "2254795.79", "est_roi_pct": "298.8"}, {"category": "Lifting Equipment", "units": "192", "total_capex_gbp": "1780890.88", "avg_utilisation_pct": "64.5", "est_annual_revenue_gbp": "5317210.68", "est_roi_pct": "298.6"}, {"category": "Breakers & Drills", "units": "286", "total_capex_gbp": "815704.37", "avg_utilisation_pct": "62.9", "est_annual_revenue_gbp": "2404974.83", "est_roi_pct": "294.8"}, {"category": "Sanding & Woodworking", "units": "46", "total_capex_gbp": "68166.31", "avg_utilisation_pct": "61.4", "est_annual_revenue_gbp": "199553.49", "est_roi_pct": "292.7"}, {"category": "Climate Control", "units": "13", "total_capex_gbp": "35388.0", "avg_utilisation_pct": "61.2", "est_annual_revenue_gbp": "103281.35", "est_roi_pct": "291.9"}, {"category": "Power & Electrics", "units": "31", "total_capex_gbp": "208230.02", "avg_utilisation_pct": "64.5", "est_annual_revenue_gbp": "595340.14", "est_roi_pct": "285.9"}, {"category": "Propping & Support", "units": "18", "total_capex_gbp": "8951.41", "avg_utilisation_pct": "58.1", "est_annual_revenue_gbp": "23669.78", "est_roi_pct": "264.4"}], "lowest_roi_assets": [{"stock_code": "MH&-01561", "category": "Material Handling & Logistics", "product_name": "2.5T Pallet Truck", "depot": "London South", "capex_gbp": "3444.09", "book_value_gbp": "3245.94", "utilisation_pct_ytd": "13.8", "condition": "Good", "status": "On Hire", "est_annual_revenue_gbp": "1775.04", "est_roi_pct": "51.5"}, {"stock_code": "PA-01117", "category": "Powered Access", "product_name": "Nifty Lift HR17 17m Hybrid Boom Lift", "depot": "London South", "capex_gbp": "78420.69", "book_value_gbp": "15082.55", "utilisation_pct_ytd": "32.3", "condition": "Good", "status": "Available", "est_annual_revenue_gbp": "77386.28", "est_roi_pct": "98.7"}, {"stock_code": "C&G-02126", "category": "Cutting & Grinding", "product_name": "Metal Cutting Chop Saw", "depot": "London South", "capex_gbp": "3728.26", "book_value_gbp": "2257.38", "utilisation_pct_ytd": "31.0", "condition": "Needs Assessment", "status": "Available", "est_annual_revenue_gbp": "3782.6", "est_roi_pct": "101.5"}, {"stock_code": "L&G-02300", "category": "Landscaping & Gardening", "product_name": "Turf Cutter", "depot": "Birmingham", "capex_gbp": "2609.07", "book_value_gbp": "687.65", "utilisation_pct_ytd": "28.7", "condition": "Good", "status": "On Hire", "est_annual_revenue_gbp": "2718.39", "est_roi_pct": "104.2"}, {"stock_code": "MH&-01517", "category": "Material Handling & Logistics", "product_name": "Sack Truck", "depot": "London South", "capex_gbp": "3052.71", "book_value_gbp": "998.61", "utilisation_pct_ytd": "31.5", "condition": "Good", "status": "On Hire", "est_annual_revenue_gbp": "3258.39", "est_roi_pct": "106.7"}, {"stock_code": "B&D-01437", "category": "Breakers & Drills", "product_name": "Hilti TE 700-AVR Medium Breaker", "depot": "Birmingham", "capex_gbp": "2398.72", "book_value_gbp": "1848.0", "utilisation_pct_ytd": "32.9", "condition": "Excellent", "status": "On Hire", "est_annual_revenue_gbp": "2580.63", "est_roi_pct": "107.6"}, {"stock_code": "LE-01842", "category": "Lifting Equipment", "product_name": "Forklift Hook Attachment", "depot": "Birmingham", "capex_gbp": "17298.71", "book_value_gbp": "11421.89", "utilisation_pct_ytd": "32.0", "condition": "Excellent", "status": "On Hire", "est_annual_revenue_gbp": "19152.86", "est_roi_pct": "110.7"}, {"stock_code": "C&G-02019", "category": "Cutting & Grinding", "product_name": "Armorgard SS7 Cutting Station", "depot": "London South", "capex_gbp": "2020.72", "book_value_gbp": "544.76", "utilisation_pct_ytd": "32.9", "condition": "Excellent", "status": "On Hire", "est_annual_revenue_gbp": "2249.19", "est_roi_pct": "111.3"}, {"stock_code": "B&D-01433", "category": "Breakers & Drills", "product_name": "Petrol Heavy Breaker", "depot": "London South", "capex_gbp": "782.5", "book_value_gbp": "440.34", "utilisation_pct_ytd": "35.3", "condition": "Excellent", "status": "Available", "est_annual_revenue_gbp": "881.3", "est_roi_pct": "112.6"}, {"stock_code": "P-01033", "category": "Plant", "product_name": "20 Ton Excavator", "depot": "London North", "capex_gbp": "41298.12", "book_value_gbp": "38311.08", "utilisation_pct_ytd": "35.6", "condition": "Fair", "status": "On Hire", "est_annual_revenue_gbp": "46606.88", "est_roi_pct": "112.9"}, {"stock_code": "AS&-01890", "category": "Accommodation, Storage & Welfare", "product_name": "6-8 man Welfare Unit (12ft)", "depot": "Leeds", "capex_gbp": "2230.9", "book_value_gbp": "223.09", "utilisation_pct_ytd": "38.2", "condition": "Good", "status": "Workshop", "est_annual_revenue_gbp": "2527.87", "est_roi_pct": "113.3"}, {"stock_code": "MH&-01607", "category": "Material Handling & Logistics", "product_name": "Electric Rough Terrain Pallet Truck", "depot": "Manchester", "capex_gbp": "5251.98", "book_value_gbp": "1781.36", "utilisation_pct_ytd": "22.7", "condition": "Excellent", "status": "Workshop", "est_annual_revenue_gbp": "5990.42", "est_roi_pct": "114.1"}, {"stock_code": "C&G-02132", "category": "Cutting & Grinding", "product_name": "Mitre Saw Stand", "depot": "Leeds", "capex_gbp": "1870.83", "book_value_gbp": "378.27", "utilisation_pct_ytd": "32.4", "condition": "Excellent", "status": "Workshop", "est_annual_revenue_gbp": "2158.25", "est_roi_pct": "115.4"}, {"stock_code": "P&S-02421", "category": "Propping & Support", "product_name": "Acrow Prop Size 3", "depot": "Leeds", "capex_gbp": "503.34", "book_value_gbp": "379.5", "utilisation_pct_ytd": "29.1", "condition": "Fair", "status": "On Hire", "est_annual_revenue_gbp": "588.43", "est_roi_pct": "116.9"}, {"stock_code": "B&D-01416", "category": "Breakers & Drills", "product_name": "Hilti TE 2000 AVR Medium Breaker", "depot": "Manchester", "capex_gbp": "2056.18", "book_value_gbp": "904.72", "utilisation_pct_ytd": "39.4", "condition": "Excellent", "status": "On Hire", "est_annual_revenue_gbp": "2443.33", "est_roi_pct": "118.8"}], "pending_approvals": [{"approval_id": "APR-4087", "stock_code": "S&W-02279", "category": "Sanding & Woodworking", "request_type": "Auction Disposal", "value_gbp": "21552.6", "requested_date": "2026-01-18", "status": "Pending", "requested_by": "Depot Manager - London North"}, {"approval_id": "APR-4099", "stock_code": "S&L-02555", "category": "Survey & Location", "request_type": "Auction Disposal", "value_gbp": "21495.42", "requested_date": "2026-04-27", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4105", "stock_code": "P&E-02595", "category": "Power & Electrics", "request_type": "Auction Disposal", "value_gbp": "20787.52", "requested_date": "2026-07-11", "status": "Pending", "requested_by": "Depot Manager - London North"}, {"approval_id": "APR-4037", "stock_code": "MH&-01563", "category": "Material Handling & Logistics", "request_type": "Auction Disposal", "value_gbp": "20352.31", "requested_date": "2026-01-14", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4033", "stock_code": "MH&-01480", "category": "Material Handling & Logistics", "request_type": "Auction Disposal", "value_gbp": "19891.1", "requested_date": "2025-11-22", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4137", "stock_code": "MH&-01531", "category": "Material Handling & Logistics", "request_type": "Parts Purchase", "value_gbp": "18882.09", "requested_date": "2026-05-13", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4024", "stock_code": "B&D-01360", "category": "Breakers & Drills", "request_type": "Auction Disposal", "value_gbp": "18774.89", "requested_date": "2026-01-25", "status": "Pending", "requested_by": "Depot Manager - Manchester"}, {"approval_id": "APR-4069", "stock_code": "C&G-02056", "category": "Cutting & Grinding", "request_type": "Auction Disposal", "value_gbp": "18320.11", "requested_date": "2026-01-19", "status": "Pending", "requested_by": "Depot Manager - Manchester"}, {"approval_id": "APR-4138", "stock_code": "P&E-02586", "category": "Power & Electrics", "request_type": "Capital Replacement", "value_gbp": "16941.79", "requested_date": "2026-01-12", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4003", "stock_code": "P-01044", "category": "Plant", "request_type": "Auction Disposal", "value_gbp": "16575.16", "requested_date": "2026-01-31", "status": "Pending", "requested_by": "Depot Manager - London North"}, {"approval_id": "APR-4044", "stock_code": "MH&-01674", "category": "Material Handling & Logistics", "request_type": "Auction Disposal", "value_gbp": "16423.75", "requested_date": "2026-06-20", "status": "Pending", "requested_by": "Workshop Controller"}, {"approval_id": "APR-4141", "stock_code": "B&D-01205", "category": "Breakers & Drills", "request_type": "Auction Disposal", "value_gbp": "16121.07", "requested_date": "2026-01-07", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4017", "stock_code": "B&D-01290", "category": "Breakers & Drills", "request_type": "Auction Disposal", "value_gbp": "15082.72", "requested_date": "2026-04-18", "status": "Pending", "requested_by": "Depot Manager - Manchester"}, {"approval_id": "APR-4041", "stock_code": "MH&-01638", "category": "Material Handling & Logistics", "request_type": "Auction Disposal", "value_gbp": "14808.67", "requested_date": "2025-12-22", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4093", "stock_code": "C-02379", "category": "Consumables", "request_type": "Auction Disposal", "value_gbp": "13939.5", "requested_date": "2026-05-19", "status": "Pending", "requested_by": "Workshop Controller"}, {"approval_id": "APR-4001", "stock_code": "P-01029", "category": "Plant", "request_type": "Auction Disposal", "value_gbp": "13457.42", "requested_date": "2026-03-16", "status": "Pending", "requested_by": "Workshop Controller"}, {"approval_id": "APR-4000", "stock_code": "P-01022", "category": "Plant", "request_type": "Auction Disposal", "value_gbp": "13174.43", "requested_date": "2026-05-22", "status": "Pending", "requested_by": "Workshop Controller"}, {"approval_id": "APR-4071", "stock_code": "C&G-02097", "category": "Cutting & Grinding", "request_type": "Auction Disposal", "value_gbp": "12013.67", "requested_date": "2026-04-10", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4029", "stock_code": "B&D-01429", "category": "Breakers & Drills", "request_type": "Auction Disposal", "value_gbp": "11419.91", "requested_date": "2026-06-07", "status": "Pending", "requested_by": "Depot Manager - Manchester"}, {"approval_id": "APR-4114", "stock_code": "B&D-01202", "category": "Breakers & Drills", "request_type": "Parts Purchase", "value_gbp": "11411.38", "requested_date": "2025-12-22", "status": "Pending", "requested_by": "Workshop Controller"}, {"approval_id": "APR-4023", "stock_code": "B&D-01354", "category": "Breakers & Drills", "request_type": "Auction Disposal", "value_gbp": "10018.57", "requested_date": "2026-04-17", "status": "Pending", "requested_by": "Workshop Controller"}, {"approval_id": "APR-4132", "stock_code": "S&W-02296", "category": "Sanding & Woodworking", "request_type": "Capital Replacement", "value_gbp": "9884.59", "requested_date": "2026-01-03", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4054", "stock_code": "LE-01808", "category": "Lifting Equipment", "request_type": "Auction Disposal", "value_gbp": "9716.89", "requested_date": "2026-01-27", "status": "Pending", "requested_by": "Workshop Controller"}, {"approval_id": "APR-4045", "stock_code": "MH&-01688", "category": "Material Handling & Logistics", "request_type": "Auction Disposal", "value_gbp": "9449.19", "requested_date": "2025-12-15", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4131", "stock_code": "B&D-01396", "category": "Breakers & Drills", "request_type": "Auction Disposal", "value_gbp": "9440.04", "requested_date": "2026-05-23", "status": "Pending", "requested_by": "Depot Manager - Manchester"}, {"approval_id": "APR-4005", "stock_code": "PA-01134", "category": "Powered Access", "request_type": "Auction Disposal", "value_gbp": "4138.23", "requested_date": "2025-12-21", "status": "Pending", "requested_by": "Depot Manager - Manchester"}, {"approval_id": "APR-4142", "stock_code": "C&G-02091", "category": "Cutting & Grinding", "request_type": "Capital Replacement", "value_gbp": "4058.23", "requested_date": "2025-12-25", "status": "Pending", "requested_by": "Depot Manager - Birmingham"}, {"approval_id": "APR-4136", "stock_code": "LE-01730", "category": "Lifting Equipment", "request_type": "Auction Disposal", "value_gbp": "3295.33", "requested_date": "2026-07-07", "status": "Pending", "requested_by": "Depot Manager - Manchester"}, {"approval_id": "APR-4034", "stock_code": "MH&-01519", "category": "Material Handling & Logistics", "request_type": "Auction Disposal", "value_gbp": "2140.19", "requested_date": "2026-04-15", "status": "Pending", "requested_by": "Workshop Controller"}, {"approval_id": "APR-4089", "stock_code": "M&E-02332", "category": "Mechanical & Electrical", "request_type": "Auction Disposal", "value_gbp": "1608.88", "requested_date": "2025-12-11", "status": "Pending", "requested_by": "Depot Manager - Manchester"}, {"approval_id": "APR-4040", "stock_code": "MH&-01622", "category": "Material Handling & Logistics", "request_type": "Auction Disposal", "value_gbp": "666.28", "requested_date": "2026-04-01", "status": "Pending", "requested_by": "Workshop Controller"}, {"approval_id": "APR-4077", "stock_code": "C&G-02166", "category": "Cutting & Grinding", "request_type": "Auction Disposal", "value_gbp": "523.97", "requested_date": "2026-06-09", "status": "Pending", "requested_by": "Workshop Controller"}], "repairs_pending": [{"repair_id": "REP-3019", "stock_code": "MH&-01493", "category": "Material Handling & Logistics", "supplier": "National Plant Repair Co", "fault_reported": "Safety recall check", "cost_gbp": "4123.36", "date_logged": "2026-02-07"}, {"repair_id": "REP-3032", "stock_code": "AS&-01984", "category": "Accommodation, Storage & Welfare", "supplier": "Speedy Fleet Services", "fault_reported": "Safety recall check", "cost_gbp": "4021.44", "date_logged": "2026-02-19"}, {"repair_id": "REP-3011", "stock_code": "SV&-02417", "category": "Safety, Ventilation & Extraction", "supplier": "National Plant Repair Co", "fault_reported": "Structural damage", "cost_gbp": "3782.83", "date_logged": "2025-12-01"}, {"repair_id": "REP-3073", "stock_code": "MH&-01569", "category": "Material Handling & Logistics", "supplier": "Vp Plant Repairs", "fault_reported": "Safety recall check", "cost_gbp": "3771.93", "date_logged": "2026-05-20"}, {"repair_id": "REP-3042", "stock_code": "C&G-02013", "category": "Cutting & Grinding", "supplier": "Vp Plant Repairs", "fault_reported": "Safety recall check", "cost_gbp": "3623.52", "date_logged": "2025-11-10"}, {"repair_id": "REP-3077", "stock_code": "B&D-01226", "category": "Breakers & Drills", "supplier": "Speedy Fleet Services", "fault_reported": "Battery/charging fault", "cost_gbp": "3454.91", "date_logged": "2026-01-08"}, {"repair_id": "REP-3066", "stock_code": "B&D-01290", "category": "Breakers & Drills", "supplier": "AFI Technical", "fault_reported": "Electrical fault", "cost_gbp": "3019.1", "date_logged": "2026-06-08"}, {"repair_id": "REP-3002", "stock_code": "C&G-02176", "category": "Cutting & Grinding", "supplier": "National Plant Repair Co", "fault_reported": "Wear & tear service", "cost_gbp": "2927.46", "date_logged": "2025-11-18"}, {"repair_id": "REP-3004", "stock_code": "C&C-02516", "category": "Concreting & Compaction", "supplier": "Speedy Fleet Services", "fault_reported": "Structural damage", "cost_gbp": "2842.01", "date_logged": "2026-04-11"}, {"repair_id": "REP-3003", "stock_code": "MH&-01606", "category": "Material Handling & Logistics", "supplier": "Vp Plant Repairs", "fault_reported": "Safety recall check", "cost_gbp": "2610.42", "date_logged": "2026-01-11"}, {"repair_id": "REP-3047", "stock_code": "MH&-01473", "category": "Material Handling & Logistics", "supplier": "Vp Plant Repairs", "fault_reported": "Safety recall check", "cost_gbp": "2129.98", "date_logged": "2026-04-04"}, {"repair_id": "REP-3070", "stock_code": "C-02222", "category": "Cleaning", "supplier": "Independent Hydraulics Ltd", "fault_reported": "Safety recall check", "cost_gbp": "2030.03", "date_logged": "2026-03-01"}, {"repair_id": "REP-3026", "stock_code": "AS&-01910", "category": "Accommodation, Storage & Welfare", "supplier": "Independent Hydraulics Ltd", "fault_reported": "Tyre/track replacement", "cost_gbp": "1744.38", "date_logged": "2026-04-30"}, {"repair_id": "REP-3038", "stock_code": "C&G-02097", "category": "Cutting & Grinding", "supplier": "Independent Hydraulics Ltd", "fault_reported": "Safety recall check", "cost_gbp": "1734.89", "date_logged": "2025-09-22"}, {"repair_id": "REP-3016", "stock_code": "MH&-01594", "category": "Material Handling & Logistics", "supplier": "Speedy Fleet Services", "fault_reported": "Safety recall check", "cost_gbp": "1682.68", "date_logged": "2025-11-03"}, {"repair_id": "REP-3039", "stock_code": "B&D-01367", "category": "Breakers & Drills", "supplier": "Speedy Fleet Services", "fault_reported": "Safety recall check", "cost_gbp": "1480.34", "date_logged": "2026-06-25"}, {"repair_id": "REP-3069", "stock_code": "F&F-02465", "category": "Fixing & Fastening", "supplier": "Speedy Fleet Services", "fault_reported": "Safety recall check", "cost_gbp": "1208.15", "date_logged": "2026-01-08"}, {"repair_id": "REP-3059", "stock_code": "AS&-01919", "category": "Accommodation, Storage & Welfare", "supplier": "Speedy Fleet Services", "fault_reported": "Battery/charging fault", "cost_gbp": "690.93", "date_logged": "2026-02-22"}], "below_min_stock": [{"category": "Access", "depot": "Birmingham", "assets_of_type": "5", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Access", "depot": "Bristol", "assets_of_type": "5", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Access", "depot": "London North", "assets_of_type": "3", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Access", "depot": "London South", "assets_of_type": "5", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Access", "depot": "Manchester", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Accommodation, Storage & Welfare", "depot": "Birmingham", "assets_of_type": "23", "units_available": "2", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Accommodation, Storage & Welfare", "depot": "Bristol", "assets_of_type": "13", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Cleaning", "depot": "Birmingham", "assets_of_type": "8", "units_available": "2", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Cleaning", "depot": "Bristol", "assets_of_type": "3", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Cleaning", "depot": "Leeds", "assets_of_type": "9", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Cleaning", "depot": "London North", "assets_of_type": "7", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Cleaning", "depot": "London South", "assets_of_type": "12", "units_available": "2", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Cleaning", "depot": "Manchester", "assets_of_type": "7", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Climate Control", "depot": "Birmingham", "assets_of_type": "3", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Climate Control", "depot": "Leeds", "assets_of_type": "3", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Climate Control", "depot": "London South", "assets_of_type": "4", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Climate Control", "depot": "Manchester", "assets_of_type": "3", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Concreting & Compaction", "depot": "Birmingham", "assets_of_type": "3", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Concreting & Compaction", "depot": "Bristol", "assets_of_type": "5", "units_available": "2", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Concreting & Compaction", "depot": "Leeds", "assets_of_type": "4", "units_available": "2", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Concreting & Compaction", "depot": "London North", "assets_of_type": "3", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Consumables", "depot": "Birmingham", "assets_of_type": "2", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Consumables", "depot": "Bristol", "assets_of_type": "2", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Consumables", "depot": "Leeds", "assets_of_type": "3", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Consumables", "depot": "London North", "assets_of_type": "4", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Consumables", "depot": "London South", "assets_of_type": "5", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Consumables", "depot": "Manchester", "assets_of_type": "6", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fencing & Barriers", "depot": "Birmingham", "assets_of_type": "2", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fencing & Barriers", "depot": "Bristol", "assets_of_type": "3", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fencing & Barriers", "depot": "Leeds", "assets_of_type": "2", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fencing & Barriers", "depot": "London North", "assets_of_type": "2", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fencing & Barriers", "depot": "London South", "assets_of_type": "3", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fencing & Barriers", "depot": "Manchester", "assets_of_type": "2", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fixing & Fastening", "depot": "Birmingham", "assets_of_type": "5", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fixing & Fastening", "depot": "Leeds", "assets_of_type": "1", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fixing & Fastening", "depot": "London North", "assets_of_type": "7", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fixing & Fastening", "depot": "London South", "assets_of_type": "3", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fuel & Gas", "depot": "London North", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fuel & Gas", "depot": "London South", "assets_of_type": "2", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Fuel & Gas", "depot": "Manchester", "assets_of_type": "2", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Landscaping & Gardening", "depot": "Birmingham", "assets_of_type": "5", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Landscaping & Gardening", "depot": "Leeds", "assets_of_type": "2", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Landscaping & Gardening", "depot": "London North", "assets_of_type": "2", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Landscaping & Gardening", "depot": "London South", "assets_of_type": "3", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Landscaping & Gardening", "depot": "Manchester", "assets_of_type": "3", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Lifting Equipment", "depot": "Manchester", "assets_of_type": "30", "units_available": "2", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Lighting", "depot": "Birmingham", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Lighting", "depot": "Bristol", "assets_of_type": "3", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Lighting", "depot": "Leeds", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Lighting", "depot": "London North", "assets_of_type": "5", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Lighting", "depot": "London South", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Lighting", "depot": "Manchester", "assets_of_type": "2", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Material Handling & Logistics", "depot": "Manchester", "assets_of_type": "35", "units_available": "2", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Mechanical & Electrical", "depot": "Birmingham", "assets_of_type": "3", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Mechanical & Electrical", "depot": "Bristol", "assets_of_type": "6", "units_available": "2", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Mechanical & Electrical", "depot": "Leeds", "assets_of_type": "4", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Mechanical & Electrical", "depot": "London North", "assets_of_type": "6", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Mechanical & Electrical", "depot": "London South", "assets_of_type": "8", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Mechanical & Electrical", "depot": "Manchester", "assets_of_type": "3", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Painting & Decorating", "depot": "Bristol", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Painting & Decorating", "depot": "Leeds", "assets_of_type": "2", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Painting & Decorating", "depot": "London North", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Painting & Decorating", "depot": "London South", "assets_of_type": "3", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Plant", "depot": "Birmingham", "assets_of_type": "7", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Power & Electrics", "depot": "Birmingham", "assets_of_type": "4", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Power & Electrics", "depot": "Bristol", "assets_of_type": "5", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Power & Electrics", "depot": "Leeds", "assets_of_type": "4", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Power & Electrics", "depot": "London North", "assets_of_type": "4", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Power & Electrics", "depot": "London South", "assets_of_type": "5", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Power & Electrics", "depot": "Manchester", "assets_of_type": "9", "units_available": "2", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Powered Access", "depot": "Birmingham", "assets_of_type": "14", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Propping & Support", "depot": "Birmingham", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Propping & Support", "depot": "Leeds", "assets_of_type": "3", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Propping & Support", "depot": "London North", "assets_of_type": "1", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Propping & Support", "depot": "London South", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Propping & Support", "depot": "Manchester", "assets_of_type": "7", "units_available": "1", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Safety, Ventilation & Extraction", "depot": "Leeds", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Safety, Ventilation & Extraction", "depot": "London North", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Safety, Ventilation & Extraction", "depot": "London South", "assets_of_type": "2", "units_available": "0", "min_stock_level": "2", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Sanding & Woodworking", "depot": "Bristol", "assets_of_type": "6", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Sanding & Woodworking", "depot": "Leeds", "assets_of_type": "5", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Sanding & Woodworking", "depot": "London North", "assets_of_type": "10", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Sanding & Woodworking", "depot": "Manchester", "assets_of_type": "4", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Site Equipment & Groundworks", "depot": "Birmingham", "assets_of_type": "5", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Site Equipment & Groundworks", "depot": "Bristol", "assets_of_type": "6", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Site Equipment & Groundworks", "depot": "Leeds", "assets_of_type": "1", "units_available": "0", "min_stock_level": "1", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Site Equipment & Groundworks", "depot": "London North", "assets_of_type": "4", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Site Equipment & Groundworks", "depot": "London South", "assets_of_type": "5", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Site Equipment & Groundworks", "depot": "Manchester", "assets_of_type": "3", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Survey & Location", "depot": "Birmingham", "assets_of_type": "4", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Survey & Location", "depot": "Bristol", "assets_of_type": "8", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Survey & Location", "depot": "Leeds", "assets_of_type": "3", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Survey & Location", "depot": "London North", "assets_of_type": "5", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Survey & Location", "depot": "London South", "assets_of_type": "4", "units_available": "0", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}, {"category": "Survey & Location", "depot": "Manchester", "assets_of_type": "2", "units_available": "1", "min_stock_level": "3", "stock_level_flag": "BELOW MINIMUM"}], "unfulfilled_transfers": [{"transfer_id": "XFER-5032", "date": "2026-07-10", "category": "Climate Control", "from_depot": "Manchester", "to_depot": "Bristol", "units_transferred": "3", "reason": "Planned redistribution"}, {"transfer_id": "XFER-5055", "date": "2026-07-07", "category": "Consumables", "from_depot": "Bristol", "to_depot": "London South", "units_transferred": "4", "reason": "Shortage cover"}, {"transfer_id": "XFER-5057", "date": "2026-07-07", "category": "Climate Control", "from_depot": "Leeds", "to_depot": "London North", "units_transferred": "4", "reason": "Emergency same-day request"}, {"transfer_id": "XFER-5002", "date": "2026-06-18", "category": "Landscaping & Gardening", "from_depot": "London South", "to_depot": "Manchester", "units_transferred": "4", "reason": "Emergency same-day request"}, {"transfer_id": "XFER-5095", "date": "2026-05-30", "category": "Fuel & Gas", "from_depot": "Bristol", "to_depot": "Leeds", "units_transferred": "4", "reason": "Shortage cover"}, {"transfer_id": "XFER-5039", "date": "2026-05-21", "category": "Safety, Ventilation & Extraction", "from_depot": "Manchester", "to_depot": "Birmingham", "units_transferred": "3", "reason": "Planned redistribution"}, {"transfer_id": "XFER-5023", "date": "2026-03-23", "category": "Painting & Decorating", "from_depot": "London North", "to_depot": "London South", "units_transferred": "2", "reason": "Emergency same-day request"}, {"transfer_id": "XFER-5024", "date": "2025-12-18", "category": "Landscaping & Gardening", "from_depot": "Birmingham", "to_depot": "Manchester", "units_transferred": "1", "reason": "Emergency same-day request"}, {"transfer_id": "XFER-5036", "date": "2025-11-25", "category": "Painting & Decorating", "from_depot": "Bristol", "to_depot": "London North", "units_transferred": "1", "reason": "Rebalance to demand"}, {"transfer_id": "XFER-5019", "date": "2025-11-22", "category": "Consumables", "from_depot": "Birmingham", "to_depot": "Bristol", "units_transferred": "3", "reason": "Shortage cover"}, {"transfer_id": "XFER-5021", "date": "2025-11-22", "category": "Access", "from_depot": "London North", "to_depot": "Bristol", "units_transferred": "3", "reason": "Planned redistribution"}, {"transfer_id": "XFER-5117", "date": "2025-11-18", "category": "Cutting & Grinding", "from_depot": "Birmingham", "to_depot": "Bristol", "units_transferred": "4", "reason": "Emergency same-day request"}, {"transfer_id": "XFER-5138", "date": "2025-11-17", "category": "Site Equipment & Groundworks", "from_depot": "London South", "to_depot": "Manchester", "units_transferred": "1", "reason": "Rebalance to demand"}, {"transfer_id": "XFER-5071", "date": "2025-11-08", "category": "Lifting Equipment", "from_depot": "Leeds", "to_depot": "Manchester", "units_transferred": "4", "reason": "Shortage cover"}, {"transfer_id": "XFER-5128", "date": "2025-11-02", "category": "Landscaping & Gardening", "from_depot": "London South", "to_depot": "Birmingham", "units_transferred": "2", "reason": "Emergency same-day request"}, {"transfer_id": "XFER-5077", "date": "2025-10-28", "category": "Cleaning", "from_depot": "Birmingham", "to_depot": "London South", "units_transferred": "2", "reason": "Shortage cover"}, {"transfer_id": "XFER-5141", "date": "2025-10-13", "category": "Material Handling & Logistics", "from_depot": "Birmingham", "to_depot": "London South", "units_transferred": "2", "reason": "Rebalance to demand"}, {"transfer_id": "XFER-5001", "date": "2025-09-25", "category": "Landscaping & Gardening", "from_depot": "Bristol", "to_depot": "Manchester", "units_transferred": "3", "reason": "Planned redistribution"}], "utilisation_by_category": [{"category": "Fencing & Barriers", "avg_utilisation_pct": "59.59", "target_60pct_status": "BELOW TARGET"}, {"category": "Landscaping & Gardening", "avg_utilisation_pct": "62.58", "target_60pct_status": "ON TARGET"}, {"category": "Consumables", "avg_utilisation_pct": "63.81", "target_60pct_status": "ON TARGET"}, {"category": "Survey & Location", "avg_utilisation_pct": "64.75", "target_60pct_status": "ON TARGET"}, {"category": "Plant", "avg_utilisation_pct": "65.41", "target_60pct_status": "ON TARGET"}, {"category": "Power & Electrics", "avg_utilisation_pct": "65.42", "target_60pct_status": "ON TARGET"}, {"category": "Concreting & Compaction", "avg_utilisation_pct": "65.47", "target_60pct_status": "ON TARGET"}, {"category": "Cleaning", "avg_utilisation_pct": "65.51", "target_60pct_status": "ON TARGET"}, {"category": "Accommodation, Storage & Welfare", "avg_utilisation_pct": "65.55", "target_60pct_status": "ON TARGET"}, {"category": "Lifting Equipment", "avg_utilisation_pct": "65.64", "target_60pct_status": "ON TARGET"}, {"category": "Material Handling & Logistics", "avg_utilisation_pct": "65.83", "target_60pct_status": "ON TARGET"}, {"category": "Sanding & Woodworking", "avg_utilisation_pct": "65.88", "target_60pct_status": "ON TARGET"}, {"category": "Powered Access", "avg_utilisation_pct": "66.1", "target_60pct_status": "ON TARGET"}, {"category": "Mechanical & Electrical", "avg_utilisation_pct": "66.13", "target_60pct_status": "ON TARGET"}, {"category": "Cutting & Grinding", "avg_utilisation_pct": "66.19", "target_60pct_status": "ON TARGET"}, {"category": "Breakers & Drills", "avg_utilisation_pct": "66.58", "target_60pct_status": "ON TARGET"}, {"category": "Climate Control", "avg_utilisation_pct": "66.76", "target_60pct_status": "ON TARGET"}, {"category": "Fuel & Gas", "avg_utilisation_pct": "68.51", "target_60pct_status": "ON TARGET"}, {"category": "Painting & Decorating", "avg_utilisation_pct": "69.6", "target_60pct_status": "ON TARGET"}, {"category": "Fixing & Fastening", "avg_utilisation_pct": "70.33", "target_60pct_status": "ON TARGET"}, {"category": "Site Equipment & Groundworks", "avg_utilisation_pct": "71.11", "target_60pct_status": "ON TARGET"}, {"category": "Access", "avg_utilisation_pct": "71.17", "target_60pct_status": "ON TARGET"}, {"category": "Safety, Ventilation & Extraction", "avg_utilisation_pct": "73.53", "target_60pct_status": "ON TARGET"}, {"category": "Lighting", "avg_utilisation_pct": "78.54", "target_60pct_status": "ON TARGET"}, {"category": "Propping & Support", "avg_utilisation_pct": "80.85", "target_60pct_status": "ON TARGET"}], "kpis": {"in_service_pct": 89.3, "utilisation_pct": 65.9, "over_budget_categories": 3, "pending_approvals": 32, "below_min_stock": 95, "unfulfilled_transfers": 18}};
+
+function num(v) { return typeof v === 'string' ? parseFloat(v) : v; }
+function fmtGBP(v) {
+  const n = num(v);
+  if (Math.abs(n) >= 1000) return '£' + (n/1000).toFixed(1) + 'k';
+  return '£' + n.toFixed(0);
+}
+function fmtGBPFull(v) { return '£' + Math.round(num(v)).toLocaleString('en-GB'); }
+
+// ---------------- KPI TILES ----------------
+(function renderKpis() {
+  const k = DATA.kpis;
+  const tiles = [
+    { label: 'Fleet In-Service %', value: k.in_service_pct + '%', sub: 'Target: ≥85% (workshop ≤15%)',
+      status: k.in_service_pct >= 85 ? 'good' : (k.in_service_pct >= 80 ? 'warn' : 'bad'),
+      statusText: k.in_service_pct >= 85 ? 'On target' : 'Below target' },
+    { label: 'Fleet Utilisation %', value: k.utilisation_pct + '%', sub: 'Target: ≥60%',
+      status: k.utilisation_pct >= 60 ? 'good' : 'bad',
+      statusText: k.utilisation_pct >= 60 ? 'On target' : 'Below target' },
+    { label: 'Categories Over Capex Budget', value: k.over_budget_categories, sub: 'YTD, of 24 categories',
+      status: k.over_budget_categories === 0 ? 'good' : 'warn',
+      statusText: k.over_budget_categories === 0 ? 'Clean' : 'Needs review' },
+    { label: 'Approvals Pending (>£500)', value: k.pending_approvals, sub: 'Awaiting Ops & Systems Manager sign-off',
+      status: k.pending_approvals === 0 ? 'good' : 'warn', statusText: 'Action queue' },
+    { label: 'Assets Below Min Stock', value: k.below_min_stock, sub: 'Category/depot combos short of holding',
+      status: 'bad', statusText: 'Rebalance needed' },
+    { label: 'Unfulfilled Depot Transfers', value: k.unfulfilled_transfers, sub: 'Shortage requests still open',
+      status: k.unfulfilled_transfers === 0 ? 'good' : 'warn', statusText: 'In progress' },
+  ];
+  const grid = document.getElementById('kpiGrid');
+  grid.innerHTML = tiles.map(t => `
+    <div class="kpi">
+      <div class="label">${t.label}</div>
+      <div class="value">${t.value}</div>
+      <div class="sub">${t.sub}</div>
+      <div class="status-row"><span class="status-dot status-${t.status}"></span><span class="status-text" style="color:var(--${t.status === 'good' ? 'good' : (t.status === 'warn' ? 'warning' : 'critical')})">${t.statusText}</span></div>
+    </div>
+  `).join('');
+})();
+
+// ---------------- TREND LINE CHART ----------------
+(function renderTrend() {
+  const svg = document.getElementById('trendChart');
+  const tooltip = document.getElementById('trendTooltip');
+  const legend = document.getElementById('trendLegend');
+  const W = 640, H = 300, M = { top: 16, right: 16, bottom: 34, left: 34 };
+  const plotW = W - M.left - M.right, plotH = H - M.top - M.bottom;
+  const rows = DATA.monthly_trend;
+  const util = rows.map(r => num(r.utilisation_pct));
+  const inService = rows.map(r => 100 - num(r.workshop_pct));
+  const months = rows.map(r => r.month.slice(2));
+  const yMin = 0, yMax = 100;
+  const x = i => M.left + (i / (rows.length - 1)) * plotW;
+  const y = v => M.top + plotH - ((v - yMin) / (yMax - yMin)) * plotH;
+
+  legend.innerHTML = `
+    <div class="legend-item"><span class="legend-swatch" style="background:var(--series-1)"></span>Utilisation %</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:var(--series-2)"></span>In-Service %</div>
+    <div class="legend-item" style="color:var(--critical)"><span class="legend-swatch dashed" style="color:var(--critical)"></span>Targets (60% / 85%)</div>
+  `;
+
+  let s = '';
+  // gridlines
+  [0,25,50,75,100].forEach(v => {
+    s += `<line class="gridline" x1="${M.left}" x2="${W-M.right}" y1="${y(v)}" y2="${y(v)}"/>`;
+    s += `<text class="axis-label" x="${M.left-6}" y="${y(v)+3}" text-anchor="end">${v}%</text>`;
+  });
+  // month labels (every other)
+  months.forEach((m,i) => {
+    if (i % 2 === 0) s += `<text class="axis-label" x="${x(i)}" y="${H-M.bottom+16}" text-anchor="middle">${m}</text>`;
+  });
+  // target lines
+  s += `<line x1="${M.left}" x2="${W-M.right}" y1="${y(60)}" y2="${y(60)}" stroke="var(--critical)" stroke-width="1" stroke-dasharray="4 4" opacity="0.55"/>`;
+  s += `<line x1="${M.left}" x2="${W-M.right}" y1="${y(85)}" y2="${y(85)}" stroke="var(--critical)" stroke-width="1" stroke-dasharray="4 4" opacity="0.55"/>`;
+  s += `<line class="baseline" x1="${M.left}" x2="${W-M.right}" y1="${y(0)}" y2="${y(0)}"/>`;
+
+  function pathFor(arr) {
+    return arr.map((v,i) => `${i===0?'M':'L'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+  }
+  s += `<path d="${pathFor(util)}" fill="none" stroke="var(--series-1)" stroke-width="2"/>`;
+  s += `<path d="${pathFor(inService)}" fill="none" stroke="var(--series-2)" stroke-width="2"/>`;
+  util.forEach((v,i) => s += `<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="var(--series-1)"/>`);
+  inService.forEach((v,i) => s += `<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="var(--series-2)"/>`);
+  // hover targets
+  rows.forEach((r,i) => {
+    s += `<rect x="${x(i)-14}" y="${M.top}" width="28" height="${plotH}" fill="transparent" class="hoverzone" data-i="${i}"/>`;
+  });
+  svg.innerHTML = s;
+
+  svg.querySelectorAll('.hoverzone').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const i = +el.dataset.i;
+      const r = rows[i];
+      tooltip.innerHTML = `<div class="t-title">${r.month}</div>Utilisation: ${num(r.utilisation_pct)}%<br>In-Service: ${(100-num(r.workshop_pct)).toFixed(1)}%`;
+      const rect = svg.getBoundingClientRect();
+      const scale = rect.width / W;
+      tooltip.style.left = (x(i) * scale) + 'px';
+      tooltip.style.top = (y(util[i]) * scale - 46) + 'px';
+      tooltip.style.opacity = 1;
+    });
+    el.addEventListener('mouseleave', () => tooltip.style.opacity = 0);
+  });
+})();
+
+// ---------------- ROI LEADERBOARD (horizontal bars) ----------------
+(function renderRoi() {
+  const svg = document.getElementById('roiChart');
+  const tooltip = document.getElementById('roiTooltip');
+  const rows = [...DATA.roi_by_category].sort((a,b) => num(b.est_roi_pct) - num(a.est_roi_pct)).slice(0,10);
+  const W = 460, rowH = 26, top = 8, left = 150, right = 55;
+  const H = top + rows.length * rowH + 8;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const maxV = Math.max(...rows.map(r => num(r.est_roi_pct)));
+  const barW = W - left - right;
+  const xScale = v => (v / maxV) * barW;
+
+  let s = '';
+  rows.forEach((r,i) => {
+    const yy = top + i * rowH;
+    const w = xScale(num(r.est_roi_pct));
+    s += `<g class="bar-row" data-i="${i}">`;
+    s += `<text x="${left-8}" y="${yy+rowH/2+4}" text-anchor="end" font-size="10.5" fill="var(--text-secondary)">${r.category.length>18?r.category.slice(0,17)+'…':r.category}</text>`;
+    s += `<rect x="${left}" y="${yy+4}" width="${w}" height="${rowH-10}" rx="3" fill="var(--series-1)"/>`;
+    s += `<text x="${left+w+6}" y="${yy+rowH/2+4}" font-size="10.5" font-weight="700" fill="var(--text-primary)">${num(r.est_roi_pct).toFixed(0)}%</text>`;
+    s += `</g>`;
+  });
+  svg.innerHTML = s;
+  svg.querySelectorAll('.bar-row').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const r = rows[+el.dataset.i];
+      tooltip.innerHTML = `<div class="t-title">${r.category}</div>Units: ${r.units}<br>Capex: ${fmtGBPFull(r.total_capex_gbp)}<br>Est. revenue: ${fmtGBPFull(r.est_annual_revenue_gbp)}/yr<br>ROI: ${num(r.est_roi_pct).toFixed(1)}%`;
+      const rect = svg.getBoundingClientRect();
+      tooltip.style.left = (e.clientX - rect.left - svg.parentElement.getBoundingClientRect().left + 12) + 'px';
+      tooltip.style.top = (e.clientY - rect.top - 10) + 'px';
+      tooltip.style.opacity = 1;
+    });
+    el.addEventListener('mouseleave', () => tooltip.style.opacity = 0);
+  });
+})();
+
+// ---------------- CAPEX VARIANCE (diverging horizontal bars, all 24 categories) ----------------
+(function renderCapex() {
+  const svg = document.getElementById('capexChart');
+  const tooltip = document.getElementById('capexTooltip');
+  const rows = [...DATA.capex_by_category].sort((a,b) => num(b.ytd_variance_gbp) - num(a.ytd_variance_gbp));
+  const W = 1200, rowH = 24, top = 10, left = 260, right = 90;
+  const H = top + rows.length * rowH + 10;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const maxAbs = Math.max(...rows.map(r => Math.abs(num(r.ytd_variance_gbp))));
+  const plotW = W - left - right;
+  const mid = left + plotW/2;
+  const xScale = v => (v / maxAbs) * (plotW/2);
+
+  let s = `<line x1="${mid}" x2="${mid}" y1="${top}" y2="${H-6}" stroke="var(--baseline)" stroke-width="1"/>`;
+  rows.forEach((r,i) => {
+    const yy = top + i * rowH;
+    const v = num(r.ytd_variance_gbp);
+    const over = v > 0;
+    const w = Math.abs(xScale(v));
+    const barX = over ? mid : mid - w;
+    s += `<g class="bar-row" data-i="${i}">`;
+    s += `<text x="${left-10}" y="${yy+rowH/2+4}" text-anchor="end" font-size="10.5" fill="var(--text-secondary)">${r.category}</text>`;
+    s += `<rect x="${barX}" y="${yy+4}" width="${w}" height="${rowH-9}" rx="2" fill="${over ? 'var(--critical)' : 'var(--series-1)'}"/>`;
+    const labelX = over ? mid + w + 6 : mid - w - 6;
+    s += `<text x="${labelX}" y="${yy+rowH/2+4}" font-size="10" font-weight="700" text-anchor="${over?'start':'end'}" fill="var(--text-primary)">${over?'+':''}${fmtGBP(v)}</text>`;
+    s += `</g>`;
+  });
+  svg.innerHTML = s;
+  svg.querySelectorAll('.bar-row').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const r = rows[+el.dataset.i];
+      tooltip.innerHTML = `<div class="t-title">${r.category}</div>Budget: ${fmtGBPFull(r.ytd_budget_gbp)}<br>Actual: ${fmtGBPFull(r.ytd_actual_gbp)}<br>Variance: ${fmtGBPFull(r.ytd_variance_gbp)} (${r.pct_of_budget_used}% of budget)`;
+      const rect = svg.parentElement.getBoundingClientRect();
+      tooltip.style.left = (e.clientX - rect.left + 12) + 'px';
+      tooltip.style.top = (e.clientY - rect.top - 10) + 'px';
+      tooltip.style.opacity = 1;
+    });
+    el.addEventListener('mouseleave', () => tooltip.style.opacity = 0);
+  });
+})();
+
+// ---------------- ACTION QUEUE TABS ----------------
+(function renderTabs() {
+  const tabs = [
+    { id: 'approvals', label: `Approvals Pending (${DATA.pending_approvals.length})`,
+      cols: ['approval_id','category','request_type','value_gbp','requested_date','requested_by'],
+      headers: ['ID','Category','Type','Value','Requested','Requested By'],
+      fmt: { value_gbp: fmtGBPFull } },
+    { id: 'repairs', label: `Repairs Pending Approval (${DATA.repairs_pending.length})`,
+      cols: ['repair_id','category','supplier','fault_reported','cost_gbp','date_logged'],
+      headers: ['ID','Category','Supplier','Fault','Cost','Logged'],
+      fmt: { cost_gbp: fmtGBPFull } },
+    { id: 'minstock', label: `Below Min Stock (${DATA.below_min_stock.length})`,
+      cols: ['category','depot','assets_of_type','units_available','min_stock_level'],
+      headers: ['Category','Depot','Fleet Size','Available Now','Min Level'] },
+    { id: 'transfers', label: `Unfulfilled Transfers (${DATA.unfulfilled_transfers.length})`,
+      cols: ['transfer_id','category','from_depot','to_depot','units_transferred','reason','date'],
+      headers: ['ID','Category','From','To','Units','Reason','Date'] },
+  ];
+  const tabBar = document.getElementById('tabBar');
+  const panels = document.getElementById('tabPanels');
+  tabBar.innerHTML = tabs.map((t,i) => `<button class="tab-btn ${i===0?'active':''}" data-tab="${t.id}">${t.label}</button>`).join('');
+  panels.innerHTML = tabs.map((t,i) => {
+    const rows = DATA[t.id === 'approvals' ? 'pending_approvals' : t.id === 'repairs' ? 'repairs_pending' : t.id === 'minstock' ? 'below_min_stock' : 'unfulfilled_transfers'];
+    const body = rows.map(r => `<tr>${t.cols.map(c => {
+      const raw = r[c];
+      const val = t.fmt && t.fmt[c] ? t.fmt[c](raw) : raw;
+      const isNum = !isNaN(parseFloat(raw)) && (c.includes('value') || c.includes('cost') || c.includes('units') || c.includes('assets') || c.includes('level'));
+      return `<td class="${isNum?'num':''}">${val}</td>`;
+    }).join('')}</tr>`).join('');
+    return `<div class="tab-panel ${i===0?'active':''}" data-panel="${t.id}">
+      <div class="scroll-table"><table>
+        <thead><tr>${t.headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead>
+        <tbody>${body}</tbody>
+      </table></div>
+    </div>`;
+  }).join('');
+  tabBar.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      panels.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      panels.querySelector(`[data-panel="${btn.dataset.tab}"]`).classList.add('active');
+    });
+  });
+})();
+</script>

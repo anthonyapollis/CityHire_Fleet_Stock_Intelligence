@@ -1,0 +1,326 @@
+month,category,budget_gbp,actual_spend_gbp,variance_gbp,over_budget
+2025-07-01,Plant,59689.13,79965.24,-20276.11,True
+2025-08-01,Plant,59689.13,77806.4,-18117.27,True
+2025-09-01,Plant,59689.13,54405.63,5283.5,False
+2025-10-01,Plant,59689.13,59663.27,25.86,False
+2025-11-01,Plant,59689.13,69338.84,-9649.71,True
+2025-12-01,Plant,59689.13,69308.35,-9619.22,True
+2026-01-01,Plant,59689.13,52585.33,7103.8,False
+2026-02-01,Plant,59689.13,65076.29,-5387.16,True
+2026-03-01,Plant,59689.13,73147.57,-13458.44,True
+2026-04-01,Plant,59689.13,72610.92,-12921.79,True
+2026-05-01,Plant,59689.13,62052.33,-2363.2,True
+2026-06-01,Plant,59689.13,73601.06,-13911.93,True
+2026-07-01,Plant,59689.13,78739.92,-19050.79,True
+2025-07-01,Powered Access,138283.32,156264.54,-17981.22,True
+2025-08-01,Powered Access,138283.32,130574.95,7708.37,False
+2025-09-01,Powered Access,138283.32,185144.26,-46860.94,True
+2025-10-01,Powered Access,138283.32,122424.86,15858.46,False
+2025-11-01,Powered Access,138283.32,146439.52,-8156.2,True
+2025-12-01,Powered Access,138283.32,159586.98,-21303.66,True
+2026-01-01,Powered Access,138283.32,140196.81,-1913.49,True
+2026-02-01,Powered Access,138283.32,153446.95,-15163.63,True
+2026-03-01,Powered Access,138283.32,170048.65,-31765.33,True
+2026-04-01,Powered Access,138283.32,173038.56,-34755.24,True
+2026-05-01,Powered Access,138283.32,125892.47,12390.85,False
+2026-06-01,Powered Access,138283.32,131723.07,6560.25,False
+2026-07-01,Powered Access,138283.32,123144.62,15138.7,False
+2025-07-01,Breakers & Drills,4324.22,3281.22,1043.0,False
+2025-08-01,Breakers & Drills,4324.22,2978.0,1346.22,False
+2025-09-01,Breakers & Drills,4324.22,5030.09,-705.87,True
+2025-10-01,Breakers & Drills,4324.22,4334.2,-9.98,True
+2025-11-01,Breakers & Drills,4324.22,3665.72,658.5,False
+2025-12-01,Breakers & Drills,4324.22,4092.9,231.32,False
+2026-01-01,Breakers & Drills,4324.22,3124.62,1199.6,False
+2026-02-01,Breakers & Drills,4324.22,4807.22,-483.0,True
+2026-03-01,Breakers & Drills,4324.22,4862.4,-538.18,True
+2026-04-01,Breakers & Drills,4324.22,3585.46,738.76,False
+2026-05-01,Breakers & Drills,4324.22,3282.53,1041.69,False
+2026-06-01,Breakers & Drills,4324.22,3795.26,528.96,False
+2026-07-01,Breakers & Drills,4324.22,3780.5,543.72,False
+2025-07-01,Material Handling & Logistics,12555.5,12624.38,-68.88,True
+2025-08-01,Material Handling & Logistics,12555.5,13434.3,-878.8,True
+2025-09-01,Material Handling & Logistics,12555.5,12067.69,487.81,False
+2025-10-01,Material Handling & Logistics,12555.5,8599.13,3956.37,False
+2025-11-01,Material Handling & Logistics,12555.5,10486.3,2069.2,False
+2025-12-01,Material Handling & Logistics,12555.5,7915.09,4640.41,False
+2026-01-01,Material Handling & Logistics,12555.5,9111.68,3443.82,False
+2026-02-01,Material Handling & Logistics,12555.5,7083.75,5471.75,False
+2026-03-01,Material Handling & Logistics,12555.5,7392.88,5162.62,False
+2026-04-01,Material Handling & Logistics,12555.5,14174.33,-1618.83,True
+2026-05-01,Material Handling & Logistics,12555.5,11232.64,1322.86,False
+2026-06-01,Material Handling & Logistics,12555.5,8062.64,4492.86,False
+2026-07-01,Material Handling & Logistics,12555.5,11000.8,1554.7,False
+2025-07-01,Lifting Equipment,24403.95,14721.38,9682.57,False
+2025-08-01,Lifting Equipment,24403.95,18159.27,6244.68,False
+2025-09-01,Lifting Equipment,24403.95,14957.12,9446.83,False
+2025-10-01,Lifting Equipment,24403.95,27771.55,-3367.6,True
+2025-11-01,Lifting Equipment,24403.95,25291.46,-887.51,True
+2025-12-01,Lifting Equipment,24403.95,18558.6,5845.35,False
+2026-01-01,Lifting Equipment,24403.95,18954.67,5449.28,False
+2026-02-01,Lifting Equipment,24403.95,15190.99,9212.96,False
+2026-03-01,Lifting Equipment,24403.95,26701.89,-2297.94,True
+2026-04-01,Lifting Equipment,24403.95,24829.88,-425.93,True
+2026-05-01,Lifting Equipment,24403.95,25271.25,-867.3,True
+2026-06-01,Lifting Equipment,24403.95,14067.42,10336.53,False
+2026-07-01,Lifting Equipment,24403.95,27885.22,-3481.27,True
+2025-07-01,"Accommodation, Storage & Welfare",19821.42,14944.05,4877.37,False
+2025-08-01,"Accommodation, Storage & Welfare",19821.42,15743.81,4077.61,False
+2025-09-01,"Accommodation, Storage & Welfare",19821.42,14784.67,5036.75,False
+2025-10-01,"Accommodation, Storage & Welfare",19821.42,19133.67,687.75,False
+2025-11-01,"Accommodation, Storage & Welfare",19821.42,12774.96,7046.46,False
+2025-12-01,"Accommodation, Storage & Welfare",19821.42,21955.66,-2134.24,True
+2026-01-01,"Accommodation, Storage & Welfare",19821.42,19060.34,761.08,False
+2026-02-01,"Accommodation, Storage & Welfare",19821.42,12128.59,7692.83,False
+2026-03-01,"Accommodation, Storage & Welfare",19821.42,22412.93,-2591.51,True
+2026-04-01,"Accommodation, Storage & Welfare",19821.42,13950.57,5870.85,False
+2026-05-01,"Accommodation, Storage & Welfare",19821.42,14433.13,5388.29,False
+2026-06-01,"Accommodation, Storage & Welfare",19821.42,18226.92,1594.5,False
+2026-07-01,"Accommodation, Storage & Welfare",19821.42,15480.72,4340.7,False
+2025-07-01,Cutting & Grinding,5526.75,6465.42,-938.67,True
+2025-08-01,Cutting & Grinding,5526.75,5282.68,244.07,False
+2025-09-01,Cutting & Grinding,5526.75,6135.83,-609.08,True
+2025-10-01,Cutting & Grinding,5526.75,3469.91,2056.84,False
+2025-11-01,Cutting & Grinding,5526.75,6183.12,-656.37,True
+2025-12-01,Cutting & Grinding,5526.75,3122.81,2403.94,False
+2026-01-01,Cutting & Grinding,5526.75,4812.0,714.75,False
+2026-02-01,Cutting & Grinding,5526.75,3074.76,2451.99,False
+2026-03-01,Cutting & Grinding,5526.75,6520.69,-993.94,True
+2026-04-01,Cutting & Grinding,5526.75,5250.76,275.99,False
+2026-05-01,Cutting & Grinding,5526.75,5633.78,-107.03,True
+2026-06-01,Cutting & Grinding,5526.75,4076.73,1450.02,False
+2026-07-01,Cutting & Grinding,5526.75,4609.97,916.78,False
+2025-07-01,Access,5225.0,4160.79,1064.21,False
+2025-08-01,Access,5225.0,3307.01,1917.99,False
+2025-09-01,Access,5225.0,5642.61,-417.61,True
+2025-10-01,Access,5225.0,5732.18,-507.18,True
+2025-11-01,Access,5225.0,4101.28,1123.72,False
+2025-12-01,Access,5225.0,4489.92,735.08,False
+2026-01-01,Access,5225.0,4406.43,818.57,False
+2026-02-01,Access,5225.0,4987.82,237.18,False
+2026-03-01,Access,5225.0,3824.71,1400.29,False
+2026-04-01,Access,5225.0,6112.03,-887.03,True
+2026-05-01,Access,5225.0,3174.18,2050.82,False
+2026-06-01,Access,5225.0,4789.63,435.37,False
+2026-07-01,Access,5225.0,5923.63,-698.63,True
+2025-07-01,Cleaning,5586.61,4292.19,1294.42,False
+2025-08-01,Cleaning,5586.61,5364.07,222.54,False
+2025-09-01,Cleaning,5586.61,3611.71,1974.9,False
+2025-10-01,Cleaning,5586.61,3577.15,2009.46,False
+2025-11-01,Cleaning,5586.61,4956.53,630.08,False
+2025-12-01,Cleaning,5586.61,3474.06,2112.55,False
+2026-01-01,Cleaning,5586.61,4271.0,1315.61,False
+2026-02-01,Cleaning,5586.61,6213.84,-627.23,True
+2026-03-01,Cleaning,5586.61,3735.42,1851.19,False
+2026-04-01,Cleaning,5586.61,5282.09,304.52,False
+2026-05-01,Cleaning,5586.61,3143.16,2443.45,False
+2026-06-01,Cleaning,5586.61,6580.63,-994.02,True
+2026-07-01,Cleaning,5586.61,5912.9,-326.29,True
+2025-07-01,Sanding & Woodworking,4460.76,4994.47,-533.71,True
+2025-08-01,Sanding & Woodworking,4460.76,2794.36,1666.4,False
+2025-09-01,Sanding & Woodworking,4460.76,2845.89,1614.87,False
+2025-10-01,Sanding & Woodworking,4460.76,3141.55,1319.21,False
+2025-11-01,Sanding & Woodworking,4460.76,4589.49,-128.73,True
+2025-12-01,Sanding & Woodworking,4460.76,3234.85,1225.91,False
+2026-01-01,Sanding & Woodworking,4460.76,3968.71,492.05,False
+2026-02-01,Sanding & Woodworking,4460.76,4836.62,-375.86,True
+2026-03-01,Sanding & Woodworking,4460.76,4952.31,-491.55,True
+2026-04-01,Sanding & Woodworking,4460.76,3038.39,1422.37,False
+2026-05-01,Sanding & Woodworking,4460.76,3530.99,929.77,False
+2026-06-01,Sanding & Woodworking,4460.76,4144.38,316.38,False
+2026-07-01,Sanding & Woodworking,4460.76,4058.45,402.31,False
+2025-07-01,Landscaping & Gardening,6074.29,3449.91,2624.38,False
+2025-08-01,Landscaping & Gardening,6074.29,4758.16,1316.13,False
+2025-09-01,Landscaping & Gardening,6074.29,5072.7,1001.59,False
+2025-10-01,Landscaping & Gardening,6074.29,5749.04,325.25,False
+2025-11-01,Landscaping & Gardening,6074.29,5764.92,309.37,False
+2025-12-01,Landscaping & Gardening,6074.29,3352.34,2721.95,False
+2026-01-01,Landscaping & Gardening,6074.29,5159.38,914.91,False
+2026-02-01,Landscaping & Gardening,6074.29,6867.35,-793.06,True
+2026-03-01,Landscaping & Gardening,6074.29,6625.41,-551.12,True
+2026-04-01,Landscaping & Gardening,6074.29,6469.64,-395.35,True
+2026-05-01,Landscaping & Gardening,6074.29,3627.56,2446.73,False
+2026-06-01,Landscaping & Gardening,6074.29,4668.82,1405.47,False
+2026-07-01,Landscaping & Gardening,6074.29,5519.75,554.54,False
+2025-07-01,Mechanical & Electrical,10095.26,11189.79,-1094.53,True
+2025-08-01,Mechanical & Electrical,10095.26,11242.08,-1146.82,True
+2025-09-01,Mechanical & Electrical,10095.26,7348.28,2746.98,False
+2025-10-01,Mechanical & Electrical,10095.26,9090.64,1004.62,False
+2025-11-01,Mechanical & Electrical,10095.26,9428.84,666.42,False
+2025-12-01,Mechanical & Electrical,10095.26,8890.27,1204.99,False
+2026-01-01,Mechanical & Electrical,10095.26,7386.72,2708.54,False
+2026-02-01,Mechanical & Electrical,10095.26,9528.82,566.44,False
+2026-03-01,Mechanical & Electrical,10095.26,6580.53,3514.73,False
+2026-04-01,Mechanical & Electrical,10095.26,8308.53,1786.73,False
+2026-05-01,Mechanical & Electrical,10095.26,5924.15,4171.11,False
+2026-06-01,Mechanical & Electrical,10095.26,7590.45,2504.81,False
+2026-07-01,Mechanical & Electrical,10095.26,10253.49,-158.23,True
+2025-07-01,Painting & Decorating,4968.96,4619.37,349.59,False
+2025-08-01,Painting & Decorating,4968.96,5373.23,-404.27,True
+2025-09-01,Painting & Decorating,4968.96,4867.6,101.36,False
+2025-10-01,Painting & Decorating,4968.96,5638.35,-669.39,True
+2025-11-01,Painting & Decorating,4968.96,2891.82,2077.14,False
+2025-12-01,Painting & Decorating,4968.96,4081.89,887.07,False
+2026-01-01,Painting & Decorating,4968.96,5563.22,-594.26,True
+2026-02-01,Painting & Decorating,4968.96,4911.63,57.33,False
+2026-03-01,Painting & Decorating,4968.96,3139.91,1829.05,False
+2026-04-01,Painting & Decorating,4968.96,4862.19,106.77,False
+2026-05-01,Painting & Decorating,4968.96,3176.11,1792.85,False
+2026-06-01,Painting & Decorating,4968.96,3400.87,1568.09,False
+2026-07-01,Painting & Decorating,4968.96,4063.4,905.56,False
+2025-07-01,Consumables,228.9,211.51,17.39,False
+2025-08-01,Consumables,228.9,220.67,8.23,False
+2025-09-01,Consumables,228.9,184.53,44.37,False
+2025-10-01,Consumables,228.9,243.62,-14.72,True
+2025-11-01,Consumables,228.9,266.9,-38.0,True
+2025-12-01,Consumables,228.9,150.78,78.12,False
+2026-01-01,Consumables,228.9,168.91,59.99,False
+2026-02-01,Consumables,228.9,228.03,0.87,False
+2026-03-01,Consumables,228.9,127.44,101.46,False
+2026-04-01,Consumables,228.9,159.22,69.68,False
+2026-05-01,Consumables,228.9,241.58,-12.68,True
+2026-06-01,Consumables,228.9,195.86,33.04,False
+2026-07-01,Consumables,228.9,194.5,34.4,False
+2025-07-01,Climate Control,13633.98,15610.54,-1976.56,True
+2025-08-01,Climate Control,13633.98,11799.24,1834.74,False
+2025-09-01,Climate Control,13633.98,12949.71,684.27,False
+2025-10-01,Climate Control,13633.98,8827.9,4806.08,False
+2025-11-01,Climate Control,13633.98,7527.43,6106.55,False
+2025-12-01,Climate Control,13633.98,10601.12,3032.86,False
+2026-01-01,Climate Control,13633.98,10631.28,3002.7,False
+2026-02-01,Climate Control,13633.98,8063.12,5570.86,False
+2026-03-01,Climate Control,13633.98,8771.85,4862.13,False
+2026-04-01,Climate Control,13633.98,12044.01,1589.97,False
+2026-05-01,Climate Control,13633.98,13512.25,121.73,False
+2026-06-01,Climate Control,13633.98,15810.85,-2176.87,True
+2026-07-01,Climate Control,13633.98,15536.41,-1902.43,True
+2025-07-01,"Safety, Ventilation & Extraction",8591.97,7793.13,798.84,False
+2025-08-01,"Safety, Ventilation & Extraction",8591.97,4783.92,3808.05,False
+2025-09-01,"Safety, Ventilation & Extraction",8591.97,7203.63,1388.34,False
+2025-10-01,"Safety, Ventilation & Extraction",8591.97,8223.15,368.82,False
+2025-11-01,"Safety, Ventilation & Extraction",8591.97,9783.32,-1191.35,True
+2025-12-01,"Safety, Ventilation & Extraction",8591.97,5125.07,3466.9,False
+2026-01-01,"Safety, Ventilation & Extraction",8591.97,7129.61,1462.36,False
+2026-02-01,"Safety, Ventilation & Extraction",8591.97,8391.46,200.51,False
+2026-03-01,"Safety, Ventilation & Extraction",8591.97,6393.69,2198.28,False
+2026-04-01,"Safety, Ventilation & Extraction",8591.97,6106.7,2485.27,False
+2026-05-01,"Safety, Ventilation & Extraction",8591.97,8522.09,69.88,False
+2026-06-01,"Safety, Ventilation & Extraction",8591.97,5313.76,3278.21,False
+2026-07-01,"Safety, Ventilation & Extraction",8591.97,8000.18,591.79,False
+2025-07-01,Propping & Support,1344.66,934.43,410.23,False
+2025-08-01,Propping & Support,1344.66,992.97,351.69,False
+2025-09-01,Propping & Support,1344.66,1385.52,-40.86,True
+2025-10-01,Propping & Support,1344.66,1208.95,135.71,False
+2025-11-01,Propping & Support,1344.66,918.56,426.1,False
+2025-12-01,Propping & Support,1344.66,833.77,510.89,False
+2026-01-01,Propping & Support,1344.66,1356.32,-11.66,True
+2026-02-01,Propping & Support,1344.66,1346.84,-2.18,True
+2026-03-01,Propping & Support,1344.66,975.08,369.58,False
+2026-04-01,Propping & Support,1344.66,1526.46,-181.8,True
+2026-05-01,Propping & Support,1344.66,1572.11,-227.45,True
+2026-06-01,Propping & Support,1344.66,762.9,581.76,False
+2026-07-01,Propping & Support,1344.66,1268.9,75.76,False
+2025-07-01,Lighting,1916.66,1244.69,671.97,False
+2025-08-01,Lighting,1916.66,1276.96,639.7,False
+2025-09-01,Lighting,1916.66,1407.51,509.15,False
+2025-10-01,Lighting,1916.66,1492.44,424.22,False
+2025-11-01,Lighting,1916.66,1563.07,353.59,False
+2025-12-01,Lighting,1916.66,2252.45,-335.79,True
+2026-01-01,Lighting,1916.66,2205.96,-289.3,True
+2026-02-01,Lighting,1916.66,1765.49,151.17,False
+2026-03-01,Lighting,1916.66,1866.94,49.72,False
+2026-04-01,Lighting,1916.66,1988.68,-72.02,True
+2026-05-01,Lighting,1916.66,2099.65,-182.99,True
+2026-06-01,Lighting,1916.66,1262.89,653.77,False
+2026-07-01,Lighting,1916.66,2194.67,-278.01,True
+2025-07-01,Fencing & Barriers,485.84,316.4,169.44,False
+2025-08-01,Fencing & Barriers,485.84,319.39,166.45,False
+2025-09-01,Fencing & Barriers,485.84,360.13,125.71,False
+2025-10-01,Fencing & Barriers,485.84,417.97,67.87,False
+2025-11-01,Fencing & Barriers,485.84,367.6,118.24,False
+2025-12-01,Fencing & Barriers,485.84,461.21,24.63,False
+2026-01-01,Fencing & Barriers,485.84,486.84,-1.0,True
+2026-02-01,Fencing & Barriers,485.84,402.56,83.28,False
+2026-03-01,Fencing & Barriers,485.84,535.42,-49.58,True
+2026-04-01,Fencing & Barriers,485.84,430.55,55.29,False
+2026-05-01,Fencing & Barriers,485.84,427.01,58.83,False
+2026-06-01,Fencing & Barriers,485.84,404.4,81.44,False
+2026-07-01,Fencing & Barriers,485.84,535.19,-49.35,True
+2025-07-01,Fixing & Fastening,2657.4,2478.08,179.32,False
+2025-08-01,Fixing & Fastening,2657.4,1838.3,819.1,False
+2025-09-01,Fixing & Fastening,2657.4,1931.94,725.46,False
+2025-10-01,Fixing & Fastening,2657.4,1657.78,999.62,False
+2025-11-01,Fixing & Fastening,2657.4,2007.2,650.2,False
+2025-12-01,Fixing & Fastening,2657.4,2376.73,280.67,False
+2026-01-01,Fixing & Fastening,2657.4,2555.69,101.71,False
+2026-02-01,Fixing & Fastening,2657.4,1956.58,700.82,False
+2026-03-01,Fixing & Fastening,2657.4,3022.3,-364.9,True
+2026-04-01,Fixing & Fastening,2657.4,1637.55,1019.85,False
+2026-05-01,Fixing & Fastening,2657.4,1720.64,936.76,False
+2026-06-01,Fixing & Fastening,2657.4,2912.14,-254.74,True
+2026-07-01,Fixing & Fastening,2657.4,2000.71,656.69,False
+2025-07-01,Concreting & Compaction,14671.19,13689.32,981.87,False
+2025-08-01,Concreting & Compaction,14671.19,9198.52,5472.67,False
+2025-09-01,Concreting & Compaction,14671.19,15754.24,-1083.05,True
+2025-10-01,Concreting & Compaction,14671.19,15992.84,-1321.65,True
+2025-11-01,Concreting & Compaction,14671.19,10137.21,4533.98,False
+2025-12-01,Concreting & Compaction,14671.19,12130.06,2541.13,False
+2026-01-01,Concreting & Compaction,14671.19,14396.66,274.53,False
+2026-02-01,Concreting & Compaction,14671.19,13608.68,1062.51,False
+2026-03-01,Concreting & Compaction,14671.19,17136.15,-2464.96,True
+2026-04-01,Concreting & Compaction,14671.19,10799.93,3871.26,False
+2026-05-01,Concreting & Compaction,14671.19,12894.49,1776.7,False
+2026-06-01,Concreting & Compaction,14671.19,9949.07,4722.12,False
+2026-07-01,Concreting & Compaction,14671.19,10212.83,4458.36,False
+2025-07-01,Fuel & Gas,19377.4,13832.96,5544.44,False
+2025-08-01,Fuel & Gas,19377.4,21739.35,-2361.95,True
+2025-09-01,Fuel & Gas,19377.4,18790.54,586.86,False
+2025-10-01,Fuel & Gas,19377.4,15696.6,3680.8,False
+2025-11-01,Fuel & Gas,19377.4,13845.46,5531.94,False
+2025-12-01,Fuel & Gas,19377.4,17157.01,2220.39,False
+2026-01-01,Fuel & Gas,19377.4,20942.03,-1564.63,True
+2026-02-01,Fuel & Gas,19377.4,21240.52,-1863.12,True
+2026-03-01,Fuel & Gas,19377.4,22422.82,-3045.42,True
+2026-04-01,Fuel & Gas,19377.4,16634.74,2742.66,False
+2026-05-01,Fuel & Gas,19377.4,11980.76,7396.64,False
+2026-06-01,Fuel & Gas,19377.4,13063.96,6313.44,False
+2026-07-01,Fuel & Gas,19377.4,19865.48,-488.08,True
+2025-07-01,Survey & Location,17198.4,16833.92,364.48,False
+2025-08-01,Survey & Location,17198.4,19160.87,-1962.47,True
+2025-09-01,Survey & Location,17198.4,18891.52,-1693.12,True
+2025-10-01,Survey & Location,17198.4,16294.21,904.19,False
+2025-11-01,Survey & Location,17198.4,15498.77,1699.63,False
+2025-12-01,Survey & Location,17198.4,14911.84,2286.56,False
+2026-01-01,Survey & Location,17198.4,19146.14,-1947.74,True
+2026-02-01,Survey & Location,17198.4,18063.81,-865.41,True
+2026-03-01,Survey & Location,17198.4,17650.82,-452.42,True
+2026-04-01,Survey & Location,17198.4,22448.39,-5249.99,True
+2026-05-01,Survey & Location,17198.4,14970.14,2228.26,False
+2026-06-01,Survey & Location,17198.4,22318.55,-5120.15,True
+2026-07-01,Survey & Location,17198.4,16757.5,440.9,False
+2025-07-01,Site Equipment & Groundworks,4403.84,3519.16,884.68,False
+2025-08-01,Site Equipment & Groundworks,4403.84,4371.52,32.32,False
+2025-09-01,Site Equipment & Groundworks,4403.84,5057.66,-653.82,True
+2025-10-01,Site Equipment & Groundworks,4403.84,2796.84,1607.0,False
+2025-11-01,Site Equipment & Groundworks,4403.84,4854.85,-451.01,True
+2025-12-01,Site Equipment & Groundworks,4403.84,2633.87,1769.97,False
+2026-01-01,Site Equipment & Groundworks,4403.84,3682.02,721.82,False
+2026-02-01,Site Equipment & Groundworks,4403.84,5056.99,-653.15,True
+2026-03-01,Site Equipment & Groundworks,4403.84,3454.35,949.49,False
+2026-04-01,Site Equipment & Groundworks,4403.84,4876.62,-472.78,True
+2026-05-01,Site Equipment & Groundworks,4403.84,3969.95,433.89,False
+2026-06-01,Site Equipment & Groundworks,4403.84,3071.06,1332.78,False
+2026-07-01,Site Equipment & Groundworks,4403.84,3651.16,752.68,False
+2025-07-01,Power & Electrics,16755.19,9265.34,7489.85,False
+2025-08-01,Power & Electrics,16755.19,12146.74,4608.45,False
+2025-09-01,Power & Electrics,16755.19,11556.25,5198.94,False
+2025-10-01,Power & Electrics,16755.19,17364.51,-609.32,True
+2025-11-01,Power & Electrics,16755.19,11437.9,5317.29,False
+2025-12-01,Power & Electrics,16755.19,9582.56,7172.63,False
+2026-01-01,Power & Electrics,16755.19,11299.17,5456.02,False
+2026-02-01,Power & Electrics,16755.19,13656.67,3098.52,False
+2026-03-01,Power & Electrics,16755.19,15169.03,1586.16,False
+2026-04-01,Power & Electrics,16755.19,14537.31,2217.88,False
+2026-05-01,Power & Electrics,16755.19,17699.78,-944.59,True
+2026-06-01,Power & Electrics,16755.19,17920.55,-1165.36,True
+2026-07-01,Power & Electrics,16755.19,12892.5,3862.69,False

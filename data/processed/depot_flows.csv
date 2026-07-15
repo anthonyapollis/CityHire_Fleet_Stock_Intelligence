@@ -1,0 +1,28 @@
+from_depot,to_depot,count
+Birmingham,Bristol,9
+Birmingham,Leeds,9
+Birmingham,London South,5
+Birmingham,Manchester,6
+Bristol,Birmingham,3
+Bristol,Leeds,8
+Bristol,London North,4
+Bristol,London South,6
+Bristol,Manchester,2
+Leeds,Birmingham,7
+Leeds,Bristol,6
+Leeds,London North,4
+Leeds,London South,7
+Leeds,Manchester,4
+London North,Birmingham,4
+London North,Bristol,4
+London North,Leeds,7
+London North,London South,6
+London North,Manchester,6
+London South,Birmingham,9
+London South,Bristol,11
+London South,Leeds,2
+London South,London North,2
+London South,Manchester,9
+Manchester,Birmingham,5
+Manchester,Bristol,1
+Manchester,London North,4
