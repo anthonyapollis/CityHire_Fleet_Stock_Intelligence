@@ -4,11 +4,10 @@ demand index by category - used to turn "utilisation is seasonal" into a
 concrete stock-purchase-timing recommendation.
 """
 import json
+import sys
 import warnings
 from pathlib import Path
 
-import matplotlib
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 from statsmodels.tsa.seasonal import seasonal_decompose
@@ -16,19 +15,15 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from ml.chart_style import apply_style, title, NAVY, GREEN, GREEN_DARK, BLUE, SLATE, SLATE_LIGHT, RED, AMBER, GRID, DPI
+
 RAW = ROOT / "data" / "raw"
 REPORTS = ROOT / "ml" / "reports"
 IMG = ROOT / "docs" / "images"
 REPORTS.mkdir(parents=True, exist_ok=True)
 IMG.mkdir(parents=True, exist_ok=True)
-
-NAVY, GREEN, BLUE, SLATE = "#0C1114", "#009B66", "#2A7ACC", "#3C5667"
-plt.rcParams.update({
-    "font.family": "sans-serif", "font.sans-serif": ["Arial", "DejaVu Sans"],
-    "axes.edgecolor": "#C3CDD3", "axes.labelcolor": SLATE, "text.color": NAVY,
-    "xtick.color": SLATE, "ytick.color": SLATE, "axes.spines.top": False,
-    "axes.spines.right": False, "figure.facecolor": "white", "axes.facecolor": "white",
-})
+apply_style()
 
 # =============================================================================
 # Fleet-wide daily utilisation - classical seasonal decomposition
@@ -42,17 +37,21 @@ fleet_daily = fleet_daily.set_index("date").asfreq("D").interpolate()
 
 decomp = seasonal_decompose(fleet_daily["utilisation_pct"], model="additive", period=30)
 
-fig, axes = plt.subplots(4, 1, figsize=(9, 8), dpi=200, sharex=True)
-for ax, series, title, color in [
-    (axes[0], fleet_daily["utilisation_pct"], "Observed Utilisation %", NAVY),
-    (axes[1], decomp.trend, "Trend Component", GREEN),
-    (axes[2], decomp.seasonal, "Seasonal Component (30-day)", BLUE),
-    (axes[3], decomp.resid, "Residual (noise)", SLATE),
+fig, axes = plt.subplots(4, 1, figsize=(10, 9), dpi=DPI, sharex=True)
+fig.suptitle("Fleet Utilisation — Seasonal Decomposition", fontsize=15, fontweight="bold",
+             color=NAVY, x=0.02, ha="left", y=0.995)
+for ax, series, panel_title, color in [
+    (axes[0], fleet_daily["utilisation_pct"], "Observed utilisation %", NAVY),
+    (axes[1], decomp.trend, "Trend component", GREEN),
+    (axes[2], decomp.seasonal, "Seasonal component (30-day cycle)", BLUE),
+    (axes[3], decomp.resid, "Residual (unexplained noise)", SLATE_LIGHT),
 ]:
-    ax.plot(series.index, series.values, color=color, linewidth=1.4)
-    ax.set_title(title, fontsize=10, fontweight="bold", loc="left", color=NAVY)
-    ax.grid(axis="y", color="#E1E6EA", linewidth=0.7)
-plt.tight_layout()
+    ax.plot(series.index, series.values, color=color, linewidth=1.6)
+    ax.fill_between(series.index, series.values, series.values.min(), color=color, alpha=0.08)
+    ax.set_title(panel_title, fontsize=10.5, fontweight="bold", loc="left", color=NAVY, pad=6)
+    ax.grid(axis="y", color=GRID, linewidth=0.8)
+    ax.set_axisbelow(True)
+plt.tight_layout(rect=(0, 0, 1, 0.97))
 plt.savefig(IMG / "seasonal_decomposition.png", facecolor="white")
 plt.close()
 
@@ -94,21 +93,36 @@ cat_month = pd.concat(smoothed, ignore_index=True)
 swing = cat_month.groupby("category")["seasonal_index"].agg(lambda s: s.max() - s.min())
 top_seasonal = swing.sort_values(ascending=False).head(8)
 
-fig, ax = plt.subplots(figsize=(8.5, 4.5), dpi=200)
+fig, ax = plt.subplots(figsize=(10.5, 6), dpi=DPI)
 month_names = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-palette = [GREEN, BLUE, "#D98E04", "#8FA8B8", "#17B378", "#C0392B", "#2D414D", "#4A9FE0"]
+palette = [GREEN, BLUE, AMBER, SLATE_LIGHT, "#17B378", RED, "#2D414D", "#4A9FE0"]
+ax.axhline(1.0, color=SLATE, linewidth=1, linestyle=(0, (5, 3)), alpha=0.6)
+end_labels = []
 for i, cat in enumerate(top_seasonal.index):
     sub = cat_month[cat_month["category"] == cat].sort_values("month")
-    ax.plot(sub["month"], sub["seasonal_index"], marker="o", markersize=3.5,
-            label=cat, color=palette[i % len(palette)], linewidth=1.6)
-ax.axhline(1.0, color=SLATE, linewidth=1, linestyle="--", alpha=0.6)
+    color = palette[i % len(palette)]
+    ax.plot(sub["month"], sub["seasonal_index"], marker="o", markersize=4,
+            markerfacecolor="white", markeredgewidth=1.6, color=color, linewidth=2.2, zorder=3)
+    last = sub.iloc[-1]
+    end_labels.append({"cat": cat, "color": color, "x": last["month"], "y": last["seasonal_index"]})
+
+# de-overlap end labels: enforce a minimum vertical gap in data units
+end_labels.sort(key=lambda d: d["y"])
+min_gap = 0.028
+for i in range(1, len(end_labels)):
+    if end_labels[i]["y"] - end_labels[i - 1]["y"] < min_gap:
+        end_labels[i]["y"] = end_labels[i - 1]["y"] + min_gap
+for d in end_labels:
+    ax.annotate(f"  {d['cat']}", (d["x"], d["y"]), fontsize=8.7, fontweight="bold",
+                color=d["color"], va="center", ha="left")
 ax.set_xticks(range(1, 13))
-ax.set_xticklabels(month_names, fontsize=8.5)
-ax.set_ylabel("Order-volume seasonal index (1.0 = category's own monthly average)", fontsize=9)
-ax.set_title("Seasonal Demand Index (Hire Order Volume) — 8 Most Seasonal Categories",
-              fontsize=12, fontweight="bold", loc="left", color=NAVY)
-ax.legend(frameon=False, fontsize=7.5, loc="upper left", bbox_to_anchor=(1.01, 1))
-ax.grid(axis="y", color="#E1E6EA", linewidth=0.7)
+ax.set_xticklabels(month_names)
+ax.set_xlim(0.7, 15.5)
+ax.set_ylabel("Order-volume seasonal index  (1.0 = category's own monthly average)")
+title(ax, "Seasonal Demand Index — 8 Most Seasonal Project Types",
+      subtitle="Built from real order volume, not the fleet's noisy daily stats — see build notes")
+ax.grid(axis="y", color=GRID, linewidth=0.8)
+ax.set_axisbelow(True)
 plt.tight_layout()
 plt.savefig(IMG / "seasonal_demand_index.png", facecolor="white")
 plt.close()

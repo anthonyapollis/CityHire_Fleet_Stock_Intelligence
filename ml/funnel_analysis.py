@@ -11,43 +11,63 @@ Three funnels:
    not measured. Flagged clearly wherever it's used.
 """
 import json
+import sys
 from pathlib import Path
 
-import matplotlib
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from ml.chart_style import apply_style, NAVY, GREEN, GREEN_DARK, BLUE, SLATE, SLATE_LIGHT, RED, AMBER, GRID, DPI
+
 RAW = ROOT / "data" / "raw"
 REPORTS = ROOT / "ml" / "reports"
 IMG = ROOT / "docs" / "images"
-
-NAVY, GREEN, BLUE, SLATE, RED, AMBER = "#0C1114", "#009B66", "#2A7ACC", "#3C5667", "#C0392B", "#D98E04"
-plt.rcParams.update({
-    "font.family": "sans-serif", "font.sans-serif": ["Arial", "DejaVu Sans"],
-    "text.color": NAVY, "figure.facecolor": "white", "axes.facecolor": "white",
-})
+apply_style()
 
 
-def draw_funnel(ax, labels, values, colors, title, value_fmt=lambda v: f"{v:,}"):
+def draw_funnel(ax, labels, values, colors, title_text, subtitle=None, value_fmt=lambda v: f"{v:,}"):
+    """A true tapered funnel: each stage is a trapezoid whose width reflects
+    its share of the top stage. Width uses a sqrt scale with a floor, so a
+    funnel with a very steep drop-off (e.g. website visitors -> hires) still
+    leaves every segment wide enough to hold its label - a linear scale would
+    make the bottom stages too thin to read."""
     n = len(values)
     max_v = max(values)
-    bar_h = 0.62
+    half_w = 8.6 / 2
+    stage_h = 1.0
+    gap = 0.06
+    min_frac = 0.22  # narrowest a segment is ever allowed to get, as a fraction of half_w
+
+    def frac(v):
+        return max((v / max_v) ** 0.5, min_frac)
+
     for i, (lab, val, col) in enumerate(zip(labels, values, colors)):
-        y = n - i
-        w = (val / max_v) * 8.5
-        x0 = (8.5 - w) / 2
-        ax.barh(y, w, left=x0, height=bar_h, color=col, edgecolor="white", linewidth=1.2, zorder=3)
-        ax.text(4.25, y, f"{lab}\n{value_fmt(val)}", ha="center", va="center",
-                fontsize=9.5, fontweight="bold", color="white", zorder=4)
+        top_y = n - i
+        bot_y = top_y - stage_h + gap
+        w_top = frac(values[i]) * half_w
+        w_bot = (frac(values[i + 1]) if i < n - 1 else frac(values[i]) * 0.94) * half_w
+        xs = [-w_top, w_top, w_bot, -w_bot]
+        ys = [top_y, top_y, bot_y, bot_y]
+        ax.fill(xs, ys, color=col, zorder=3)
+        mid_y = (top_y + bot_y) / 2
+        ax.text(0, mid_y + 0.11, lab, ha="center", va="center", fontsize=10, fontweight="bold",
+                color="white", zorder=4)
+        ax.text(0, mid_y - 0.16, value_fmt(val), ha="center", va="center", fontsize=12.5,
+                fontweight="bold", color="white", zorder=4)
         if i > 0:
             conv = val / values[i - 1] * 100
-            ax.text(8.9, y + 0.5, f"{conv:.0f}%\nof prev.", ha="left", va="center",
-                    fontsize=8, color=SLATE)
-    ax.set_xlim(-0.3, 10.5)
-    ax.set_ylim(0.2, n + 0.8)
-    ax.set_title(title, fontsize=12.5, fontweight="bold", color=NAVY, loc="left", pad=10)
+            drop = 100 - conv
+            note_color = GREEN_DARK if conv >= 90 else (AMBER if conv >= 70 else RED)
+            ax.annotate(f"{conv:.0f}% carried through  ·  -{drop:.0f}%",
+                        (half_w + 0.35, top_y), fontsize=8.6, color=note_color,
+                        fontweight="bold", va="center", ha="left")
+    ax.set_xlim(-half_w - 0.3, half_w + 3.6)
+    ax.set_ylim(0.15, n + 0.85)
+    ax.set_title(title_text, fontsize=13.5, fontweight="bold", color=NAVY, loc="left", pad=(20 if subtitle else 10))
+    if subtitle:
+        ax.text(-half_w - 0.3, n + 0.72, subtitle, fontsize=9, color=SLATE, va="bottom")
     ax.axis("off")
 
 
@@ -60,9 +80,9 @@ stage_idx = {s: i for i, s in enumerate(STAGES)}
 orders["reached_idx"] = orders["funnel_stage_reached"].map(stage_idx)
 order_funnel_counts = [int((orders["reached_idx"] >= i).sum()) for i in range(len(STAGES))]
 
-fig, ax = plt.subplots(figsize=(8, 6), dpi=200)
-draw_funnel(ax, STAGES, order_funnel_counts, [GREEN, GREEN, BLUE, BLUE, NAVY],
-            f"Order Lifecycle Funnel ({order_funnel_counts[0]:,} quotes → completed hires, 12 months)")
+fig, ax = plt.subplots(figsize=(9.5, 7), dpi=DPI)
+draw_funnel(ax, STAGES, order_funnel_counts, [GREEN, "#17B378", BLUE, "#4A9FE0", NAVY],
+            "Order Lifecycle Funnel", subtitle=f"{order_funnel_counts[0]:,} quotes → completed hires, 12 months")
 plt.tight_layout()
 plt.savefig(IMG / "order_funnel.png", facecolor="white")
 plt.close()
@@ -78,9 +98,9 @@ rejected = int((approvals["status"] == "Rejected").sum())
 appr_stages = ["Requested (>£500)", "Reviewed", "Approved"]
 appr_counts = [total, total - rejected, approved]
 
-fig, ax = plt.subplots(figsize=(7.5, 4.6), dpi=200)
+fig, ax = plt.subplots(figsize=(9, 5.4), dpi=DPI)
 draw_funnel(ax, appr_stages, appr_counts, [AMBER, BLUE, GREEN],
-            "Approvals Funnel (Auction / Parts / Capital Requests, YTD)")
+            "Approvals Funnel", subtitle="Auction / parts / capital requests over £500, year to date")
 plt.tight_layout()
 plt.savefig(IMG / "approvals_funnel.png", facecolor="white")
 plt.close()
@@ -94,12 +114,12 @@ dig_stages = ["Website Visitors", "Product Page Views", "Quote Requests", "Confi
 dig_counts = [int(totals["visitors"]), int(totals["product_views"]),
               int(totals["quote_requests"]), int(totals["confirmed_hires"])]
 
-fig, ax = plt.subplots(figsize=(8, 5.2), dpi=200)
+fig, ax = plt.subplots(figsize=(9.5, 6), dpi=DPI)
 draw_funnel(ax, dig_stages, dig_counts, [SLATE, BLUE, AMBER, GREEN],
-            "Digital Marketing Funnel — ESTIMATED (12-month total)")
-fig.text(0.02, 0.02, "No real GA4/analytics data exists for cityhire.co.uk — this funnel is "
+            "Digital Marketing Funnel — ESTIMATED", subtitle="12-month total, directional only (see note below)")
+fig.text(0.02, 0.015, "⚠ No real GA4/analytics data exists for cityhire.co.uk — this funnel is "
                        "directional, built from UK trade-services conversion benchmarks, not measured.",
-         fontsize=8, color=RED, style="italic")
+         fontsize=8.5, color=RED, style="italic")
 plt.tight_layout(rect=(0, 0.05, 1, 1))
 plt.savefig(IMG / "digital_funnel.png", facecolor="white")
 plt.close()

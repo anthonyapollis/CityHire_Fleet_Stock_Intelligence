@@ -1,0 +1,78 @@
+{
+  "host": "cityhire-pg-temp.postgres.database.azure.com",
+  "tables_loaded": {
+    "stock_master": 1612,
+    "daily_stock_stats": 53802
+  },
+  "top5_categories_by_revenue": [
+    {
+      "category": "Powered Access",
+      "units": 103,
+      "total_capex": 4482752.24,
+      "avg_util": 64.3,
+      "est_revenue": 13838153.2
+    },
+    {
+      "category": "Plant",
+      "units": 70,
+      "total_capex": 2529211.9,
+      "avg_util": 63.2,
+      "est_revenue": 7858228.51
+    },
+    {
+      "category": "Lifting Equipment",
+      "units": 192,
+      "total_capex": 1780890.88,
+      "avg_util": 64.5,
+      "est_revenue": 5317210.68
+    },
+    {
+      "category": "Breakers & Drills",
+      "units": 286,
+      "total_capex": 815704.37,
+      "avg_util": 62.9,
+      "est_revenue": 2404974.83
+    },
+    {
+      "category": "Accommodation, Storage & Welfare",
+      "units": 104,
+      "total_capex": 750343.87,
+      "avg_util": 64.7,
+      "est_revenue": 2385719.31
+    }
+  ],
+  "depot_util_last_90d": [
+    {
+      "depot": "Leeds",
+      "avg_util": 70.0,
+      "avg_workshop": 7.1
+    },
+    {
+      "depot": "London North",
+      "avg_util": 69.5,
+      "avg_workshop": 9.1
+    },
+    {
+      "depot": "London South",
+      "avg_util": 67.3,
+      "avg_workshop": 9.2
+    },
+    {
+      "depot": "Birmingham",
+      "avg_util": 66.9,
+      "avg_workshop": 9.1
+    },
+    {
+      "depot": "Bristol",
+      "avg_util": 66.2,
+      "avg_workshop": 10.9
+    },
+    {
+      "depot": "Manchester",
+      "avg_util": 66.1,
+      "avg_workshop": 7.4
+    }
+  ],
+  "auction_pending_count": 104,
+  "postgres_version": "PostgreSQL 16.14 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 13.2.0, 64-bit"
+}
