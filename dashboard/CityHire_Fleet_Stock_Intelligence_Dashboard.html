@@ -102,6 +102,8 @@
   }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
   .hero-chip { border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.08); border-radius: 999px; padding: 7px 10px; font-size: 12px; font-weight: 750; color: rgba(255,255,255,0.88); }
+  a.hero-chip { text-decoration: none; background: rgba(132,214,255,0.18); border-color: rgba(132,214,255,0.42); color: #fff; }
+  a.hero-chip:hover { background: rgba(132,214,255,0.28); }
   .hero-scorecard {
     display: grid; gap: 10px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.16);
     border-radius: 12px; padding: 14px; backdrop-filter: blur(8px);
@@ -242,6 +244,7 @@
         <h1>Fleet intelligence that feels ready for the ops meeting<span class="tag">SYNTHETIC DATA</span></h1>
         <p>Interactive view of workshop in-service, utilisation, capex control, approvals, repairs and stock balancing across a 1,612-asset model built from City Hire-style catalogue categories and product names.</p>
         <div class="hero-actions">
+          <a class="hero-chip" href="../excel/CityHire_Fleet_Stock_Intelligence.xlsx">Download Excel workbook</a>
           <span class="hero-chip">Executive KPI story</span>
           <span class="hero-chip">Live work queues</span>
           <span class="hero-chip">Scenario demos</span>
