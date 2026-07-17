@@ -1,7 +1,7 @@
 """
 The single, consolidated CityHire Fleet & Stock Intelligence ebook.
 Replaces the three earlier separate documents (case study, market
-intelligence, data story) with one document. No recruiter/agency
+intelligence, data story) with one document. No external submission
 references - written as a standalone capability demonstration.
 """
 from pathlib import Path

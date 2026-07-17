@@ -26,7 +26,7 @@ in one document.
 |---|---|
 | `data/raw/` | Synthetic source CSVs — stock master, daily stats, repairs, approvals, capex, transfers, sale codes, hire orders/basket items, digital funnel |
 | `data/processed/` | SQLite DB, SQL query result exports, depot/flow summaries |
-| `sql/` | `analysis_queries.sql` — 17 queries mapped to the job spec's success points and daily tasks |
+| `sql/` | `analysis_queries.sql` — 17 queries mapped to the project brief's success points and daily tasks |
 | `excel/` | 10-sheet workbook, every KPI a live formula (SUMIFS/AVERAGEIFS/COUNTIFS/SUMPRODUCT) |
 | `dashboard/` | Self-contained interactive HTML dashboard (KPI tiles, trend/variance charts, ROI leaderboard, action-queue tables) |
 | `ml/` | Local scikit-learn models, seasonal decomposition, graph analysis (NetworkX), funnel analysis, recommendation engine, and the Azure PostgreSQL scripts |
@@ -37,7 +37,7 @@ in one document.
 
 Built live in Power BI Desktop via the Tabular Object Model API: 11 tables (7 fact tables +
 Calendar/Category/Depot dimensions), 18 relationships, 21 DAX measures across 9 display
-folders matching the job spec's structure. Not included in this repo (`.pbix` lives locally).
+folders matching the project brief's structure. Not included in this repo (`.pbix` lives locally).
 
 ## The live Azure database
 

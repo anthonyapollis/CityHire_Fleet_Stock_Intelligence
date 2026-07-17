@@ -1,5 +1,5 @@
 -- CityHire Fleet & Stock Intelligence
--- SQL analysis layer mapped directly to the Data & Automation Analyst job spec.
+-- SQL analysis layer mapped directly to the Data & Automation Analyst project brief.
 -- Target DB: data/processed/cityhire_fleet.db (SQLite; syntax is portable to
 -- T-SQL/OData-backed SQL views with minor date-function changes).
 

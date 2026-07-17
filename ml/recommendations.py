@@ -10,7 +10,7 @@ Product recommendation engine, two layers:
    combines three signals already built: (a) categories about to enter their
    seasonal peak (seasonal_analysis.py), (b) categories currently below
    minimum stock (SQL query 6 / stock_below_minimum.csv), and (c) categories
-   with strong ROI (roi_by_category.csv) — directly answering the job spec's
+   with strong ROI (roi_by_category.csv) — directly answering the project brief's
    "proactive recommendation for the purchase of stock" bullet.
 """
 import json
