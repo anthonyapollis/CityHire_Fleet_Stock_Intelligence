@@ -2,28 +2,32 @@
 <style>
   .viz-root {
     color-scheme: light;
-    --surface-1:      #fcfcfb;
-    --page:           #f9f9f7;
+    --surface-1:      #ffffff;
+    --surface-2:      #f3f7fb;
+    --page:           #eef3f7;
     --text-primary:   #0b0b0b;
-    --text-secondary: #52514e;
-    --text-muted:     #898781;
-    --grid:           #e1e0d9;
-    --baseline:       #c3c2b7;
-    --border:         rgba(11,11,11,0.10);
-    --series-1:       #2a78d6; /* blue - utilisation */
-    --series-2:       #1baf7a; /* aqua - in-service */
-    --series-3:       #eda100; /* yellow */
-    --series-5:       #4a3aa7; /* violet */
-    --good:           #0ca30c;
-    --warning:        #fab219;
-    --serious:        #ec835a;
-    --critical:        #d03b3b;
-    --card-shadow: 0 1px 2px rgba(11,11,11,0.06), 0 1px 1px rgba(11,11,11,0.04);
+    --text-secondary: #39434d;
+    --text-muted:     #6d7780;
+    --grid:           #dbe3ea;
+    --baseline:       #aebbc6;
+    --border:         rgba(26,42,58,0.12);
+    --series-1:       #276fd1; /* blue - utilisation */
+    --series-2:       #00a676; /* green - in-service */
+    --series-3:       #f4b63d; /* amber */
+    --series-4:       #f06150; /* coral */
+    --series-5:       #6b5bd6; /* violet */
+    --ink-panel:      #101923;
+    --good:           #00a676;
+    --warning:        #e79a16;
+    --serious:        #e86d45;
+    --critical:        #cf3d3d;
+    --card-shadow: 0 18px 40px rgba(20,34,50,0.08), 0 2px 8px rgba(20,34,50,0.06);
   }
   @media (prefers-color-scheme: dark) {
     :root:where(:not([data-theme="light"])) .viz-root {
       color-scheme: dark;
       --surface-1:      #1a1a19;
+      --surface-2:      #111820;
       --page:           #0d0d0d;
       --text-primary:   #ffffff;
       --text-secondary: #c3c2b7;
@@ -39,12 +43,14 @@
       --warning:        #fab219;
       --serious:        #ec835a;
       --critical:        #e66767;
-      --card-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 1px 1px rgba(0,0,0,0.3);
+      --ink-panel:      #0f151d;
+      --card-shadow: 0 18px 40px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.25);
     }
   }
   :root[data-theme="dark"] .viz-root {
     color-scheme: dark;
     --surface-1:      #1a1a19;
+    --surface-2:      #111820;
     --page:           #0d0d0d;
     --text-primary:   #ffffff;
     --text-secondary: #c3c2b7;
@@ -60,31 +66,50 @@
     --warning:        #fab219;
     --serious:        #ec835a;
     --critical:        #e66767;
-    --card-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 1px 1px rgba(0,0,0,0.3);
+    --ink-panel:      #0f151d;
+    --card-shadow: 0 18px 40px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.25);
   }
 
   .viz-root {
     font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
     background: var(--page);
     color: var(--text-primary);
-    padding: 28px 32px 60px;
+    padding: 0 32px 60px;
     box-sizing: border-box;
   }
   .viz-root * { box-sizing: border-box; }
   .wrap { max-width: 1280px; margin: 0 auto; }
 
-  .hero { margin-bottom: 22px; }
-  .hero .eyebrow {
-    font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-    color: var(--series-1);
+  .hero {
+    color: #fff; background:
+      linear-gradient(135deg, rgba(16,25,35,0.94) 0%, rgba(25,45,65,0.94) 48%, rgba(21,79,94,0.88) 100%),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 88px);
+    border: 1px solid rgba(255,255,255,0.12); border-radius: 0 0 18px 18px;
+    padding: 30px 32px 24px; margin: 0 0 22px; box-shadow: 0 24px 60px rgba(19,33,48,0.18);
   }
-  .hero h1 { font-size: 26px; font-weight: 800; margin: 4px 0 6px; letter-spacing: -0.01em; }
-  .hero p { font-size: 13.5px; color: var(--text-secondary); margin: 0; max-width: 900px; line-height: 1.5; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(330px, .75fr); gap: 30px; align-items: end; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+  .hero .eyebrow {
+    font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    color: #84d6ff;
+  }
+  .hero h1 { font-size: clamp(32px, 4vw, 58px); line-height: .98; font-weight: 850; margin: 8px 0 14px; letter-spacing: 0; max-width: 780px; }
+  .hero p { font-size: 15px; color: rgba(255,255,255,0.78); margin: 0; max-width: 840px; line-height: 1.55; }
   .hero .tag {
-    display: inline-block; font-size: 11px; font-weight: 700; color: var(--critical);
-    border: 1px solid var(--critical); border-radius: 4px; padding: 1px 6px; margin-left: 8px;
+    display: inline-block; font-size: 11px; font-weight: 800; color: #ffe7e7;
+    border: 1px solid rgba(255,231,231,0.45); background: rgba(207,61,61,0.32); border-radius: 999px; padding: 3px 8px; margin-left: 8px;
     vertical-align: middle;
   }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .hero-chip { border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.08); border-radius: 999px; padding: 7px 10px; font-size: 12px; font-weight: 750; color: rgba(255,255,255,0.88); }
+  .hero-scorecard {
+    display: grid; gap: 10px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 12px; padding: 14px; backdrop-filter: blur(8px);
+  }
+  .score-line { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; font-size: 12px; color: rgba(255,255,255,0.70); }
+  .score-line b { color: #fff; font-size: 18px; font-variant-numeric: tabular-nums; }
+  .score-bar { height: 7px; background: rgba(255,255,255,0.14); border-radius: 999px; overflow: hidden; grid-column: 1 / -1; }
+  .score-bar span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #39d98a, #84d6ff); }
 
   .kpi-grid {
     display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin: 22px 0 26px;
@@ -92,13 +117,16 @@
   @media (max-width: 980px) { .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 620px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
   .kpi {
-    background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
-    box-shadow: var(--card-shadow); padding: 14px 14px 12px;
+    position: relative; overflow: hidden; background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px;
+    box-shadow: var(--card-shadow); padding: 15px 14px 13px;
   }
-  .kpi .label { font-size: 10.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; min-height: 26px; }
-  .kpi .value { font-size: 26px; font-weight: 800; margin-top: 4px; letter-spacing: -0.01em; }
+  .kpi:before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: var(--accent, var(--series-1)); }
+  .kpi .label { font-size: 10.5px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; min-height: 26px; }
+  .kpi .value { font-size: 28px; font-weight: 850; margin-top: 4px; letter-spacing: 0; }
   .kpi .sub { font-size: 11px; color: var(--text-secondary); margin-top: 3px; }
   .kpi .status-row { display:flex; align-items:center; gap:5px; margin-top:6px; }
+  .kpi-meter { height: 5px; margin-top: 11px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+  .kpi-meter span { display:block; height:100%; width: var(--meter, 0%); background: var(--accent, var(--series-1)); border-radius: inherit; }
   .status-dot { width:8px; height:8px; border-radius:50%; flex: none; }
   .status-good { background: var(--good); }
   .status-warn { background: var(--warning); }
@@ -106,13 +134,51 @@
   .status-text { font-size: 10.5px; font-weight: 700; }
 
   .panel {
-    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px;
     box-shadow: var(--card-shadow); padding: 18px 20px 14px; margin-bottom: 18px;
   }
   .panel h2 { font-size: 14.5px; font-weight: 800; margin: 0 0 2px; }
   .panel .panel-sub { font-size: 11.5px; color: var(--text-secondary); margin: 0 0 12px; }
   .row2 { display: grid; grid-template-columns: 1.35fr 1fr; gap: 18px; align-items: start; }
   @media (max-width: 980px) { .row2 { grid-template-columns: 1fr; } }
+  .insight-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+  @media (max-width: 860px) { .insight-strip { grid-template-columns: 1fr; } }
+  .insight-card {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--card-shadow);
+    padding: 14px 15px; min-height: 112px;
+  }
+  .insight-card .mini-label { color: var(--text-muted); font-size: 10px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+  .insight-card h3 { font-size: 15px; margin: 7px 0 6px; line-height: 1.25; }
+  .insight-card p { font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.45; }
+
+  .demo-panel {
+    background: var(--ink-panel); color: #fff; border-color: rgba(255,255,255,0.10);
+  }
+  .demo-panel .panel-sub { color: rgba(255,255,255,0.66); }
+  .demo-layout { display: grid; grid-template-columns: 340px 1fr; gap: 18px; align-items: stretch; }
+  @media (max-width: 900px) { .demo-layout { grid-template-columns: 1fr; } }
+  .demo-list { display: grid; gap: 8px; }
+  .demo-btn {
+    width: 100%; font: inherit; text-align: left; color: rgba(255,255,255,0.78); background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10); border-radius: 8px; padding: 11px 12px; cursor: pointer;
+  }
+  .demo-btn b { display: block; color: #fff; font-size: 13px; margin-bottom: 3px; }
+  .demo-btn span { font-size: 11.5px; }
+  .demo-btn.active { background: rgba(132,214,255,0.16); border-color: rgba(132,214,255,0.48); box-shadow: inset 3px 0 0 #84d6ff; }
+  .demo-stage {
+    min-height: 300px; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
+  }
+  .demo-stage h3 { font-size: 20px; margin: 0 0 8px; }
+  .demo-stage p { margin: 0; color: rgba(255,255,255,0.72); line-height: 1.5; font-size: 13px; }
+  .demo-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+  @media (max-width: 680px) { .demo-metrics { grid-template-columns: 1fr; } }
+  .demo-metric { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 8px; padding: 11px; }
+  .demo-metric span { display:block; color: rgba(255,255,255,0.58); font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+  .demo-metric b { display:block; color:#fff; font-size: 22px; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .demo-action-list { display:grid; gap: 8px; margin-top: 14px; }
+  .demo-action { display:flex; gap: 9px; align-items:flex-start; font-size: 12.5px; color: rgba(255,255,255,0.82); }
+  .demo-action:before { content:""; width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; background: #84d6ff; flex: none; }
 
   .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
   .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-secondary); }
@@ -170,12 +236,54 @@
 <div class="wrap">
 
   <div class="hero">
-    <div class="eyebrow">Data &amp; Automation Analyst — Portfolio Build</div>
-    <h1>CityHire Fleet &amp; Stock Intelligence<span class="tag">SYNTHETIC DATA</span></h1>
-    <p>Live view of the 6&ndash;12 month success points and daily operational tasks from the job spec: workshop in-service %, fleet utilisation, capex vs budget, approvals, repairs and stock shortage balancing across a 1,612-asset fleet modelled on City Hire's real product catalogue (24 categories, 220+ real model names extracted from cityhire.co.uk).</p>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Data &amp; Automation Analyst Portfolio Build</div>
+        <h1>Fleet intelligence that feels ready for the ops meeting<span class="tag">SYNTHETIC DATA</span></h1>
+        <p>Interactive view of workshop in-service, utilisation, capex control, approvals, repairs and stock balancing across a 1,612-asset model built from City Hire-style catalogue categories and product names.</p>
+        <div class="hero-actions">
+          <span class="hero-chip">Executive KPI story</span>
+          <span class="hero-chip">Live work queues</span>
+          <span class="hero-chip">Scenario demos</span>
+          <span class="hero-chip">Portfolio-ready evidence</span>
+        </div>
+      </div>
+      <div class="hero-scorecard">
+        <div class="score-line"><span>Workshop in-service now</span><b>89.3%</b><div class="score-bar"><span style="width:89.3%"></span></div></div>
+        <div class="score-line"><span>Fleet utilisation floor</span><b>65.9%</b><div class="score-bar"><span style="width:65.9%"></span></div></div>
+        <div class="score-line"><span>Open action queues</span><b>145</b><div class="score-bar"><span style="width:72%"></span></div></div>
+      </div>
+    </div>
   </div>
 
   <div class="kpi-grid" id="kpiGrid"></div>
+
+  <div class="insight-strip">
+    <div class="insight-card">
+      <div class="mini-label">Board readout</div>
+      <h3>Service recovery is the lead story.</h3>
+      <p>Workshop drag falls from 22.6% to 10.7%, moving the fleet above the 85% in-service target.</p>
+    </div>
+    <div class="insight-card">
+      <div class="mini-label">Manager action</div>
+      <h3>Capex review is concentrated.</h3>
+      <p>Only 3 categories are over budget, so the report points the review to Powered Access, Plant and Survey &amp; Location.</p>
+    </div>
+    <div class="insight-card">
+      <div class="mini-label">Automation angle</div>
+      <h3>Daily queues become decision demos.</h3>
+      <p>The workbook-style tables now feed examples for transfers, approvals, disposal and bundle recommendations.</p>
+    </div>
+  </div>
+
+  <div class="panel demo-panel">
+    <h2>Analyst Demos Built from the Same Data</h2>
+    <p class="panel-sub">A few concrete examples to show how the report can move from static charts into operational decisions during an interview or stakeholder walkthrough.</p>
+    <div class="demo-layout">
+      <div class="demo-list" id="demoList"></div>
+      <div class="demo-stage" id="demoStage"></div>
+    </div>
+  </div>
 
   <div class="panel">
     <div class="row2">
@@ -238,6 +346,10 @@ function fmtGBP(v) {
   return '£' + n.toFixed(0);
 }
 function fmtGBPFull(v) { return '£' + Math.round(num(v)).toLocaleString('en-GB'); }
+function fmtPct(v) { return num(v).toFixed(1) + '%'; }
+function esc(v) {
+  return String(v).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+}
 
 // ---------------- KPI TILES ----------------
 (function renderKpis() {
@@ -245,29 +357,149 @@ function fmtGBPFull(v) { return '£' + Math.round(num(v)).toLocaleString('en-GB'
   const tiles = [
     { label: 'Fleet In-Service %', value: k.in_service_pct + '%', sub: 'Target: ≥85% (workshop ≤15%)',
       status: k.in_service_pct >= 85 ? 'good' : (k.in_service_pct >= 80 ? 'warn' : 'bad'),
-      statusText: k.in_service_pct >= 85 ? 'On target' : 'Below target' },
+      statusText: k.in_service_pct >= 85 ? 'On target' : 'Below target', meter: k.in_service_pct, accent: 'var(--series-2)' },
     { label: 'Fleet Utilisation %', value: k.utilisation_pct + '%', sub: 'Target: ≥60%',
       status: k.utilisation_pct >= 60 ? 'good' : 'bad',
-      statusText: k.utilisation_pct >= 60 ? 'On target' : 'Below target' },
+      statusText: k.utilisation_pct >= 60 ? 'On target' : 'Below target', meter: k.utilisation_pct, accent: 'var(--series-1)' },
     { label: 'Categories Over Capex Budget', value: k.over_budget_categories, sub: 'YTD, of 24 categories',
       status: k.over_budget_categories === 0 ? 'good' : 'warn',
-      statusText: k.over_budget_categories === 0 ? 'Clean' : 'Needs review' },
+      statusText: k.over_budget_categories === 0 ? 'Clean' : 'Needs review', meter: (k.over_budget_categories / 24) * 100, accent: 'var(--warning)' },
     { label: 'Approvals Pending (>£500)', value: k.pending_approvals, sub: 'Awaiting Ops & Systems Manager sign-off',
-      status: k.pending_approvals === 0 ? 'good' : 'warn', statusText: 'Action queue' },
+      status: k.pending_approvals === 0 ? 'good' : 'warn', statusText: 'Action queue', meter: Math.min(k.pending_approvals * 2, 100), accent: 'var(--warning)' },
     { label: 'Assets Below Min Stock', value: k.below_min_stock, sub: 'Category/depot combos short of holding',
-      status: 'bad', statusText: 'Rebalance needed' },
+      status: 'bad', statusText: 'Rebalance needed', meter: Math.min(k.below_min_stock, 100), accent: 'var(--critical)' },
     { label: 'Unfulfilled Depot Transfers', value: k.unfulfilled_transfers, sub: 'Shortage requests still open',
-      status: k.unfulfilled_transfers === 0 ? 'good' : 'warn', statusText: 'In progress' },
+      status: k.unfulfilled_transfers === 0 ? 'good' : 'warn', statusText: 'In progress', meter: Math.min(k.unfulfilled_transfers * 4, 100), accent: 'var(--series-3)' },
   ];
   const grid = document.getElementById('kpiGrid');
   grid.innerHTML = tiles.map(t => `
-    <div class="kpi">
+    <div class="kpi" style="--accent:${t.accent};--meter:${Math.max(4, Math.min(100, t.meter))}%">
       <div class="label">${t.label}</div>
       <div class="value">${t.value}</div>
       <div class="sub">${t.sub}</div>
       <div class="status-row"><span class="status-dot status-${t.status}"></span><span class="status-text" style="color:var(--${t.status === 'good' ? 'good' : (t.status === 'warn' ? 'warning' : 'critical')})">${t.statusText}</span></div>
+      <div class="kpi-meter"><span></span></div>
     </div>
   `).join('');
+})();
+
+// ---------------- ANALYST DEMOS ----------------
+(function renderDemos() {
+  const overBudget = [...(DATA.capex_by_category || [])].filter(r => num(r.ytd_variance_gbp) > 0).sort((a,b) => num(b.ytd_variance_gbp) - num(a.ytd_variance_gbp))[0] || {
+    category: 'Capex', ytd_variance_gbp: 0, ytd_actual_gbp: 0, ytd_budget_gbp: 0, pct_of_budget_used: 0
+  };
+  const lowRoi = [...(DATA.lowest_roi_assets || [])].sort((a,b) => num(a.est_roi_pct) - num(b.est_roi_pct))[0] || {
+    stock_code: 'Asset review', product_name: 'Low-utilisation asset', category: 'Fleet', depot: 'Depot', capex_gbp: 0, book_value_gbp: 0, utilisation_pct_ytd: 0, est_roi_pct: 0, status: 'Review'
+  };
+  const transfer = (DATA.unfulfilled_transfers || [])[0] || {
+    transfer_id: 'XFER review', category: 'Fleet', from_depot: 'Source depot', to_depot: 'Receiving depot', units_transferred: '0'
+  };
+  const shortage = (DATA.below_min_stock || []).find(r => r.category === transfer.category) || (DATA.below_min_stock || [])[0] || {
+    category: transfer.category, depot: transfer.to_depot, units_available: '0', min_stock_level: '0'
+  };
+  const fallbackRule = {
+    antecedent: 'Access',
+    consequent: 'Powered Access',
+    confidence: '0.7394',
+    lift: '6.821',
+    co_occurrences: '383'
+  };
+  const rule = [...(DATA.association_rules || [])].sort((a,b) => num(b.lift) - num(a.lift))[0] || fallbackRule;
+
+  const demos = [
+    {
+      title: 'Capex review demo',
+      short: 'Turns overspend into a manager-ready review note.',
+      headline: `${overBudget.category} is ${fmtGBP(overBudget.ytd_variance_gbp)} over plan`,
+      summary: `Actual spend is ${fmtGBPFull(overBudget.ytd_actual_gbp)} against a ${fmtGBPFull(overBudget.ytd_budget_gbp)} YTD budget. This is the first category to explain before approving any further replacement spend.`,
+      metrics: [
+        ['Variance', '+' + fmtGBP(overBudget.ytd_variance_gbp)],
+        ['Budget used', fmtPct(overBudget.pct_of_budget_used)],
+        ['Action', 'Review']
+      ],
+      actions: [
+        `Freeze non-critical purchase requests in ${overBudget.category} until the variance is explained.`,
+        'Compare replacement requests with utilisation and repair status before sign-off.',
+        'Add a monthly exception email for categories above 100% budget.'
+      ]
+    },
+    {
+      title: 'Stock transfer demo',
+      short: 'Shows how min-stock alerts become depot moves.',
+      headline: `${shortage.depot} is short on ${shortage.category}`,
+      summary: `${shortage.units_available} units are available against a minimum level of ${shortage.min_stock_level}. The open transfer queue can be used to prioritise same-day redistribution work.`,
+      metrics: [
+        ['Available', shortage.units_available],
+        ['Minimum', shortage.min_stock_level],
+        ['Open route', `${transfer.from_depot} to ${transfer.to_depot}`]
+      ],
+      actions: [
+        `Prioritise ${transfer.transfer_id}: ${transfer.units_transferred} units from ${transfer.from_depot} to ${transfer.to_depot}.`,
+        `Flag ${shortage.category} as a branch-level shortage until availability reaches ${shortage.min_stock_level}.`,
+        'Keep the worklist filtered by depot so managers see only their local actions.'
+      ]
+    },
+    {
+      title: 'Low ROI disposal demo',
+      short: 'Explains which assets need repair, redeploy or disposal.',
+      headline: `${lowRoi.stock_code}: ${lowRoi.product_name}`,
+      summary: `${lowRoi.category} asset in ${lowRoi.depot} is showing ${fmtPct(lowRoi.utilisation_pct_ytd)} utilisation and ${fmtPct(lowRoi.est_roi_pct)} estimated ROI, making it a clear candidate for review.`,
+      metrics: [
+        ['Capex', fmtGBPFull(lowRoi.capex_gbp)],
+        ['Book value', fmtGBPFull(lowRoi.book_value_gbp)],
+        ['Status', lowRoi.status]
+      ],
+      actions: [
+        'Check whether local demand explains the low utilisation before disposal.',
+        'If condition is good, test redeployment into a higher-demand depot first.',
+        'If redeployment fails, move to auction approval with evidence already attached.'
+      ]
+    },
+    {
+      title: 'Bundle recommendation demo',
+      short: 'Uses association rules as a hire-desk upsell example.',
+      headline: `${rule.antecedent} plus ${rule.consequent}`,
+      summary: `Orders containing ${rule.antecedent} also include ${rule.consequent} with ${fmtPct(num(rule.confidence) * 100)} confidence and ${num(rule.lift).toFixed(2)}x lift, so this can become a prompt in the hire workflow.`,
+      metrics: [
+        ['Confidence', fmtPct(num(rule.confidence) * 100)],
+        ['Lift', num(rule.lift).toFixed(2) + 'x'],
+        ['Co-orders', Number(rule.co_occurrences).toLocaleString('en-GB')]
+      ],
+      actions: [
+        `Prompt the hire desk to offer ${rule.consequent} when ${rule.antecedent} is selected.`,
+        'Track accepted bundle prompts as a new sales conversion metric.',
+        'Review rules monthly so operational prompts stay evidence-based.'
+      ]
+    }
+  ];
+
+  const list = document.getElementById('demoList');
+  const stage = document.getElementById('demoStage');
+  function renderStage(index) {
+    const d = demos[index];
+    stage.innerHTML = `
+      <h3>${esc(d.headline)}</h3>
+      <p>${esc(d.summary)}</p>
+      <div class="demo-metrics">
+        ${d.metrics.map(([label, value]) => `<div class="demo-metric"><span>${esc(label)}</span><b>${esc(value)}</b></div>`).join('')}
+      </div>
+      <div class="demo-action-list">
+        ${d.actions.map(action => `<div class="demo-action">${esc(action)}</div>`).join('')}
+      </div>
+    `;
+    list.querySelectorAll('.demo-btn').forEach((btn, i) => btn.classList.toggle('active', i === index));
+  }
+
+  list.innerHTML = demos.map((d,i) => `
+    <button class="demo-btn ${i === 0 ? 'active' : ''}" data-demo="${i}">
+      <b>${esc(d.title)}</b>
+      <span>${esc(d.short)}</span>
+    </button>
+  `).join('');
+  list.querySelectorAll('.demo-btn').forEach(btn => {
+    btn.addEventListener('click', () => renderStage(Number(btn.dataset.demo)));
+  });
+  renderStage(0);
 })();
 
 // ---------------- TREND LINE CHART ----------------
