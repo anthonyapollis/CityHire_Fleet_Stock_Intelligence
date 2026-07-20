@@ -101,7 +101,7 @@ notes = [
     "",
     "PURPOSE",
     "Demonstration analytics build prepared for the 'Data & Automation Analyst' role (plant/tool "
-    "hire sector), mapped directly against the job spec's 6-12 month success points and daily task list.",
+    "hire sector), mapped directly against the project brief's 6-12 month success points and daily task list.",
     "",
     "DATA GROUNDING",
     "Category structure, subcategories and 220+ individual product/model names (e.g. 'Nifty Lift "
